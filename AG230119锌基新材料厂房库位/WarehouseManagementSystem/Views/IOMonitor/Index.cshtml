@@ -1,0 +1,1170 @@
+﻿@using WarehouseManagementSystem.Models.IO
+@model List<RCS_IODevices>
+
+@{
+    ViewData["Title"] = "卓楠6844信号监控";
+}
+
+@section Styles {
+    <style>
+        /* 修改基础字体大小 */
+        body {
+            background-color: #f8f9fa;
+            font-size: 16px; /* 增大基础字体 */
+        }
+
+        /* 调整表格字体 */
+        .signal-table th {
+            padding: 0.75rem;
+            font-size: 0.95rem; /* 增大表头字体 */
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .signal-table td {
+            padding: 0.75rem;
+            font-size: 0.95rem; /* 增大单元格字体 */
+            vertical-align: middle;
+        }
+
+        /* 调整按钮样式 */
+        .btn-control {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            margin: 0 3px;
+            min-width: 85px; /* 确保按钮有足够宽度显示文字 */
+        }
+
+        /* 设备标题文字 */
+        .device-header .fw-medium {
+            font-size: 1.1rem;
+        }
+
+        /* 状态显示 */
+        .signal-value {
+            min-width: 60px;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.9rem;
+        }
+
+        /* IO设备组标题 */
+        .io-device-group-header h6 {
+            font-size: 1.2rem;
+        }
+
+        /* 页面标题 */
+        .page-header h5 {
+            font-size: 1.3rem;
+        }
+
+        /* 主容器样式 */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        /* IO设备组样式 */
+        .io-device-group {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* IO设备组标题 */
+        .io-device-group-header {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 设备列表容器 */
+        .devices-container {
+            padding: 1rem;
+        }
+
+        /* 单个设备项样式 */
+        .device-accordion {
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            background: white;
+        }
+
+            .device-accordion:last-child {
+                margin-bottom: 0;
+            }
+
+        /* 设备头部样式 */
+        .device-header {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            background: #f8f9fa;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+            .device-header:hover {
+                background: #f1f3f5;
+            }
+
+            .device-header.active {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom: 1px solid #dee2e6;
+            }
+
+        /* 设备状态指示器 */
+        .device-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+            .device-status.connected {
+                background-color: #28a745;
+            }
+
+            .device-status.disconnected {
+                background-color: #dc3545;
+            }
+
+        /* 设备内容区域 */
+        .device-content {
+            display: none;
+            border-top: none;
+            padding: 1rem;
+        }
+
+            .device-content.show {
+                display: block;
+            }
+
+        /* 信号表格样式 */
+        .signal-table {
+            width: 100%;
+            margin: 0;
+            border-collapse: collapse;
+        }
+
+            .signal-table th {
+                background: #f8f9fa;
+                padding: 0.5rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #495057;
+                border-bottom: 1px solid #dee2e6;
+            }
+
+            .signal-table td {
+                padding: 0.5rem;
+                vertical-align: middle;
+                font-size: 0.85rem;
+                border-bottom: 1px solid #f1f1f1;
+            }
+
+        /* 信号值显示 */
+        .signal-value {
+            min-width: 45px;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+            .signal-value.on {
+                background-color: #d4edda;
+                color: #155724;
+            }
+
+            .signal-value.off {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+
+        /* 展开/折叠图标 */
+        .expand-icon {
+            transition: transform 0.2s;
+        }
+
+            .expand-icon.expanded {
+                transform: rotate(180deg);
+            }
+
+        /* 操作按钮 */
+        .btn-control {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            margin: 0 2px;
+        }
+
+        /* Toast提示 */
+        .toast-container {
+            position: fixed;
+            bottom: 50%;
+            right: 50%;
+            z-index: 1050;
+        }
+
+        /* IO任务组样式 */
+        .io-task-group {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+        }
+
+        .io-task-group-header {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tasks-container {
+            padding: 1rem;
+        }
+
+        .task-table {
+            width: 100%;
+            margin: 0;
+            border-collapse: collapse;
+        }
+
+            .task-table th {
+                background: #f8f9fa;
+                padding: 0.75rem;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #495057;
+                border-bottom: 1px solid #dee2e6;
+            }
+
+            .task-table td {
+                padding: 0.75rem;
+                vertical-align: middle;
+                font-size: 0.9rem;
+                border-bottom: 1px solid #f1f1f1;
+            }
+
+        /* 任务状态样式 */
+        .task-status {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+            .task-status.pending {
+                background-color: #fff3cd;
+                color: #856404;
+            }
+
+            .task-status.completed {
+                background-color: #d4edda;
+                color: #155724;
+            }
+    </style>
+}
+
+<!-- 页面头部 -->
+<div class="page-header">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <div>
+            <h5 class="mb-0">
+                <i class="fas fa-microchip me-2"></i>卓岚6844信号监控
+            </h5>
+           
+        </div>
+    
+    </div>
+</div>
+
+<!-- 主要内容区域 -->
+<div class="main-container">
+    <!-- IO设备组 -->
+    <div class="io-device-group">
+        <!-- 修改 IO设备组标题部分 -->
+        <div class="io-device-group-header">
+            <h6 class="mb-0">
+                <i class="fas fa-server me-2"></i>IO设备列表
+            </h6>
+            <!-- 只保留添加设备按钮 -->
+            <div class="d-flex align-items-center">
+                <button class="btn btn-primary" onclick="showAddDeviceModal()">
+                    <i class="fas fa-plus me-2"></i>添加设备
+                </button>
+            </div>
+        </div>
+
+        <div class="devices-container">
+            @foreach (var device in Model)
+            {
+                <div class="device-accordion">
+                    <div class="device-header" data-device-id="@device.Id" onclick="toggleDevice(this, @device.Id)">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <span class="device-status @(device.IsEnabled ? "connected" : "disconnected")"
+                                      data-device-id="@device.Id"
+                                      title="@(device.IsEnabled ? "已连接" : "未连接")"></span>
+                                <span class="fw-medium">@device.Name</span>
+                                <small class="text-muted ms-2 fs-6">(@device.IP)</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-primary me-2"
+                                        onclick="showAddSignalModal(@device.Id); event.stopPropagation();">
+                                    <i class="fas fa-plus me-2"></i>添加信号
+                                </button>
+                              @*   <button class="btn btn-sm btn-outline-danger"
+                                        onclick="deleteDevice(@device.Id)">
+                                    <i class="fas fa-trash-alt me-1"></i>删除设备
+                                </button> *@
+                                <!-- 设备开关标签 -->
+                                <div class="form-check form-switch me-3" onclick="event.stopPropagation();">
+                                    <input class="form-check-input device-toggle" type="checkbox"
+                                           id="device_@device.Id"
+                                           data-device-id="@device.Id"
+                                    @(device.IsEnabled ? "checked" : "")
+                                           onchange="toggleDeviceEnabled(@device.Id, this.checked)"
+                                           style="width: 40px; height: 20px;">
+                                    <label class="form-check-label" for="device_@device.Id"
+                                           data-device-id="@device.Id">
+                                        @(device.IsEnabled ? "已启用" : "已禁用")
+                                    </label>
+                                </div>
+                                <i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="device-content">
+                        <div class="table-responsive">
+                            <table class="signal-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 12%">名称</th>
+                                        <th style="width: 8%">地址</th>
+                                        <th style="width: 15%">描述</th>
+                                        <th style="width: 15%">状态</th>
+                                        <th style="width: 15%">更新时间</th>
+                                        <th style="width: 35%">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var signal in device.Signals)
+                                    {
+                                        <tr data-signal-id="@signal.Id">
+                                            <td>@signal.Name</td>
+                                            <td>@signal.Address</td>
+                                            <td>
+                                                <div class="text-truncate" style="max-width: 250px;"
+                                                     title="@signal.Description">
+                                                    @signal.Description
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="signal-value"
+                                                          data-ip="@device.IP"
+                                                          data-address="@signal.Address"
+                                                          data-device-id="@device.Id"
+                                                          data-signal-id="@signal.Id">
+                                                        @(signal.Value == 1 ? "ON" : (signal.Value == 0 ? "OFF" : "ERR"))
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="signal-update-time"
+                                                      data-signal-id="@signal.Id">
+                                                    @(signal.UpdatedTime.ToString("yyyy-MM-dd HH:mm:ss") ?? "-")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                @if (signal.Address.StartsWith("DI"))
+                                                {
+                                                    <button class="btn btn-secondary btn-control" disabled title="DI信号为只读，不能写入">
+                                                        <i class="fas fa-lock me-1"></i>只读
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn btn-success btn-control"
+                                                            onclick="writeSignal('@(device.IP)', '@(signal.Address)', true)">
+                                                        <i class="fas fa-toggle-on me-1"></i>置位
+                                                    </button>
+                                                    <button class="btn btn-danger btn-control"
+                                                            onclick="writeSignal('@(device.IP)', '@(signal.Address)', false)">
+                                                        <i class="fas fa-toggle-off me-1"></i>复位
+                                                    </button>
+                                                }
+                                              @*   <button class="btn btn-outline-danger btn-control"
+                                                        onclick="deleteSignal(@(signal.Id))">
+                                                    <i class="fas fa-trash-alt me-1"></i>删除
+                                                </button> *@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- IO任务 -->
+    <div class="io-task-group">
+        <div class="io-task-group-header">
+            <h6 class="mb-0">
+                <i class="fas fa-tasks me-2"></i>IO任务列表
+                <span class="badge bg-primary ms-2" id="taskCount">0</span>
+            </h6>
+          @*   <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary btn-sm" onclick="refreshTasks()">
+                    <i class="fas fa-sync-alt me-1"></i>刷新
+                </button>
+            </div> *@
+        </div>
+
+        <div class="tasks-container">
+            <div class="table-responsive">
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>任务类型</th>
+                            <th>状态</th>
+                            <th>设备IP</th>
+                            <th>信号地址</th>
+                            <th>执行写入值</th>
+                            <th>创建时间</th>
+                            <th>完成时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskTableBody">
+                        <!-- 任务数据将通过JavaScript动态添加 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框和Scripts部分保持不变 -->
+
+<!-- 添加设备模态框 -->
+<div class="modal fade" id="addDeviceModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加IO设备</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addDeviceForm">
+                    <div class="mb-3">
+                        <label class="form-label">设备名称</label>
+                        <input type="text" class="form-control" id="deviceName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">IP地址</label>
+                        <input type="text" class="form-control" id="deviceIP" 
+                               pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="addDevice()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加信号模态框 -->
+<div class="modal fade" id="addSignalModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加信号点位</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addSignalForm">
+                    <input type="hidden" id="signalDeviceId">
+                    <div class="mb-3">
+                        <label class="form-label">信号名称</label>
+                        <input type="text" class="form-control" id="signalName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">地址</label>
+                        <input type="text" class="form-control" id="signalAddress" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">描述</label>
+                        <textarea class="form-control" id="signalDescription" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="addSignal()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast容器 -->
+<div class="toast-container"></div>
+
+@section Scripts {
+    <script>
+        // 设备刷新间隔管理
+        const deviceRefreshIntervals = new Map();
+
+        // 添加一个刷新锁和计数器
+        let isRefreshing = false;
+        let refreshCounter = 0;
+
+        // 添加任务刷新锁
+        let isRefreshingTasks = false;
+
+        async function refreshSignals() {
+            // 如果已经在刷新中，直接返回
+            if (isRefreshing) {
+                console.log("🚫 上一次刷新未完成，跳过本次刷新");
+                return;
+            }
+            
+            // 递增计数器和设置锁定状态
+            const currentRefreshId = ++refreshCounter;
+            isRefreshing = true;
+            
+            // 开始计时
+            const startTime = performance.now();
+            console.log(`🔄 [${currentRefreshId}] 开始刷新信号 - ${new Date().toLocaleTimeString()}`);
+            
+            try {
+                console.log(`📡 [${currentRefreshId}] 正在请求API数据...`);
+                const fetchStart = performance.now();
+                const response = await fetch('/IOMonitor/GetLatestSignals');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const signals = await response.json();
+                const fetchEnd = performance.now();
+                console.log(`✅ [${currentRefreshId}] 获取到${signals.length}个信号数据，耗时: ${(fetchEnd - fetchStart).toFixed(1)}ms`);
+
+                // 处理信号数据
+                let processedCount = 0;
+                const totalSignals = signals.length;
+                
+                console.log(`🔍 [${currentRefreshId}] 开始处理信号数据...`);
+                const processStart = performance.now();
+                
+                for (const signal of signals) {
+                    const signalElement = document.querySelector(
+                        `.signal-value[data-signal-id="${signal.id}"]`
+                    );
+                    const timeElement = document.querySelector(
+                        `.signal-update-time[data-signal-id="${signal.id}"]`
+                    );
+
+                    // 增加处理的信号计数
+                    processedCount++;
+                    
+                    // 每处理10个信号输出一次进度
+                    if (processedCount % 10 === 0 || processedCount === totalSignals) {
+                        console.log(`⏱️ [${currentRefreshId}] 已处理 ${processedCount}/${totalSignals} 个信号 (${Math.round(processedCount/totalSignals*100)}%)`);
+                    }
+
+                    if (signalElement) {
+                        // 三值处理逻辑，与服务器端保持一致
+                        if (signal.value === 1 || signal.value === '1') {
+                            signalElement.textContent = 'ON';
+                            signalElement.className = 'signal-value on';
+                        } else if (signal.value === 0 || signal.value === '0') {
+                            signalElement.textContent = 'OFF';
+                            signalElement.className = 'signal-value off';
+                        } else {
+                            signalElement.textContent = 'ERR';
+                            signalElement.className = 'signal-value'; // 可以添加特定错误样式
+                        }
+                    }
+                    
+                    // 更新时间显示
+                    if (timeElement) {
+                        try {
+                            const updatedTime = new Date(signal.updatedTime);
+                            if (!isNaN(updatedTime.getTime())) {
+                                timeElement.textContent = updatedTime.toLocaleString('zh-CN');
+                            } else {
+                                timeElement.textContent = '-';
+                            }
+                        } catch (e) {
+                            timeElement.textContent = '-';
+                        }
+                    }
+                }
+                
+                const processEnd = performance.now();
+                console.log(`🏁 [${currentRefreshId}] 信号处理完成，处理耗时: ${(processEnd - processStart).toFixed(1)}ms`);
+            } catch (error) {
+                console.error(`❌ [${currentRefreshId}] 刷新信号数据失败:`, error);
+            } finally {
+                // 计算并输出总耗时
+                const totalDuration = performance.now() - startTime;
+                console.log(`⌛ [${currentRefreshId}] 信号刷新总耗时: ${totalDuration.toFixed(1)}ms`);
+                
+                // 无论成功或失败，都解除锁定状态
+                isRefreshing = false;
+            }
+        }
+
+        // 修改设备面板切换函数，移除刷新相关的代码
+        function toggleDevice(header, deviceId) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+
+            header.classList.toggle('active');
+            content.classList.toggle('show');
+            icon.classList.toggle('expanded');
+
+           
+        }
+
+        async function deleteDevice(deviceId) {
+            if (!confirm('确定要删除这个设备吗？\n删除设备将同时删除该设备下的所有信号点位。')) {
+                return;
+            }
+
+            try {
+                console.log('Deleting device:', deviceId); // 调试日志
+
+                const response = await fetch('/IOMonitor/DeleteDevice', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(deviceId)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log('Delete result:', result); // 调试日志
+
+                if (result.success) {
+                    showToast('成功', '设备已删除', 'success');
+                    location.reload();
+                } else {
+                    showToast('错误', result.message || '删除设备失败', 'error');
+                }
+            } catch (error) {
+                console.error('Delete device error:', error); // 错误日志
+                showToast('错误', '操作失败：' + error.message, 'error');
+            }
+        }
+
+
+        async function toggleDeviceEnabled(deviceId, isEnabled) {
+            try {
+                const response = await fetch('/IOMonitor/ToggleDevice', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: parseInt(deviceId),
+                        isEnabled: isEnabled
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showToast('成功', `设备已${isEnabled ? '启用' : '禁用'}`, 'success');
+                    updateDeviceUI(deviceId, isEnabled);
+                } else {
+                    throw new Error(result.message || '操作失败');
+                }
+            } catch (error) {
+                console.error('Toggle device error:', error);
+                showToast('错误', '操作失败：' + error.message, 'error');
+                const checkbox = document.querySelector(`.device-toggle[data-device-id="${deviceId}"]`);
+                if (checkbox) {
+                    checkbox.checked = !isEnabled;
+                }
+            }
+        }
+
+        function updateDeviceUI(deviceId, isEnabled) {
+            // 获取对应设备的UI元素
+            const statusDot = document.querySelector(`.device-status[data-device-id="${deviceId}"]`);
+            const statusLabel = document.querySelector(`.form-check-label[for="device_${deviceId}"]`);
+            const checkbox = document.querySelector(`.form-check-input#device_${deviceId}`);
+
+            // 更新设备状态指示器的样式和标题
+            if (statusDot) {
+                statusDot.classList.toggle('connected', isEnabled);
+                statusDot.classList.toggle('disconnected', !isEnabled);
+                statusDot.title = isEnabled ? '已连接' : '未连接';
+            }
+
+            // 更新设备状态标签的文本
+            if (statusLabel) {
+                statusLabel.textContent = isEnabled ? '已启用' : '已禁用';
+            }
+
+            // 更新设备开关的状态
+            if (checkbox) {
+                checkbox.checked = isEnabled;
+            }
+
+            console.log(`设备 ${deviceId} ${isEnabled ? '启用' : '禁用'}，当前时间: ${new Date().toISOString()}`);
+        }
+
+
+        // 添加设备
+        async function addDevice() {
+            const form = document.getElementById('addDeviceForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const device = {
+                name: document.getElementById('deviceName').value,
+                ip: document.getElementById('deviceIP').value,
+                isEnabled: true
+            };
+
+            try {
+                const response = await fetch('/IOMonitor/AddDevice', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(device)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast('成功', '设备添加成功', 'success');
+                    location.reload();
+                } else {
+                    showToast('错误', result.message || '添加设备失败', 'error');
+                }
+            } catch (error) {
+                showToast('错误', '操作失败：' + error.message, 'error');
+            }
+        }
+
+        // 添加信号
+        async function addSignal() {
+            const form = document.getElementById('addSignalForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const signal = {
+                deviceId: parseInt(document.getElementById('signalDeviceId').value),
+                name: document.getElementById('signalName').value,
+                address: document.getElementById('signalAddress').value,
+                description: document.getElementById('signalDescription').value
+            };
+           
+            try {
+                const response = await fetch('/IOMonitor/AddSignal', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(signal)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast('成功', '信号点位添加成功', 'success');
+                    location.reload();
+                } else {
+                    showToast('错误', result.message || '添加信号点位失败', 'error');
+                }
+            } catch (error) {
+                showToast('错误', '操作失败：' + error.message, 'error');
+            }
+        }
+
+                // 保存折叠状态
+        function saveDeviceExpandState(deviceId, isExpanded) {
+            const expandedDevices = JSON.parse(localStorage.getItem('expandedDevices') || '[]');
+            if (isExpanded) {
+                if (!expandedDevices.includes(deviceId)) {
+                    expandedDevices.push(deviceId);
+                }
+            } else {
+                const index = expandedDevices.indexOf(deviceId);
+                if (index > -1) {
+                    expandedDevices.splice(index, 1);
+                }
+            }
+            localStorage.setItem('expandedDevices', JSON.stringify(expandedDevices));
+        }
+
+
+        // 修改写入信号的函数
+        async function writeSignal(ip, address, value) {
+            const button = event.target.closest('button');
+            if (!button) return;
+
+            try {
+                button.disabled = true;
+                
+                // 创建一个IO任务而不是直接写入
+                const response = await fetch('/IOMonitor/AddIOTask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        taskType: 'ArrivalNotify',
+                        deviceIP: ip,
+                        signalAddress: address,
+                        value: value === 'true' || value === true,
+                        taskId: `MANUAL_${new Date().getTime()}` // 生成唯一的任务ID
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    showToast('成功', '任务已创建', 'success');
+                    // 刷新任务列表
+                    await refreshTasks();
+                } else {
+                    throw new Error(result.message || '创建任务失败');
+                }
+            } catch (error) {
+                console.error('Create task error:', error);
+                showToast('错误', '操作失败：' + error.message, 'error');
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        // 删除信号
+        async function deleteSignal(signalId) {
+            if (!confirm('确定要删除这个信号点位吗？')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/IOMonitor/DeleteSignal', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: signalId })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast('成功', '信号点位已删除', 'success');
+                    location.reload();
+                } else {
+                    showToast('错误', result.message || '删除失败', 'error');
+                }
+            } catch (error) {
+                showToast('错误', '操作失败：' + error.message, 'error');
+            }
+        }
+
+        // 刷新单个信号的函数
+        async function refreshSignal(ip, address) {
+            console.log(`设备 ${ip} -${address}开始刷新，当前时间: ${new Date().toISOString()}`);
+            if (!ip || !address) {
+                console.error('无效的信号参数:', { ip, address });
+                return;
+            }
+
+            const statusElements = document.querySelectorAll(
+                `.signal-value[data-ip="${ip}"][data-address="${address}"]`
+            );
+
+            if (statusElements.length === 0) {
+                console.error('未找到信号元素:', { ip, address });
+                return;
+            }
+
+            try {
+                // 所有相同的信号显示加载状态
+                statusElements.forEach(element => {
+                    element.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                });
+
+                const response = await fetch(`/IOMonitor/ReadSignal?ip=${encodeURIComponent(ip)}&address=${encodeURIComponent(address)}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // 更新所有相同的信号状态
+                    statusElements.forEach(element => {
+                        element.textContent = result.value ? 'ON' : 'OFF';
+                        element.className = `signal-value ${result.value ? 'on' : 'off'}`;
+                    });
+                } else {
+                    throw new Error(result.message || '读取失败');
+                }
+            } catch (error) {
+                console.error('读取信号失败:', { ip, address, error });
+                // 错误状态显示在所有相同的信号上
+                statusElements.forEach(element => {
+                    element.textContent = '错误';
+                    element.className = 'signal-value text-danger';
+                    element.title = error.message;
+                });
+            }
+        }
+
+
+        // 显示添加设备模态框
+        function showAddDeviceModal() {
+            const modal = new bootstrap.Modal(document.getElementById('addDeviceModal'));
+            modal.show();
+        }
+
+        // 显示添加信号模态框
+        function showAddSignalModal(deviceId) {
+            document.getElementById('signalDeviceId').value = deviceId;
+            const modal = new bootstrap.Modal(document.getElementById('addSignalModal'));
+            modal.show();
+        }
+
+        // 显示Toast提示
+        function showToast(title, message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+
+            const toastHeader = document.createElement('div');
+            toastHeader.className = `toast-header bg-${type} text-white`;
+
+            const toastTitle = document.createElement('strong');
+            toastTitle.className = 'me-auto';
+            toastTitle.textContent = title;
+
+            const closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.className = 'btn-close btn-close-white';
+            closeButton.setAttribute('data-bs-dismiss', 'toast');
+
+            toastHeader.appendChild(toastTitle);
+            toastHeader.appendChild(closeButton);
+
+            const toastBody = document.createElement('div');
+            toastBody.className = 'toast-body';
+            toastBody.textContent = message;
+
+            toast.appendChild(toastHeader);
+            toast.appendChild(toastBody);
+
+            const container = document.querySelector('.toast-container');
+            container.appendChild(toast);
+
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+
+            toast.addEventListener('hidden.bs.toast', () => {
+                toast.remove();
+            });
+        }
+
+        // 添加键盘快捷键
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+                e.preventDefault();
+                refreshAll();
+            }
+        });
+
+        // let connection = new signalR.HubConnectionBuilder()
+        //     .withUrl("/signalHub")
+        //     .withAutomaticReconnect()
+        //     .build();
+
+        // connection.on("SignalStatusUpdated", (data) => {
+        //     updateSignalUI(data.ip, data.address, data.value, data.updateTime);
+        // });
+
+        // async function startConnection() {
+        //     try {
+        //         await connection.start();
+        //         console.log("SignalR Connected");
+        //     } catch (err) {
+        //         console.error(err);
+        //         setTimeout(startConnection, 5000);
+        //     }
+        // }
+
+        // connection.onclose(async () => {
+        //     await startConnection();
+        // });
+
+        // 更新信号UI的函数
+        function updateSignalUI(ip, address, value, updateTime) {
+            const statusElements = document.querySelectorAll(
+                `.signal-value[data-ip="${ip}"][data-address="${address}"]`
+            );
+            
+            const timeElements = document.querySelectorAll(
+                `.signal-update-time[data-ip="${ip}"][data-address="${address}"]`
+            );
+
+            statusElements.forEach(element => {
+                element.textContent = value ? 'ON' : 'OFF';
+                element.className = `signal-value ${value ? 'on' : 'off'}`;
+            });
+
+            timeElements.forEach(element => {
+                element.textContent = updateTime || new Date().toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+            });
+        }
+
+        // 启动连接
+        // startConnection();
+
+        // 刷新任务列表
+        async function refreshTasks() {
+            // 如果已经在刷新中，直接返回
+            if (isRefreshingTasks) {
+                console.log("上一次任务刷新未完成，跳过本次刷新");
+                return;
+            }
+            
+            // 设置锁定状态
+            isRefreshingTasks = true;
+            
+            try {
+                console.log("开始刷新任务列表");
+                const response = await fetch('/IOMonitor/GetIOTasks');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const tasks = await response.json();
+                
+                // 更新任务计数徽章
+                const taskCountElement = document.getElementById('taskCount');
+                if (taskCountElement) {
+                    taskCountElement.textContent = tasks.length;
+                }
+                
+                // 更新任务表格
+                const taskTableBody = document.getElementById('taskTableBody');
+                if (taskTableBody) {
+                    // 清空当前表格内容
+                    taskTableBody.innerHTML = '';
+                    
+                    // 添加任务行
+                    for (const task of tasks) {
+                        const row = document.createElement('tr');
+                        
+                        // 格式化日期
+                        const createdTime = task.createdTime ? new Date(task.createdTime).toLocaleString('zh-CN') : '-';
+                        const completedTime = task.completedTime ? new Date(task.completedTime).toLocaleString('zh-CN') : '-';
+                        
+                        // 设置状态样式
+                        const statusClass = task.status < 30 ? 'pending' : 'completed';
+                        const statusText = task.status < 30 ? '进行中' : '已完成';
+                        
+                        // 设置行内容
+                        row.innerHTML = `
+                            <td>${task.id}</td>
+                            <td>${task.taskType || '-'}</td>
+                            <td><span class="task-status ${statusClass}">${statusText}</span></td>
+                            <td>${task.deviceIp || '-'}</td>
+                            <td>${task.signalAddress || '-'}</td>
+                            <td>${task.writeValue !== undefined ? (task.writeValue ? 'ON' : 'OFF') : '-'}</td>
+                            <td>${createdTime}</td>
+                            <td>${completedTime}</td>
+                        `;
+                        
+                        taskTableBody.appendChild(row);
+                    }
+                }
+                
+                console.log("任务列表刷新完成");
+            } catch (error) {
+                console.error('刷新任务列表失败:', error);
+            } finally {
+                // 无论成功或失败，都解除锁定状态
+                isRefreshingTasks = false;
+            }
+        }
+
+        // 修改后的startSignalRefresh函数，增加任务刷新
+        function startPeriodicRefresh(signalInterval = 3000, taskInterval = 5000) {
+            // 信号刷新循环
+            function scheduleNextSignalRefresh() {
+                setTimeout(async () => {
+                    await refreshSignals();
+                    scheduleNextSignalRefresh(); // 完成后再安排下一次
+                }, signalInterval);
+            }
+            
+            // 任务刷新循环
+            function scheduleNextTaskRefresh() {
+                setTimeout(async () => {
+                    await refreshTasks();
+                    scheduleNextTaskRefresh(); // 完成后再安排下一次
+                }, taskInterval);
+            }
+            
+            // 初始调用
+            scheduleNextSignalRefresh();
+            scheduleNextTaskRefresh();
+            
+            console.log(`定时刷新已启动 - 信号: ${signalInterval}ms, 任务: ${taskInterval}ms`);
+        }
+
+        // 在页面加载完成后启动
+        document.addEventListener('DOMContentLoaded', function() {
+            startPeriodicRefresh(3000, 5000); // 信号3秒刷新一次，任务5秒刷新一次
+        });
+    </script>
+}

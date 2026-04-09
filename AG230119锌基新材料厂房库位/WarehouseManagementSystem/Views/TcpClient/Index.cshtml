@@ -1,0 +1,332 @@
+﻿@using WarehouseManagementSystem.Models.TcpClient
+@model TcpClientModel
+
+@{
+    ViewData["Title"] = "TCP 客户端";
+}
+
+@section Styles {
+    <style>
+        .message-container {
+            height: 150px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            padding: 8px 12px;
+            margin: 4px 0;
+            border-radius: 4px;
+            word-break: break-word;
+        }
+
+        .message-sent {
+            background: #007bff;
+            color: white;
+            margin-left: 20%;
+        }
+
+        .message-received {
+            background: #6c757d;
+            color: white;
+            margin-right: 20%;
+        }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #adb5bd;
+            margin-top: 4px;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .status-connected {
+            background-color: #28a745;
+        }
+
+        .status-disconnected {
+            background-color: #dc3545;
+        }
+
+        .connection-error {
+            color: #dc3545;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    连接设置
+                    <span id="connectionStatus" class="float-end">
+                        <span class="status-indicator status-disconnected"></span>
+                        <span class="status-text">未连接</span>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <form id="connectionForm">
+                        <div class="mb-3">
+                            <label for="serverIp" class="form-label">服务器IP</label>
+                            <input type="text" class="form-control" id="serverIp" value="@Model.ServerIp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="serverPort" class="form-label">端口</label>
+                            <input type="number" class="form-control" id="serverPort" value="@Model.ServerPort">
+                        </div>
+                        <div class="connection-error alert alert-danger" id="connectionError"></div>
+                        <button type="button" id="connectButton" class="btn btn-primary">连接</button>
+                        <button type="button" id="disconnectButton" class="btn btn-danger" disabled>断开</button>
+                        <div class="connection-error alert alert-danger" id="connectionError" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">统计信息</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <h4 id="messagesSent">0</h4>
+                                <small class="text-muted">发送消息数</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <h4 id="messagesReceived">0</h4>
+                                <small class="text-muted">接收消息数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">消息历史</div>
+                <div class="card-body">
+                    <div class="message-container" id="messageContainer"></div>
+                    <div class="mt-3">
+                        <div class="input-group">
+                            <input type="text" id="messageInput" class="form-control" placeholder="输入消息..." disabled>
+                            <button class="btn btn-primary" type="button" id="sendButton" disabled>发送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        // 添加错误显示和隐藏函数的定义
+        function showConnectionError(error) {
+            const errorElement = document.getElementById('connectionError');
+            if (errorElement) {
+                errorElement.textContent = `连接错误: ${error}`;
+                errorElement.style.display = 'block';
+            }
+            console.error('Connection error:', error);
+        }
+
+        function hideConnectionError() {
+            const errorElement = document.getElementById('connectionError');
+            if (errorElement) {
+                errorElement.style.display = 'none';
+            }
+        }
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/tcpClientHub")
+            .withAutomaticReconnect([0, 1000, 5000, null])
+            .configureLogging(signalR.LogLevel.Debug)
+            .build();
+
+        let messagesSent = 0;
+        let messagesReceived = 0;
+
+        connection.on("updateClientConnectionStatus", function (isConnected) {
+          
+            console.log("[前端] 收到updateClientConnectionStatus事件:", isConnected);  // 添加调试日志
+            updateClientConnectionStatus(isConnected);
+        });
+
+
+        connection.onreconnecting(error => {
+            console.log("重新连接中...", error);
+            updateClientConnectionStatus(false);
+            showConnectionError('正在尝试重新连接...');
+        });
+
+        connection.onreconnected(connectionId => {
+            console.log("重新连接成功", connectionId);
+            updateClientConnectionStatus(true);
+            hideConnectionError();
+        });
+
+        connection.onclose(error => {
+            console.log("连接关闭", error);
+            updateClientConnectionStatus(false);
+            if (error) {
+                showConnectionError('连接已断开: ' + error);
+            }
+        });
+
+        function updateClientConnectionStatus(isConnected) {
+          
+            console.log("更新连接状态:", isConnected);
+            const statusIndicator = document.querySelector('.status-indicator');
+            const statusText = document.querySelector('.status-text');
+            const connectButton = document.getElementById('connectButton');
+            const disconnectButton = document.getElementById('disconnectButton');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            const serverIp = document.getElementById('serverIp');
+            const serverPort = document.getElementById('serverPort');
+
+            if (isConnected) {
+                statusIndicator.classList.remove('status-disconnected');
+                statusIndicator.classList.add('status-connected');
+                statusText.textContent = '已连接';
+                connectButton.disabled = true;
+                disconnectButton.disabled = false;
+                messageInput.disabled = false;
+                sendButton.disabled = false;
+                serverIp.disabled = true;
+                serverPort.disabled = true;
+            } else {
+                statusIndicator.classList.remove('status-connected');
+                statusIndicator.classList.add('status-disconnected');
+                statusText.textContent = '未连接';
+                connectButton.disabled = false;
+                disconnectButton.disabled = true;
+                messageInput.disabled = true;
+                sendButton.disabled = true;
+                serverIp.disabled = false;
+                serverPort.disabled = false;
+            }
+        }
+
+        // 连接按钮点击事件
+        document.getElementById('connectButton').addEventListener('click', async () => {
+           
+            try {
+                hideConnectionError();
+                const serverIp = document.getElementById('serverIp').value;
+                const serverPort = parseInt(document.getElementById('serverPort').value);
+
+                if (!serverIp || !serverPort) {
+                    showConnectionError('请输入服务器IP和端口');
+                    return;
+                }
+
+                console.log("尝试连接到:", serverIp, serverPort);
+                await connection.invoke("Connect", serverIp, serverPort);
+                console.log("连接请求已发送");
+            } catch (err) {
+                console.error('连接错误:', err);
+                showConnectionError(err.toString());
+                updateClientConnectionStatus(false);
+            }
+        });
+
+        // 断开连接按钮点击事件
+        document.getElementById('disconnectButton').addEventListener('click', async () => {
+            try {
+                console.log("正在断开连接...");
+                await connection.invoke("Disconnect");
+                console.log("断开连接成功");
+            } catch (err) {
+                console.error('断开连接错误:', err);
+                showConnectionError(err.toString());
+            }
+        });
+
+        // 发送消息按钮点击事件
+        document.getElementById('sendButton').addEventListener('click', async () => {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+
+            if (message.trim()) {
+                try {
+                    await connection.invoke("SendMessage", message);
+                    messageInput.value = '';
+                } catch (err) {
+                    console.error('发送消息错误:', err);
+                    showConnectionError(err.toString());
+                }
+            }
+        });
+
+        // 回车发送消息
+        document.getElementById('messageInput').addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('sendButton').click();
+            }
+        });
+
+        // 接收消息处理
+        connection.on("ReceiveMessage", (messageLog) => {
+            const messageContainer = document.getElementById("messageContainer");
+            const messageElement = document.createElement("div");
+
+            const timestamp = new Date(messageLog.timestamp).toLocaleTimeString();
+            messageElement.className = `message ${messageLog.direction === 0 ? 'message-sent' : 'message-received'}`;
+            messageElement.innerHTML = `
+                        <div class="message-content">${messageLog.message}</div>
+                        <div class="timestamp">${timestamp}</div>
+                    `;
+            messageContainer.appendChild(messageElement);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            if (messageLog.direction === 0) {
+                messagesSent++;
+                document.getElementById("messagesSent").textContent = messagesSent;
+            } else {
+                messagesReceived++;
+                document.getElementById("messagesReceived").textContent = messagesReceived;
+            }
+        });
+
+        // 更新连接状态处理
+        connection.on("updateClientConnectionStatus", (isConnected) => {
+            console.log("收到服务器连接状态更新:", isConnected);
+            updateClientConnectionStatus(isConnected);
+            if (isConnected) {
+                hideConnectionError();
+            }
+        });
+
+        // 页面加载时启动SignalR连接
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                console.log("正在启动SignalR连接...");
+                await connection.start();
+                console.log("SignalR连接已启动");
+            } catch (err) {
+                console.error('SignalR连接错误:', err);
+                showConnectionError(err.toString());
+            }
+        });
+    </script>
+}

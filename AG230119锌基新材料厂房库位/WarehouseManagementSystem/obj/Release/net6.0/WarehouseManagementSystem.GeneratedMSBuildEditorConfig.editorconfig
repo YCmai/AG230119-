@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WarehouseManagementSystem
+build_property.RootNamespace = WarehouseManagementSystem
+build_property.ProjectDir = E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/DisplayLocation/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheUxvY2F0aW9uXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/DisplayLocation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheUxvY2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Emerg/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1lcmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/EmptyTrayStatusModification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wdHlUcmF5U3RhdHVzTW9kaWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/IOMonitor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSU9Nb25pdG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Location/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cQ3JlYXRlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Location/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Logs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/ManuallyTriggered/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudWFsbHlUcmlnZ2VyZWRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/MaterialBinding/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxCaW5kaW5nXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/MaterialBinding/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxCaW5kaW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/MaterialManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/PlcInteraction/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxjSW50ZXJhY3Rpb25caW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/PlcMonitor/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxjTW9uaXRvclxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Setting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Shared/_Pagination.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdpbmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/SystemManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtTWFuYWdlbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Tasks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/TcpClient/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGNwQ2xpZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/TcpService/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGNwU2VydmljZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/WebApi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2ViQXBpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/NDCProject/AG230119锌基新材料厂房/AG230119锌基新材料厂房库位/WarehouseManagementSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-y4pt18lm38

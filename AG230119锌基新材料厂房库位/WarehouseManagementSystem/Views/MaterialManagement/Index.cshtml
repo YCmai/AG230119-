@@ -1,0 +1,160 @@
+﻿
+<div class="row mb-3" style="margin-top:1%">
+    <div class="col-sm-8 col-12">
+        <form asp-action="Index" method="get" class="d-flex">
+            <input type="text" name="materialCode" value="@ViewData["materialCode"]" class="form-control me-2" placeholder="请输入物料编号" />
+           @*  <input type="text" name="palletID" value="@ViewData["palletID"]" class="form-control me-2" placeholder="请输入托盘ID" /> *@
+            <button type="submit" style="width: 5em;" class="btn btn-primary me-2">搜索</button>
+        </form>
+    </div>
+   
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+
+                <th>物料编号</th>
+              @*   <th>托盘ID</th>
+                <th>重量</th> *@
+                <th>入库时间</th>
+                <th>储位</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.MaterialCode</td>
+                   @*  <td>@item.PalletID</td>
+                    <td>@item.Weight</td> *@
+                    <td>@item.EntryDate</td>
+                    <td>@item.NodeRemark</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- 分页导航，右下角显示 -->
+<div class="d-flex justify-content-end">
+    <nav aria-label="Page navigation">
+        <ul class="pagination pagination-sm">
+             @if (Model.HasPreviousPage)
+            { 
+                <li class="page-item">
+                    <a class="page-link" href="?page=@(Model.PageNumber - 1)&searchString=@ViewData["searchString"]">上一页</a>
+                </li>
+             } 
+
+            <li class="page-item disabled">
+                <span class="page-link">当前页: @Model.PageNumber / @Model.TotalPages</span>
+            </li>
+
+            @if (Model.HasNextPage)
+            { 
+                <li class="page-item">
+                    <a class="page-link" href="?page=@(Model.PageNumber + 1)&searchString=@ViewData["searchString"]">下一页</a>
+                </li>
+             } 
+        </ul>
+    </nav>
+</div>
+<!-- 消息模态框 -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content shadow-lg border-0">
+            <div class="modal-header bg-@(TempData["MessageType"]?.ToString().ToLower()) text-white">
+                <h5 class="modal-title" id="messageModalLabel">
+                    <i class="bi bi-check-circle me-2"></i>Prompt
+                </h5>
+                <!-- 修复关闭按钮的样式问题 -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="lead">@TempData["Message"]</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="closebtn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- 删除确认模态框 -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">ConfirmDelete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the storage location "<strong id="itemName"></strong>" 确认删除吗?。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        let deleteId;
+
+        window.setDeleteInfo = function (id, name) {
+            deleteId = id;
+            document.getElementById('itemName').innerText = name;
+        };
+
+        $('#confirmDeleteButton').click(function () {
+           
+            $('#deleteModal').modal('hide');
+
+            $.ajax({
+                url: '@Url.Action("DeleteConfirmed", "Location")', 
+                type: 'POST',
+                data: {
+                    Id: deleteId,
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() 
+                },
+                success: function (response) {
+                    // 设置消息和类型
+                    $('#messageModal .modal-body').text(response.message);
+                    $('#messageModal .modal-header').removeClass('bg-success bg-danger')
+                        .addClass(response.success ? 'bg-success' : 'bg-danger');
+
+                    // 显示消息模态框
+                    $('#messageModal').modal('show');
+
+                    // 设置 1 秒后自动关闭并跳转
+                    setTimeout(function () {
+                        $('#messageModal').modal('hide'); // 先隐藏提示框
+                        window.location.href = '@Url.Action("Index", "Location")'; // 跳转到首页
+                    }, 2000); // 1 秒后
+
+                    // 当用户手动点击关闭按钮或X时也跳转
+                    $('#messageModal').on('hidden.bs.modal', function () {
+                        window.location.href = '@Url.Action("Index", "")';  // 替换为实际的主页地址
+                    });
+                },
+                error: function () {
+                    $('#messageModal .modal-body').text("Delete failed, please try again。");
+                    $('#messageModal .modal-header').removeClass('bg-success bg-danger').addClass('bg-danger');
+                    $('#messageModal').modal('show');
+                }
+            });
+        });
+    });
+</script>
+
+
+

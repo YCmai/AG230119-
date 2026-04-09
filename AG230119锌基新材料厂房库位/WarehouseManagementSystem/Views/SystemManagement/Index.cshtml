@@ -1,0 +1,82 @@
+@model WarehouseManagementSystem.Models.SystemManagementViewModel
+
+@{
+    ViewData["Title"] = "系统管理";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0"><i class="fas fa-cogs"></i> 系统管理</h2>
+        </div>
+        <div class="card-body">
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-@TempData["MessageType"] alert-dismissible fade show" role="alert">
+                    @TempData["Message"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h4 class="mb-0"><i class="fas fa-calendar-alt"></i> 系统使用期限设置</h4>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="UpdateExpirationDate" method="post">
+                                <div class="mb-3">
+                                    <label asp-for="ExpirationDate" class="form-label"></label>
+                                    <input asp-for="ExpirationDate" class="form-control" />
+                                    <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="RemainingDays" class="form-label"></label>
+                                    <input asp-for="RemainingDays" class="form-control" readonly />
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> 保存设置
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-warning text-dark">
+                            <h4 class="mb-0"><i class="fas fa-info-circle"></i> 系统信息</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    系统当前时间
+                                    <span class="badge bg-primary">@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    系统过期时间
+                                    <span class="badge bg-danger">@(Model.ExpirationDate?.ToString("yyyy-MM-dd") ?? "未设置")</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    剩余使用天数
+                                    <span class="badge bg-@(Model.RemainingDays <= 10 ? "danger" : (Model.RemainingDays <= 30 ? "warning" : "success"))">
+                                        @(Model.RemainingDays < 0 ? "无限制" : Model.RemainingDays.ToString())
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

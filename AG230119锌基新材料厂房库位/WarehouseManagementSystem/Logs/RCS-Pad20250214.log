@@ -1,0 +1,47 @@
+2025-02-14 10:10:47.010 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-14 10:10:47.065 +08:00 [INF] IO监控服务启动中
+2025-02-14 10:10:48.387 +08:00 [INF] IO监控服务启动完成
+2025-02-14 10:10:48.521 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-14 10:10:49.625 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-14 10:10:50.600 +08:00 [ERR] 连接PLC失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-14 10:10:50.670 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33
+2025-02-14 10:10:50.760 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33
+2025-02-14 10:10:53.787 +08:00 [ERR] 连接PLC失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-14 10:10:53.821 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33
+2025-02-14 10:10:53.868 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33
+2025-02-14 10:10:56.895 +08:00 [ERR] 连接PLC失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-14 10:10:56.919 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33
+2025-02-14 10:10:56.947 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 33

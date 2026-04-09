@@ -1,0 +1,265 @@
+@using WarehouseManagementSystem.Models.PLC
+@model PagedResult<PlcInteraction>
+<div class="row mb-3 align-items-center">
+   @*  <div class="col">
+        <h4 class="mb-0"><i class="fas fa-exchange-alt"></i> PLC交互记录</h4>
+    </div> *@
+   @*  <div class="col-auto">
+        <button class="btn btn-danger btn-sm" id="btnClear">
+            <i class="fas fa-trash"></i> 清空记录
+        </button>
+    </div> *@
+</div>
+
+    <!-- 顶部标题和按钮 -->
+    <!-- 主要内容区域 -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                     <th>任务ID</th>
+                                    <th>时间</th>
+                                    <th>地址名称</th>
+                                    <th>操作类型</th>
+                                    <th>原值</th>
+                                    <th>新值</th>
+                                    <th>状态</th>
+                                    <th>异常信息</th>
+                                    <th>操作人</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr class="@(item.IsSuccess ? "" : item.ErrorMessage != null ? "table-danger" : "table-warning")">
+                                    <td>@item.Remarks</td>
+                                        <td>@item.CreateTime.ToString("MM-dd HH:mm:ss")</td>
+                                        <td>
+                                        <span class="d-block">@(item.PlcAddress?.Name?.Replace("AGV写入寄存器", "") ?? "-")</span>
+                                            <small class="text-muted">@(item.PlcAddress?.Address ?? "-")</small>
+                                        </td>
+                                        <td>
+                                            @if (item.OperationType.HasValue)
+                                            {
+                                                <span class="badge @GetOperationTypeBadgeClass(item.OperationType.Value)">
+                                                    @GetOperationTypeDisplay(item.OperationType.Value)
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">未知</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <span class="d-block">@item.OldValue</span>
+                                            <small class="text-muted">@GetValueMeaning(item.PlcAddress?.Address, item.OldValue)</small>
+                                        </td>
+                                        <td>
+                                            <span class="d-block">@item.NewValue</span>
+                                            <small class="text-muted">@GetValueMeaning(item.PlcAddress?.Address, item.NewValue)</small>
+                                        </td>
+                                        <td>
+                                            @if (item.IsSuccess)
+                                            {
+                                                <span class="badge bg-success">成功</span>
+                                            }
+                                            else if (item.ErrorMessage != null)
+                                            {
+                                                <span class="badge bg-danger" data-bs-toggle="tooltip" title="@item.ErrorMessage">
+                                                    失败
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-warning">待执行</span>
+                                            }
+                                        </td>
+                                        <td>@item.ErrorMessage</td>
+                                        <td>@item.OperatorName</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-danger delete-record" 
+                                                    data-id="@item.Id" 
+                                                    title="删除">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 分页区域 -->
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div class="text-muted">
+                            共 @Model.TotalItems 条记录，每页 @Model.PageSize 条
+                        </div>
+                        @if (Model.TotalPages > 1)
+                        {
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { pageNumber = 1, pageSize = Model.PageSize })" aria-label="首页">
+                                            <i class="fas fa-angle-double-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { pageNumber = Model.PageNumber - 1, pageSize = Model.PageSize })">
+                                            <i class="fas fa-angle-left"></i>
+                                        </a>
+                                    </li>
+
+                                    @{
+                                        var startPage = Math.Max(1, Model.PageNumber - 2);
+                                        var endPage = Math.Min(Model.TotalPages, startPage + 4);
+                                        startPage = Math.Max(1, endPage - 4);
+                                    }
+
+                                    @for (var i = startPage; i <= endPage; i++)
+                                    {
+                                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                                            <a class="page-link" href="@Url.Action("Index", new { pageNumber = i, pageSize = Model.PageSize })">@i</a>
+                                        </li>
+                                    }
+
+                                    <li class="page-item @(!Model.HasNextPage ? "disabled" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { pageNumber = Model.PageNumber + 1, pageSize = Model.PageSize })">
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item @(!Model.HasNextPage ? "disabled" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { pageNumber = Model.TotalPages, pageSize = Model.PageSize })" aria-label="末页">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // 初始化工具提示
+            $('[data-bs-toggle="tooltip"]').tooltip();
+
+            // 删除记录
+            $('.delete-record').click(function() {
+                const id = $(this).data('id');
+                if (confirm('确定要删除这条记录吗？')) {
+                    $.post('/PlcInteraction/Delete', { id: id })
+                        .done(function(result) {
+                            if (result.success) {
+                                alert('删除成功');
+                                location.reload();
+                            } else {
+                                alert(result.message || '删除失败');
+                            }
+                        })
+                        .fail(function() {
+                            alert('删除失败，请重试');
+                        });
+                }
+            });
+
+            // 清空记录
+            $('#btnClear').click(function() {
+                if (confirm('确定要清空所有已完成的交互记录吗？')) {
+                    $.post('/PlcInteraction/Clear')
+                        .done(function(result) {
+                            if (result.success) {
+                                alert('清空成功');
+                                location.reload();
+                            } else {
+                                alert(result.message || '清空失败');
+                            }
+                        })
+                        .fail(function() {
+                            alert('清空失败，请重试');
+                        });
+                }
+            });
+        });
+    </script>
+}
+
+@functions {
+    string GetOperationTypeBadgeClass(OperationType type)
+    {
+        return type switch
+        {
+            OperationType.Write => "bg-primary",
+            OperationType.Read => "bg-info",
+            OperationType.Reset => "bg-warning",
+            OperationType.Alarm => "bg-danger",
+            OperationType.Monitor => "bg-secondary",
+            _ => "bg-secondary"
+        };
+    }
+
+    string GetOperationTypeDisplay(OperationType type)
+    {
+        return type switch
+        {
+            OperationType.Write => "写入",
+            OperationType.Read => "读取",
+            OperationType.Reset => "复位",
+            OperationType.Alarm => "报警",
+            OperationType.Monitor => "监控",
+            _ => "未知"
+        };
+    }
+
+    string GetValueMeaning(string address, string value)
+    {
+      
+        if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(value))
+            return string.Empty;
+
+        // AGV写入地址的值含义转换
+        if (address.EndsWith("200") || address.EndsWith("400") || 
+            address.EndsWith("600") || address.EndsWith("800"))
+        {
+            // 从地址中提取数字（2/4/6/8）
+            var suffix = address.Substring(address.Length - 3, 1);
+            
+            // 添加调试信息
+            //Console.WriteLine($"Address: {address}, Value: {value}, Suffix: {suffix}");
+            
+            // 修改判断逻辑，使用更宽松的匹配
+            return value?.Trim().ToUpper() switch
+            {
+                var v when v?.Contains($"Y{suffix}") == true => "AGV应答回应",
+                var v when v?.Contains($"NG{suffix}") == true => "应答失败",
+                var v when v?.Contains($"M{suffix}") == true => "AGV到达工位外围",
+                var v when v?.Contains($"E{suffix}") == true => "AGV到达指定工位",
+                var v when v?.Contains($"K{suffix}") == true => "AGV放料完成",
+                "TRUE" => "开启",
+                "FALSE" => "关闭",
+                "1" => "开启",
+                "0" => "关闭",
+                _ => value // 如果没有匹配，返回原始值
+            };
+        }
+
+        // 对于非AGV地址，返回布尔值的转换
+        return value?.Trim().ToUpper() switch
+        {
+            "TRUE" => "开启",
+            "FALSE" => "关闭",
+            "1" => "开启",
+            "0" => "关闭",
+            _ => value // 如果没有匹配，返回原始值
+        };
+    }
+}

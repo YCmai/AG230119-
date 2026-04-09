@@ -1,0 +1,182 @@
+﻿@model RCS_MaterialBinding
+@using EnumExtensions;
+@{
+    var productCodes = new List<string> { "bigbag1", "bigbag2", "bigbag3", "bigbag4" };  // 固定的ProductCode选项
+}
+
+<!-- Modal 提示框 -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content shadow-lg border-0">
+            <div class="modal-header bg-@(TempData["MessageType"]?.ToString().ToLower()) text-white">
+                <h5 class="modal-title" id="messageModalLabel">
+                    <i class="bi bi-check-circle me-2"></i>hint
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="lead">@TempData["Message"]</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="closebtn" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-header {
+        padding: 0.5rem 1rem;
+    }
+
+    .btn-close {
+        margin-right: -1rem;
+    }
+
+    .btn-close-white {
+        filter: invert(1);
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .custom-footer {
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.75rem;
+    }
+</style>
+
+<form asp-action="CreateEdit" method="post">
+    <!-- ProductCode 下拉框 -->
+    <div class="form-group mb-2">
+        <label asp-for="ProductCode" class="control-label">线体编号</label>
+        @if (Model.ProductCode == null)
+        {
+            <select asp-for="ProductCode" class="form-control">
+                @foreach (var productCode in productCodes)
+                {
+                    <option value="@productCode">@productCode</option>
+                }
+            </select>
+        }
+        else
+        {
+            <input asp-for="ProductCode" class="form-control" readonly />
+            <input type="hidden" asp-for="ProductCode" /> <!-- 传递 Name 值 -->
+        }
+    </div>
+
+    <!-- MaterialCode 下拉框 -->
+    <div class="form-group mb-2">
+        <label asp-for="MaterialCode" class="control-label">物料编号</label>
+        <select id="MaterialCode" name="MaterialCode" class="form-control" asp-for="MaterialCode" onchange="fetchMaterialDetails()">
+            <option value="">Select MaterialCode</option>
+        </select>
+    </div>
+ 
+    
+
+
+    <!-- MaterialDesc 自动变化 -->
+    <div class="form-group mb-2">
+        <label class="control-label">物料描述</label>
+        <input id="MaterialDesc" name="MaterialDesc" class="form-control" readonly />
+    </div>
+
+    <!-- RemainingQty 自动变化 -->
+    <div class="form-group mb-2">
+        <label class="control-label">物料数量</label>
+        <input id="RemainingQty" name="RemainingQty" class="form-control" readonly />
+    </div>
+
+    <!-- RequestQty 输入框 -->
+    <div class="form-group mb-2">
+        <label asp-for="RequestQty" class="control-label">需求数量</label>
+        <input asp-for="RequestQty" class="form-control" />
+    </div>
+
+    <!-- 保存按钮 -->
+    <button type="submit" class="btn btn-primary">保存</button>
+
+    <!-- 返回按钮 -->
+    <a asp-action="Index" asp-controller="MaterialBinding" class="btn btn-secondary ms-2">返回</a>
+</form>
+
+<script>
+
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("GetMaterialCodes", "MaterialBinding")',  // 获取所有 MaterialCode
+                type: 'GET',
+                success: function (data) {
+                    if (data.success && data.materialCodes && data.materialCodes.length > 0) {
+                        // 填充 MaterialCode 下拉框
+                        var materialCodeSelect = $('#MaterialCode');
+                        data.materialCodes.forEach(function (item) {
+                            materialCodeSelect.append('<option value="' + item.materialCode + '">' + item.materialCode + '</option>');
+                        });
+
+                        // 自动选择当前的 MaterialCode
+                        var selectedMaterialCode = '@Model.MaterialCode';  // 获取当前模型中的 MaterialCode
+                        if (selectedMaterialCode) {
+                            $('#MaterialCode').val(selectedMaterialCode);  // 设置下拉框选中值
+                        }
+                    } else {
+                        console.error("Failed to load material codes.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX error: " + status + " " + error);
+                }
+            });
+        });
+
+
+
+    function fetchMaterialDetails() {
+        var materialCode = $('#MaterialCode').val();
+        if (materialCode) {
+            $.ajax({
+                url: '@Url.Action("GetMaterialDetails", "MaterialBinding")',
+                type: 'GET',
+                data: { materialCode: materialCode },
+                success: function (data) {
+                    if (data) {
+                        debugger;
+                        // 填充MaterialDesc和RemainingQty
+                        $('#MaterialDesc').val(data.materialDetails.materialDesc);
+                        $('#RemainingQty').val(data.materialDetails.remainingQty);
+                    }
+                }
+            });
+        }
+    }
+</script>
+@if (TempData["Message"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            // 弹出提示信息的Modal
+            $('#messageModal').modal('show');
+
+            // 判断是否是成功提示，如果是，显示后再跳转到Index页面
+            if ('@TempData["MessageType"]' === 'success' && '@TempData["RedirectAfterDelay"]' === 'True') {
+                // 在2秒后自动关闭Modal并跳转
+                setTimeout(function () {
+                    $('#messageModal').modal('hide');
+                    window.location.href = '@Url.Action("Index", "MaterialBinding")';
+                }, 2000);
+
+                // 当用户手动点击关闭按钮或X时也跳转
+                $('#messageModal').on('hidden.bs.modal', function () {
+                    window.location.href = '@Url.Action("Index", "MaterialBinding")';
+                });
+            }
+        });
+    </script>
+}

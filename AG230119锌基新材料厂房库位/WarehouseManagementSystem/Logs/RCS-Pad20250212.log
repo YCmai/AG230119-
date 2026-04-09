@@ -1,0 +1,1173 @@
+2025-02-12 08:04:01.565 +08:00 [ERR] PLC 0 连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:11.711 +08:00 [ERR] PLC 1 连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:11.916 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 08:04:11.919 +08:00 [INF] IO监控服务启动中
+2025-02-12 08:04:13.292 +08:00 [INF] IO监控服务启动完成
+2025-02-12 08:04:13.405 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 08:04:14.265 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 08:04:23.411 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:33.495 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:33.541 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:04:33.678 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:04:44.776 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:54.863 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:04:54.886 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:04:54.934 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:06.066 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:13.453 +08:00 [INF] 成功删除PLC交互记录 17
+2025-02-12 08:05:16.166 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:16.190 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:16.249 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:16.463 +08:00 [INF] 成功删除PLC交互记录 18
+2025-02-12 08:05:18.719 +08:00 [INF] 成功删除PLC交互记录 19
+2025-02-12 08:05:21.721 +08:00 [INF] 成功删除PLC交互记录 20
+2025-02-12 08:05:27.365 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:37.451 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:37.474 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:37.531 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:48.570 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:58.666 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:05:58.688 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:05:58.740 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:06:09.826 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:06:19.899 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:06:19.920 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:06:19.968 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:06:31.058 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:06:41.143 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 08:06:41.167 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 08:06:41.225 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:e3cf29ec-6835-45c6-b8ce-b3575a75274c
+Error Number:207,State:1,Class:16
+2025-02-12 09:00:32.178 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:00:32.233 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:00:33.561 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:01:05.685 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：System.Net.Sockets.Socket
+2025-02-12 09:01:24.185 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Safe handle has been closed.
+Object name: 'SafeHandle'.
+2025-02-12 09:01:35.501 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 09:01:35.539 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:01:35.687 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:01:36.482 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 09:01:43.114 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:01:47.751 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:01:49.795 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:01:57.867 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:01:57.894 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:01:57.949 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:01:59.594 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:03.583 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:05.604 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:07.623 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:09.002 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:09.641 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:11.658 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:13.676 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:15.703 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:17.722 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100, Port: 6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:22.184 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:02:22.229 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:02:22.281 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:7ec1a54a-6717-49d7-9ded-13b75c40d04c
+Error Number:207,State:1,Class:16
+2025-02-12 09:02:33.384 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:09:43.421 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:09:43.473 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:09:44.149 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:09:44.254 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 09:09:45.394 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 09:09:54.198 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:04.291 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:04.330 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:10:04.437 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:10:15.537 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:25.636 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:25.659 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:10:25.742 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:10:26.544 +08:00 [WRN] 尝试写入PLC地址被拒绝 - 地址ID: 234, 地址: DM30100
+2025-02-12 09:10:26.569 +08:00 [WRN] 写入PLC地址被拒绝 - 地址ID: 234
+System.InvalidOperationException: 只允许写入AGV信号，PLC信号为只读
+   at WarehouseManagementSystem.Service.Plc.PlcService.WriteValueAsync(Int32 addressId, String value, String operatorId, String operatorName) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 271
+2025-02-12 09:10:36.854 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:46.943 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:10:46.967 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:10:47.023 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:5ad9d16a-27ac-42dd-b51a-c844abbae11b
+Error Number:207,State:1,Class:16
+2025-02-12 09:11:54.244 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:11:54.297 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:11:54.984 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:11:55.083 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 09:11:55.917 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 09:12:11.812 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:12:11.869 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:12:12.611 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:12:12.720 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 09:12:13.467 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 09:12:22.669 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:12:32.759 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:12:32.798 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:12:32.918 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:12:44.017 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:12:54.100 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:12:54.122 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:12:54.176 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:05.287 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:15.385 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:15.408 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:15.462 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:26.567 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:36.651 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:36.673 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:36.733 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:47.828 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:57.912 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:13:57.938 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:13:57.991 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:14:09.094 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:14:19.175 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:14:19.199 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:14:19.249 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:ae74d16a-86fc-4d41-a1c3-f8f4ccda9b8f
+Error Number:207,State:1,Class:16
+2025-02-12 09:14:30.329 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:14:59.186 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:14:59.242 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:14:59.937 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:15:00.030 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 09:15:00.656 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 09:15:10.059 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:15:20.133 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:15:20.171 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:15:20.285 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:15:31.396 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:15:41.409 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:15:41.430 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:15:41.477 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:15:50.141 +08:00 [INF] 正在删除设备: ID=18
+2025-02-12 09:15:50.200 +08:00 [INF] 设备删除成功: ID=18
+2025-02-12 09:15:52.584 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:02.679 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:02.700 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:1df2fbe2-fa16-4fc2-b1e7-7d9eca44bcae
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:02.751 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:1df2fbe2-fa16-4fc2-b1e7-7d9eca44bcae
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:13.867 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:23.870 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:23.895 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:1df2fbe2-fa16-4fc2-b1e7-7d9eca44bcae
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:23.990 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:1df2fbe2-fa16-4fc2-b1e7-7d9eca44bcae
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:35.102 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:45.186 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:16:45.208 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:45.261 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:16:56.355 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:17:06.441 +08:00 [ERR] PLC 1 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:17:06.464 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:17:06.511 +08:00 [ERR] PLC监控服务执行失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'IsEnabled' 无效。
+列名 'AccessMode' 无效。
+列名 'AccessMode' 无效。
+列名 'SortOrder' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 99
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.ExecuteAsync(CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 92
+ClientConnectionId:a2264002-589e-4ee2-9833-41e9c295a50f
+Error Number:207,State:1,Class:16
+2025-02-12 09:17:17.625 +08:00 [ERR] PLC 0 重新连接失败: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 09:54:12.268 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 09:54:12.323 +08:00 [INF] IO监控服务启动中
+2025-02-12 09:54:13.062 +08:00 [INF] IO监控服务启动完成
+2025-02-12 09:59:00.916 +08:00 [ERR] 获取监控地址列表失败
+Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'RCS_PlcGroups' 无效。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Plc.PlcService.GetMonitoringAddressesAsync() in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcService.cs:line 111
+ClientConnectionId:273bf3bf-7cd6-4e70-9a04-014deabcc7d3
+Error Number:208,State:1,Class:16
+2025-02-12 09:59:01.005 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 11:35:43.592 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 11:35:43.648 +08:00 [INF] IO监控服务启动中
+2025-02-12 11:35:44.373 +08:00 [INF] IO监控服务启动完成
+2025-02-12 11:36:10.874 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 11:36:11.626 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 11:36:13.028 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 11:36:26.058 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 39
+2025-02-12 11:36:32.141 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 39
+2025-02-12 11:36:47.132 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 39
+2025-02-12 16:17:55.330 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 16:17:55.390 +08:00 [INF] IO监控服务启动中
+2025-02-12 16:17:56.181 +08:00 [INF] IO监控服务启动完成
+2025-02-12 16:18:28.314 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 16:18:28.363 +08:00 [INF] IO监控服务启动中
+2025-02-12 16:18:29.005 +08:00 [INF] IO监控服务启动完成
+2025-02-12 16:18:43.193 +08:00 [INF] 开始测试任务生成，共加载 106 个PLC地址
+2025-02-12 16:18:47.415 +08:00 [INF] 正在处理地址 - IP: 192.168.1.100, 地址: DM30100, 站号: A1, 当前值: X1
+2025-02-12 16:19:02.556 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 16:19:48.886 +08:00 [INF] 正在处理地址 - IP: 192.168.1.100, 地址: DM30200, 站号: A1, 当前值: Y1
+2025-02-12 16:31:07.076 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-12 16:31:07.127 +08:00 [INF] IO监控服务启动中
+2025-02-12 16:31:07.867 +08:00 [INF] IO监控服务启动完成
+2025-02-12 16:31:07.985 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-12 16:31:08.127 +08:00 [INF] 已创建电镀有料到自由席任务，起点：A1，终点：5
+2025-02-12 16:31:08.129 +08:00 [INF] 已创建电镀有料到自由席任务，起点：A1，终点：5，储位组：5，二维码：P111_P222
+2025-02-12 16:31:08.920 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-12 16:31:09.140 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:10.075 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 16:31:10.126 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:10.155 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:10.210 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:11.227 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:12.241 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:13.256 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:13.257 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 16:31:13.284 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:13.312 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:14.274 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:15.288 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:16.304 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:16.338 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 16:31:16.359 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:16.384 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:17.319 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:18.335 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:19.341 +08:00 [INF] 已存在起点为 A1 的电镀有料到自由席任务
+2025-02-12 16:31:19.413 +08:00 [ERR] PLC连接失败 - IP: 192.168.1.100:6000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-12 16:31:19.436 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.301:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49
+2025-02-12 16:31:19.462 +08:00 [ERR] 创建PLC连接异常 - IP: 192.168.1.302:6000
+System.Exception: Ip地址输入异常，格式不正确
+   at HslCommunication.Core.Net.NetworkDoubleBase`2.set_IpAddress(String value)
+   at HslCommunication.Profinet.Melsec.MelsecMcNet..ctor(String ipAddress, Int32 port)
+   at HslCommunication.Profinet.Keyence.KeyenceMcNet..ctor(String ipAddress, Int32 port)
+   at WarehouseManagementSystem.Service.Plc.PlcMonitorService.GetOrCreatePlcConnection(String ipAddress, Int32 port) in E:\Project\AG240076云浮爱德克斯项目\AG240076库位\WarehouseManagementSystem\Service\Plc\PlcMonitorService.cs:line 49

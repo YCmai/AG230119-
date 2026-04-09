@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "任务下发";
+    var locations = @Html.Raw(ViewBag.Locations);
+}
+
+
+<form id="taskForm" class="p-4">
+    <!-- 起点 -->
+    <div class="form-group" style="margin-bottom: 4%;">
+        <label for="startLocation" class="form-label">起点:</label>
+        <div class="dropdown">
+            <input type="text" id="startLocation" class="form-control" placeholder="请输入起点" autocomplete="off" data-bs-toggle="dropdown">
+            <ul class="dropdown-menu w-100" id="startLocationList" style="max-height: 200px; overflow-y: auto;">
+                <!-- 这里将会动态填充数据 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 终点 -->
+    <div class="form-group" style="margin-bottom: 4%;">
+        <label for="endLocation" class="form-label">终点:</label>
+        <div class="dropdown">
+            <input type="text" id="endLocation" class="form-control" placeholder="请输入终点" autocomplete="off" data-bs-toggle="dropdown">
+            <ul class="dropdown-menu w-100" id="endLocationList" style="max-height: 200px; overflow-y: auto;">
+                <!-- 这里将会动态填充数据 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 任务类型 -->
+   @*  <div class="form-group mb-4">
+        <label class="h5">任务类型:</label>
+        <div class="form-check mt-2">
+            <input class="form-check-input" type="radio" name="taskType" id="emptyTransport" value="空笼搬运">
+            <label class="form-check-label h6" for="emptyTransport">空笼搬运</label>
+        </div>
+        <div class="form-check mt-2">
+            <input class="form-check-input" type="radio" name="taskType" id="fullTransport" value="满笼搬运">
+            <label class="form-check-label h6" for="fullTransport">满笼搬运</label>
+        </div>
+    </div> *@
+
+    <div class="form-group mt-4">
+        <button type="button" id="submitTaskBtn" class="btn btn-primary btn-lg w-100">任务下发</button>
+    </div>
+</form>
+
+
+<script>
+    $(document).ready(function () {
+      
+        // 将 locations 数据从后端传递到前端，格式为 [{ id: 1, text: 'Location 1' }, { id: 2, text: 'Location 2' }]
+        var locations = JSON.parse('@Html.Raw(ViewBag.Locations)');
+
+        // 初始化时填充下拉菜单
+        populateDropdown('#startLocationList', locations);
+        populateDropdown('#endLocationList', locations);
+
+        // 在输入时动态过滤起点下拉菜单项
+        $('#startLocation').on('input', function () {
+            var query = $(this).val().toLowerCase();
+            var filteredLocations = locations.filter(function (item) {
+                return item.text.toLowerCase().includes(query);
+            });
+            populateDropdown('#startLocationList', filteredLocations);
+        });
+
+        // 在输入时动态过滤终点下拉菜单项
+        $('#endLocation').on('input', function () {
+            var query = $(this).val().toLowerCase();
+            var filteredLocations = locations.filter(function (item) {
+                return item.text.toLowerCase().includes(query);
+            });
+            populateDropdown('#endLocationList', filteredLocations);
+        });
+
+        // 填充下拉菜单的函数
+        function populateDropdown(dropdownId, data) {
+            $(dropdownId).empty(); // 清空之前的选项
+            data.forEach(function (item) {
+               
+                $(dropdownId).append('<li><a class="dropdown-item" href="#">' + item.text + '</a></li>');
+            });
+        }
+
+        // 点击下拉菜单项时，将值填入输入框
+        $('#startLocationList').on('click', 'li', function () {
+           
+            var selectedValue = $(this).text();
+            $('#startLocation').val(selectedValue);
+            // $('#startLocationList').dropdown('hide'); // 关闭下拉菜单
+        });
+
+        $('#endLocationList').on('click', 'li', function () {
+            var selectedValue = $(this).text();
+            $('#endLocation').val(selectedValue);
+            //$('#endLocationList').dropdown('hide'); // 关闭下拉菜单
+        });
+
+        // 提交任务
+        $('#submitTaskBtn').click(function () {
+            var startLocation = $('#startLocation').val();
+            var endLocation = $('#endLocation').val();
+            //var taskType = $("input[name='taskType']:checked").val();
+
+            if (!startLocation || !endLocation) {
+                alert("请选择起点、终点。");
+                return;
+            }
+
+            if (startLocation === endLocation) {
+                alert("起点和终点不可以一样。");
+                return;
+            }
+
+            if (!confirm("确认下发任务吗？")) {
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("SubmitTask", "Emerg")',
+                type: 'POST',
+                data: {
+                    startLocationId: startLocation, // 这里可以根据输入值进一步匹配 ID
+                    endLocationId: endLocation,
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        $('#startLocation').val('');  // 清空 startLocation 输入框
+                        $('#endLocation').val('');    // 清空 endLocation 输入框
+                        //$("input[name='taskType']").prop('checked', false); // 重置任务类型单选框
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("任务下发失败，请重试。");
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    /* 控制下拉菜单的最大高度，当选项较多时出现滚动条 */
+    .dropdown-menu {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .form-check-input {
+        margin-right: 10px;
+    }
+</style>

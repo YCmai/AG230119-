@@ -1,0 +1,181 @@
+2025-08-27 11:39:24.211 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-08-27 11:39:24.276 +08:00 [INF] 开始监控IO设备
+2025-08-27 11:39:24.727 +08:00 [INF] AGV任务生成服务已启动
+2025-08-27 11:39:24.962 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-08-27 11:39:26.361 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:27.308 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-08-27 11:39:27.357 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:28.356 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:29.357 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:30.356 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:30.388 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:39:30.479 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:39:30.482 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:39:32.536 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:39:32.575 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:39:33.518 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:39:33.521 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:39:33.857 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:34.857 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:35.857 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:36.856 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:37.856 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:37.863 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:39:37.864 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:39:37.865 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:39:39.909 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:39:39.912 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:39:40.894 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:39:40.897 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:39:41.356 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:42.357 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:43.356 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:44.356 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:45.357 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:45.374 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:39:45.375 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:39:45.378 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:39:47.410 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:39:47.413 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:39:48.402 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:39:48.404 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:39:48.857 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:49.857 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:50.856 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:51.856 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:52.856 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:52.871 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:39:52.922 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:39:52.960 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:39:55.009 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:39:55.019 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:39:55.992 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:39:55.994 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:39:56.356 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:57.356 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:58.357 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:39:59.357 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:00.356 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:00.372 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:40:00.374 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:40:00.376 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:40:02.409 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:40:02.413 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:40:03.404 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:40:03.407 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:40:03.857 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:04.856 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:05.856 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:06.857 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:07.856 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:07.870 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:40:07.872 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:40:07.873 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:40:09.918 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:40:09.923 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:40:10.897 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:40:10.899 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:40:11.356 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:29.061 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-08-27 11:40:29.112 +08:00 [INF] 开始监控IO设备
+2025-08-27 11:40:29.384 +08:00 [INF] AGV任务生成服务已启动
+2025-08-27 11:40:29.483 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-08-27 11:40:30.359 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:31.150 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-08-27 11:40:31.356 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:32.357 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:33.356 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:34.357 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:34.384 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:40:34.397 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:40:34.399 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:40:36.463 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:40:36.511 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:40:37.439 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:40:37.442 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:40:37.856 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:38.857 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:39.857 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:40:40.857 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:06.517 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-08-27 11:41:06.566 +08:00 [INF] 开始监控IO设备
+2025-08-27 11:41:06.836 +08:00 [INF] AGV任务生成服务已启动
+2025-08-27 11:41:06.931 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-08-27 11:41:07.862 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:08.642 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-08-27 11:41:08.856 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:09.856 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:10.856 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:11.856 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:11.873 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:41:11.887 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:41:11.890 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:41:25.706 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-08-27 11:41:25.754 +08:00 [INF] 开始监控IO设备
+2025-08-27 11:41:26.051 +08:00 [INF] AGV任务生成服务已启动
+2025-08-27 11:41:26.144 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-08-27 11:41:27.360 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:27.874 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-08-27 11:41:28.357 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:29.357 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:30.356 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:31.357 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:31.375 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:41:31.390 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:41:31.393 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:41:33.446 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:41:33.489 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:41:34.417 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:41:34.420 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:41:34.857 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:35.857 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:36.857 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:37.856 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:38.856 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:38.862 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:41:38.863 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:41:38.864 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:41:40.913 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:41:40.917 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1
+2025-08-27 11:41:41.888 +08:00 [ERR] IO_【192.168.200.123】连接尝试失败，错误：A task was canceled.
+2025-08-27 11:41:41.891 +08:00 [WRN] IO_【192.168.200.123】重新连接失败
+2025-08-27 11:41:42.356 +08:00 [WRN] 设备1号上料架(192.168.200.121) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:43.357 +08:00 [WRN] 设备2号上料架(192.168.200.122) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:44.357 +08:00 [WRN] 设备锅炉起升架(192.168.200.123) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:45.356 +08:00 [WRN] 设备1号铸锭下线(192.168.200.124) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:46.356 +08:00 [WRN] 设备2号铸锭下线(192.168.200.125) Ping失败，网络不可达，状态：TimedOut
+2025-08-27 11:41:46.367 +08:00 [INF] 开始处理设备 192.168.200.123 的任务组
+2025-08-27 11:41:46.368 +08:00 [INF] IO_【192.168.200.123】连接已断开或无效，尝试重新连接
+2025-08-27 11:41:46.369 +08:00 [INF] IO_【192.168.200.123】尝试连接
+2025-08-27 11:41:48.407 +08:00 [ERR] 处理任务 17572 时发生错误
+System.TimeoutException: 操作超时（2秒）
+   at WarehouseManagementSystem.Service.Io.StartupService.WaitForTask[T](Task`1 task, TimeSpan timeout, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 643
+   at WarehouseManagementSystem.Service.Io.StartupService.ProcessIoTaskWithTimeout(RCS_IOAGV_Tasks task, EIOAddress addressEnum, CancellationToken token) in E:\NDCProject\AG230119锌基新材料厂房\AG230119锌基新材料厂房库位\WarehouseManagementSystem\Service\Io\StartupService.cs:line 552
+2025-08-27 11:41:48.411 +08:00 [WRN] 任务处理失败，跳过该设备的后续任务 - TaskId: 17572, Type: ArrivalNotify, Device: 192.168.200.123, Address: DO1

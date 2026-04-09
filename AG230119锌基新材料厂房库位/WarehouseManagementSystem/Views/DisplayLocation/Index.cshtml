@@ -1,0 +1,1601 @@
+﻿@model PagedResult<RCS_Locations>
+@using System.Text.RegularExpressions
+
+@functions{
+    // 提取分组名中的数字用于自然排序
+    List<int> ParseGroupKey(string groupKey)
+    {
+        if (string.IsNullOrEmpty(groupKey)) return new List<int> { 0 };
+        var matches = Regex.Matches(groupKey, @"\d+");
+        if (matches.Count == 0) return new List<int> { 0 };
+        return matches.Cast<Match>().Select(m => int.Parse(m.Value)).ToList();
+    }
+}
+
+<div class="warehouse-dashboard">
+    @if (!string.IsNullOrEmpty(ViewBag.WarningMessage))
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-triangle"></i> 警告：</strong> @ViewBag.WarningMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    
+    <div class="action-bar">
+        <button type="button" class="btn btn-success" onclick="createNewLocation()">
+            <i class="fas fa-plus"></i> 新增储位
+        </button>
+        
+        <!-- 批量操作下拉菜单 -->
+        <div class="dropdown d-inline-block ml-2">
+            <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" style="font-size:1.1rem;padding:10px 20px;" data-bs-toggle="dropdown">
+                <i class="fas fa-cogs"></i> 批量操作
+            </button>
+            <div class="dropdown-menu" style="width: 300px;">
+                <div class="group-batch-actions p-3">
+                    <h6 class="fw-bold">按分组操作</h6>
+                    @{
+                        var groupList = ViewData["GroupList"] as string[];
+                    }
+                    <select id="batchOperationGroup" class="form-select mb-3">
+                        <option value="">-- 选择分组 --</option>
+                        @if (groupList != null)
+                        {
+                            foreach (var group in groupList)
+                            {
+                                <option value="@group">@group</option>
+                            }
+                        }
+                    </select>
+                  @*   <button class="dropdown-item py-2 mb-2" onclick="batchClearMaterialsByGroup()">
+                        <i class="fas fa-eraser"></i> 清空选中分组物料
+                    </button> *@
+                    <button class="dropdown-item py-2 mb-2" onclick="batchLockLocationsByGroup(true)">
+                        <i class="fas fa-lock"></i> 锁定选中分组
+                    </button>
+                    <button class="dropdown-item py-2 mb-2" onclick="batchLockLocationsByGroup(false)">
+                        <i class="fas fa-unlock"></i> 解锁选中分组
+                    </button>
+                    <button class="dropdown-item py-2 mb-2 bg-success text-white" onclick="batchSetFullByGroup()">
+                        <i class="fas fa-boxes-stacked"></i> 选中分组储位置满
+                    </button>
+                  @*   <button class="dropdown-item py-2 mb-2 bg-danger text-white" onclick="batchSetEmptyByGroup()">
+                        <i class="fas fa-box"></i> 选中分组储位置空
+                    </button> *@
+                    <button class="dropdown-item py-2 mb-2 bg-info text-white" onclick="batchUpdateMaterialCode()">
+                        <i class="fas fa-barcode"></i> 批量修改物料编号
+                    </button>
+                    <button class="dropdown-item py-2 mb-2 bg-warning text-white" onclick="batchClearMaterialCodeByGroup()">
+                        <i class="fas fa-eraser"></i> 批量清空储位物料
+                    </button>
+                    <div class="dropdown-divider my-3"></div>
+                    <h6 class="fw-bold">自定义选择</h6>
+                    <button class="dropdown-item py-2 mb-2" onclick="openLocationSelectorModal()">
+                        <i class="fas fa-list-check"></i> 选择特定储位进行操作
+                    </button>
+                 @*    <button class="dropdown-item py-2 mb-2 bg-primary text-white" onclick="batchSetFullSelected()">
+                        <i class="fas fa-archive"></i> 批量置满选中储位
+                    </button>
+                    <button class="dropdown-item py-2 mb-2 bg-secondary text-white" onclick="batchSetEmptySelected()">
+                        <i class="fas fa-box"></i> 批量置空选中储位
+                    </button> *@
+                </div>
+            </div>
+        </div>
+        
+        <!-- 状态说明和统计信息 -->
+        <div class="status-legend">
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="color-box empty"></span>
+                    <span class="legend-text">空闲储位</span>
+                    <span class="count">@Model.Items.Count(x => string.IsNullOrEmpty(x.MaterialCode))</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box occupied"></span>
+                    <span class="legend-text">已占用</span>
+                    <span class="count">
+                        @Model.Items.Count(x => 
+                            (!string.IsNullOrEmpty(x.MaterialCode) && !x.MaterialCode.StartsWith("Err_")) 
+                            || (x.Quanitity != null && (x.Quanitity.ToString() == "满" || x.Quanitity.ToString() == "100"))
+                        )
+                    </span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box error"></span>
+                    <span class="legend-text">异常物料</span>
+                    <span class="count">@Model.Items.Count(x => x.MaterialCode != null && x.MaterialCode.StartsWith("Err_"))</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box locked"></span>
+                    <span class="legend-text">已锁定</span>
+                    <span class="count">@Model.Items.Count(x => x.Lock)</span>
+                </div>
+                @{
+                    int totalLocations = (int)ViewData["StorageCapacityAvailable"];
+                    int usedLocations = (int)ViewData["StorageCapacityUse"];
+                    double usageRate = totalLocations > 0 ? (double)usedLocations / totalLocations * 100 : 0;
+                }
+                <div class="legend-item total">
+                    <span class="legend-text">总储位</span>
+                    <span class="count">@totalLocations</span>
+                </div>
+                <div class="legend-item total">
+                    <span class="legend-text">使用率</span>
+                    <span class="count">@usageRate.ToString("F1")%</span>
+                </div>
+            </div>
+            <div class="search-boxes">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索储位..." 
+                           oninput="filterLocations(this.value)">
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchMaterialCode" placeholder="搜索物料编号..." 
+                           oninput="filterLocationsByMaterialCode(this.value)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 多列分组显示 -->
+    <div class="groups-wrapper">
+        @{
+            var groupedLocations = Model.Items.GroupBy(l => l.Group)
+                .OrderBy((Func<IGrouping<string, RCS_Locations>, string>)(g => {
+                    var key = g.Key ?? "";
+                    var matches = System.Text.RegularExpressions.Regex.Matches(key, "\\d+");
+                    if (matches.Count == 0) return "";
+                    // 拼接所有数字，保证多数字分组也能自然排序
+                    return string.Join(",", matches.Cast<System.Text.RegularExpressions.Match>().Select(m => m.Value.PadLeft(4, '0')));
+                }));
+        }
+        
+     @foreach (var group in groupedLocations)
+{
+    var groupKey = group.Key ?? "未分组";
+    var collapseId = $"collapse-{groupKey.Replace(" ", "").Replace("号", "").Replace("线", "")}";
+    
+    // 简化计算方式：是否有物料，是否有锁定
+    bool hasOccupied = group.Any(x => !string.IsNullOrEmpty(x.MaterialCode) || 
+                                (x.Quanitity != null && (x.Quanitity.ToString() == "满" || x.Quanitity.ToString() == "100")));
+    bool hasLocked = group.Any(x => x.Lock);
+    
+    // 使用固定颜色
+    string groupColor = "text-dark";
+    
+    <div class="location-group" data-group="@groupKey">
+        <div class="group-header d-flex align-items-center justify-content-between @groupColor" 
+             style="cursor:pointer;" data-bs-toggle="collapse" data-bs-target="#@collapseId" 
+             aria-expanded="false" aria-controls="@collapseId" onclick="toggleGroupIcon(this)">
+            <span>
+                <i class="fas fa-chevron-right me-2 group-toggle-icon"></i>
+                @if (hasOccupied)
+                {
+                    <i class="fas fa-archive me-1" style="color: #e74c3c;"></i>
+                }
+                @if (hasLocked && !hasOccupied)
+                {
+                    <i class="fas fa-lock me-1" style="color: #f39c12;"></i>
+                }
+                @if (!hasOccupied && !hasLocked)
+                {
+                    <i class="fas fa-check-circle me-1" style="color: #2ecc71;"></i>
+                }
+                @groupKey
+            </span>
+            <div class="d-flex align-items-center">
+                <span class="badge bg-secondary">@group.Count() 个储位</span>
+            </div>
+        </div>
+        <div class="collapse locations-container" id="@collapseId">
+            @foreach (var location in group)
+            {
+                string locationStatus = "";
+                bool isErrorLocation = location.MaterialCode != null && location.MaterialCode.StartsWith("Err_");
+                bool isFull = (location.Quanitity != null && (location.Quanitity.ToString() == "满" || location.Quanitity.ToString() == "100"));
+                
+                if (location.Lock)
+                {
+                    locationStatus = "locked";
+                }
+                else if (!string.IsNullOrEmpty(location.MaterialCode) || isFull)
+                {
+                    locationStatus = isErrorLocation ? "error" : "occupied";
+                }
+                else
+                {
+                    locationStatus = "empty";
+                }
+                
+                <div class="location-box @locationStatus"
+                     data-location="@location.NodeRemark.ToLower()"
+                     data-material-code="@(location.MaterialCode ?? "")"
+                     onclick="showLocationDetails('@location.Id', '@location.NodeRemark', '@(location.MaterialCode ?? "")', '@location.PalletID', '@(location.EntryDate ?? "")', '@location.Weight', '@location.Quanitity', '@location.Group', '@location.LiftingHeight', '@location.Lock')">
+                    <div class="location-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="location-text">@location.NodeRemark</div>
+                    @if (location.Lock)
+                    {
+                        <i class="fas fa-lock lock-icon"></i>
+                    }
+                    @if (!string.IsNullOrEmpty(location.MaterialCode) || (location.Quanitity != null && (location.Quanitity.ToString() == "满" || location.Quanitity.ToString() == "100")))
+                    {
+                        <i class="fas fa-archive full-icon"></i>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+    </div>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade" id="locationDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">储位详情</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="location-details">
+                    <div class="detail-row">
+                        <div class="detail-label">储位编号:</div>
+                        <div class="detail-value" id="nodeRemark"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">状态:</div>
+                        <div class="detail-value" id="locationStatus"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">物料编码:</div>
+                        <div class="detail-value" id="materialCode"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">托盘编号:</div>
+                        <div class="detail-value" id="palletID"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">入库时间:</div>
+                        <div class="detail-value" id="entryDate"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">重量:</div>
+                        <div class="detail-value" id="weight"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">数量:</div>
+                        <div class="detail-value" id="quantity"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">举升高度:</div>
+                        <div class="detail-value" id="liftingHeight"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">锁定状态:</div>
+                        <div class="detail-value" id="lockStatus"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="editLocation()">
+                    <i class="fas fa-edit"></i> 编辑
+                </button>
+              @*   <button type="button" class="btn btn-danger" onclick="deleteLocation()">
+                    <i class="fas fa-trash"></i> 删除
+                </button> *@
+                <button type="button" class="btn btn-warning" id="lockButton" onclick="toggleLock()">
+                    <i class="fas fa-lock"></i> <span id="lockButtonText">锁定/解锁</span>
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="clearLocation()">
+                    <i class="fas fa-eraser"></i> 清空
+                </button>
+                <button type="button" class="btn btn-info" onclick="resetLocation()">
+                    <i class="fas fa-redo"></i> 重置
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加储位选择模态框 -->
+<div class="modal fade" id="locationSelectorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">选择储位</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text">筛选分组</span>
+                            <select id="filterGroup" class="form-select" onchange="filterLocationsByGroup()">
+                                <option value="">全部分组</option>
+                                @foreach (var group in Model.Items.Select(l => l.Group).Distinct().OrderBy(g => g))
+                                {
+                                    <option value="@group">@group</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text">搜索</span>
+                            <input type="text" id="locationSearch" class="form-control" 
+                                   placeholder="输入储位编号搜索" onkeyup="filterLocationsBySearch()">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="selectAllLocations" onchange="toggleSelectAll()">
+                            <label class="form-check-label" for="selectAllLocations">
+                                全选/取消全选
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-selector-container" style="max-height: 500px; overflow-y: auto;">
+                    <div class="row" id="locationCheckboxes">
+                        @foreach (var location in Model.Items)
+                        {
+                            <div class="col-md-3 mb-2 location-item" data-group="@location.Group" data-node="@location.NodeRemark">
+                                <div class="form-check">
+                                    <input class="form-check-input location-checkbox" type="checkbox" 
+                                           value="@location.Id" id="loc-@location.Id">
+                                    <label class="form-check-label" for="loc-@location.Id">
+                                        @location.NodeRemark 
+                                        @if (!string.IsNullOrEmpty(location.MaterialCode))
+                                        {
+                                            <span class="badge bg-info">有物料</span>
+                                        }
+                                        @if (location.Lock == true)
+                                        {
+                                            <span class="badge bg-warning">已锁定</span>
+                                        }
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+               @*  <button type="button" class="btn btn-danger me-2" onclick="batchClearMaterialsSelected()">
+                    <i class="fas fa-eraser"></i> 清空选中物料
+                </button> *@
+                <button type="button" class="btn btn-warning me-2" onclick="batchLockLocationsSelected(true)">
+                    <i class="fas fa-lock"></i> 锁定选中储位
+                </button>
+                <button type="button" class="btn btn-success me-2" onclick="batchLockLocationsSelected(false)">
+                    <i class="fas fa-unlock"></i> 解锁选中储位
+                </button>
+                <button type="button" class="btn btn-primary me-2" onclick="batchSetFullSelected()">
+                    <i class="fas fa-archive"></i> 批量置满
+                </button>
+                <button type="button" class="btn btn-secondary me-2" onclick="batchSetEmptySelected()">
+                    <i class="fas fa-box"></i> 批量置空
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加批量修改物料编号的模态框 -->
+<div class="modal fade" id="updateMaterialCodeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">批量修改物料编号</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="newMaterialCode" class="form-label">新物料编号</label>
+                    <input type="text" class="form-control" id="newMaterialCode" placeholder="请输入新的物料编号">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="confirmBatchUpdateMaterialCode()">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* 基础样式 */
+.warehouse-dashboard {
+    padding: 10px;
+    background: #f8f9fa;
+}
+
+/* 状态栏样式 */
+.stats-bar {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stat-info {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.stat-info span {
+    white-space: nowrap;
+}
+
+.search-box input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+/* 分组容器样式 */
+.groups-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.location-group {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.group-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.group-header:hover {
+    background-color: #e9ecef;
+}
+
+.group-toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.group-header[aria-expanded="false"] .group-toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.locations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+}
+
+/* 储位样式 */
+.location-box {
+    aspect-ratio: 1;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+/* 基础状态样式 */
+.location-box.empty {
+    border: 2px solid #2ecc71;
+}
+
+.location-box.occupied {
+    border: 2px solid #e74c3c;
+}
+
+.location-box.locked {
+    position: relative;
+}
+
+.location-box.locked::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #f39c12;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* 异常物料样式 */
+.location-box.error {
+    position: relative;
+}
+
+.location-box.error::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 2px solid #9b59b6;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* 组合状态样式 */
+.location-box.occupied.locked {
+    background: linear-gradient(45deg, 
+        rgba(231, 76, 60, 0.1) 0%, 
+        rgba(243, 156, 18, 0.1) 100%
+    );
+}
+
+.location-box.occupied.error {
+    background: linear-gradient(45deg, 
+        rgba(231, 76, 60, 0.1) 0%, 
+        rgba(155, 89, 182, 0.1) 100%
+    );
+}
+
+.location-box.locked.error {
+    background: linear-gradient(45deg, 
+        rgba(243, 156, 18, 0.1) 0%, 
+        rgba(155, 89, 182, 0.1) 100%
+    );
+}
+
+/* 悬停效果 */
+.location-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 图标样式 */
+.location-icon {
+    font-size: 16px;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.lock-icon {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 12px;
+    color: #f39c12;
+    background-color: white;
+    padding: 2px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.full-icon {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 12px;
+    color: #e74c3c;
+    background-color: white;
+    padding: 2px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.empty .location-icon i {
+    color: #2ecc71;
+}
+
+.occupied .location-icon i {
+    color: #e74c3c;
+}
+
+.locked .location-icon i {
+    color: #f39c12;
+}
+
+.error .location-icon i {
+    color: #9b59b6;
+}
+
+/* 详情样式 */
+.location-details {
+    padding: 10px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.detail-label {
+    width: 100px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.text-danger {
+    color: #e74c3c !important;
+}
+
+.text-warning {
+    color: #f39c12 !important;
+}
+
+.text-success {
+    color: #2ecc71 !important;
+}
+
+.text-dark {
+    color: #2c3e50 !important;
+}
+
+.text-purple {
+    color: #9b59b6 !important;
+}
+
+/* 响应式调整 */
+@@media (max-width: 768px) {
+    .stats-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .stat-info {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .search-box input {
+        width: 100%;
+    }
+    
+    .groups-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+    }
+    
+    .detail-label {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+}
+
+/* 状态说明样式 */
+.status-legend {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.legend-items {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+.legend-item.total {
+    background: #e8f0fe;
+}
+
+.color-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 2px solid;
+}
+
+.color-box.empty {
+    border-color: #2ecc71;
+}
+
+.color-box.occupied {
+    border-color: #e74c3c;
+}
+
+.color-box.error {
+    border-color: #9b59b6;
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+.color-box.locked {
+    border-color: #f39c12;
+}
+
+.legend-text {
+    font-size: 14px;
+    color: #2c3e50;
+    flex: 1;
+}
+
+.count {
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    min-width: 40px;
+    text-align: right;
+}
+
+.search-boxes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 状态计数器样式 */
+.status-chips {
+    display: flex;
+    gap: 5px;
+}
+
+.status-chip {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.status-chip.empty {
+    background-color: #2ecc71;
+}
+
+.status-chip.occupied {
+    background-color: #e74c3c;
+}
+
+.status-chip.error {
+    background-color: #9b59b6;
+}
+
+.status-chip.locked {
+    background-color: #f39c12;
+}
+
+/* 响应式调整 */
+@@media (max-width: 768px) {
+    .legend-items {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .legend-item {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+let currentLocationId = null;
+let locationModal = null;
+let locationSelectorModal;
+
+document.addEventListener('DOMContentLoaded', function() {
+    locationModal = new bootstrap.Modal(document.getElementById('locationDetailsModal'));
+    locationSelectorModal = new bootstrap.Modal(document.getElementById('locationSelectorModal'));
+    
+    // 添加折叠全部和展开全部按钮
+    addCollapseAllButtons();
+});
+
+function addCollapseAllButtons() {
+    // 创建按钮容器
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'collapse-buttons mb-3 text-end';
+    
+    // 创建展开全部按钮
+    // const expandAllBtn = document.createElement('button');
+    // expandAllBtn.className = 'btn btn-outline-primary btn-sm me-2';
+    // expandAllBtn.innerHTML = '<i class="fas fa-expand-alt"></i> 展开全部';
+    // expandAllBtn.onclick = expandAllGroups;
+    
+    // 创建折叠全部按钮
+    // const collapseAllBtn = document.createElement('button');
+    // collapseAllBtn.className = 'btn btn-outline-secondary btn-sm';
+    // collapseAllBtn.innerHTML = '<i class="fas fa-compress-alt"></i> 折叠全部';
+    // collapseAllBtn.onclick = collapseAllGroups;
+    
+    // 添加按钮到容器
+    buttonContainer.appendChild(expandAllBtn);
+    buttonContainer.appendChild(collapseAllBtn);
+    
+    // 将按钮容器添加到groups-wrapper之前
+    const groupsWrapper = document.querySelector('.groups-wrapper');
+    groupsWrapper.parentNode.insertBefore(buttonContainer, groupsWrapper);
+}
+
+function expandAllGroups() {
+    document.querySelectorAll('.locations-container.collapse').forEach(container => {
+        bootstrap.Collapse.getInstance(container)?.show();
+        const header = container.previousElementSibling;
+        const icon = header.querySelector('.group-toggle-icon');
+        if (icon) {
+            icon.classList.add('fa-chevron-down');
+            icon.classList.remove('fa-chevron-right');
+        }
+    });
+}
+
+function collapseAllGroups() {
+    document.querySelectorAll('.locations-container.collapse.show').forEach(container => {
+        bootstrap.Collapse.getInstance(container)?.hide();
+        const header = container.previousElementSibling;
+        const icon = header.querySelector('.group-toggle-icon');
+        if (icon) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-right');
+        }
+    });
+}
+
+function showLocationDetails(id, nodeRemark, materialCode, palletID, entryDate, weight, quantity, group, liftingHeight, lock) {
+    currentLocationId = id;
+    
+    // 更新模态框内容
+    document.getElementById('nodeRemark').textContent = nodeRemark;
+    document.getElementById('locationStatus').textContent = materialCode ? '已占用' : '空闲';
+    document.getElementById('materialCode').textContent = materialCode || '无';
+    document.getElementById('palletID').textContent = palletID || '无';
+    document.getElementById('entryDate').textContent = entryDate || '无';
+    document.getElementById('weight').textContent = weight || '0';
+    document.getElementById('quantity').textContent = quantity || '0';
+    document.getElementById('liftingHeight').textContent = liftingHeight || '0';
+    
+    // 更新锁定状态和按钮文本
+    const isLocked = lock === 'True';
+    document.getElementById('lockStatus').textContent = isLocked ? '已锁定' : '未锁定';
+    
+    // 更新锁定按钮状态和文本
+    const lockButton = document.getElementById('lockButton');
+    const lockButtonText = document.getElementById('lockButtonText');
+    if (isLocked) {
+        lockButton.classList.remove('btn-warning');
+        lockButton.classList.add('btn-success');
+        lockButtonText.textContent = '解锁';
+        lockButton.querySelector('i').classList.remove('fa-lock');
+        lockButton.querySelector('i').classList.add('fa-unlock');
+    } else {
+        lockButton.classList.remove('btn-success');
+        lockButton.classList.add('btn-warning');
+        lockButtonText.textContent = '锁定';
+        lockButton.querySelector('i').classList.remove('fa-unlock');
+        lockButton.querySelector('i').classList.add('fa-lock');
+    }
+    
+    // 显示模态框
+    locationModal.show();
+}
+
+function createNewLocation() {
+    window.location.href = '/DisplayLocation/CreateEdit';
+}
+
+function editLocation() {
+    if (!currentLocationId) return;
+    window.location.href = `/DisplayLocation/CreateEdit/${currentLocationId}`;
+}
+
+async function handleLocationAction(actionType) {
+    if (!currentLocationId) return;
+    
+    let confirmMessage = '';
+    switch (actionType) {
+        case 1:
+            confirmMessage = '确定要删除此储位吗？';
+            break;
+        case 3:
+            confirmMessage = '确定要清空此储位吗？';
+            break;
+        case 4:
+            confirmMessage = '确定要重置此储位吗？';
+            break;
+        case 2:
+            const isLocked = document.getElementById('lockStatus').textContent === '已锁定';
+            confirmMessage = isLocked ? '确定要解锁此储位吗？' : '确定要锁定此储位吗？';
+            break;
+    }
+    
+    if (confirmMessage && !confirm(confirmMessage + '此操作不可恢复！')) {
+        return;
+    }
+    
+    try {
+        const params = new URLSearchParams({
+            type: actionType.toString()
+        });
+        
+        const response = await fetch(`/DisplayLocation/DeleteConfirmed/${currentLocationId}?${params}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            if (actionType === 1) {
+                locationModal.hide();
+            }
+            // 创建一个 Promise 来等待 toast 显示完成
+            await new Promise(resolve => {
+                const toast = showToast('success', result.message);
+                toast.addEventListener('shown.bs.toast', () => {
+                    setTimeout(resolve, 800); // 等待 toast 显示 800ms
+                });
+            });
+            window.location.reload();
+        } else {
+            showToast('error', result.message || '操作失败');
+        }
+    } catch (error) {
+        console.error('操作失败:', error);
+        showToast('error', '操作失败，请重试');
+    }
+}
+
+function filterLocations(searchText) {
+    try {
+        // 转换为小写以进行不区分大小写的搜索
+        searchText = searchText.toLowerCase();
+
+        // 获取所有储位元素
+        const locationBoxes = document.querySelectorAll('.location-box');
+
+        locationBoxes.forEach(box => {
+            // 获取储位编号
+            const locationNumber = box.getAttribute('data-location');
+
+            // 如果搜索文本为空，显示所有储位
+            if (!searchText) {
+                box.style.display = '';
+                return;
+            }
+
+            // 检查储位编号是否包含搜索文本
+            if (locationNumber && locationNumber.toLowerCase().includes(searchText)) {
+                box.style.display = '';
+            } else {
+                box.style.display = 'none';
+            }
+        });
+
+        // 处理分组的显示/隐藏
+        const groups = document.querySelectorAll('.location-group');
+        groups.forEach(group => {
+            // 检查该分组是否有任何可见的储位
+            const hasVisibleLocations = Array.from(group.querySelectorAll('.location-box'))
+                .some(box => box.style.display !== 'none');
+
+            // 根据是否有可见储位来显示/隐藏整个分组
+            group.style.display = hasVisibleLocations ? '' : 'none';
+        });
+
+    } catch (error) {
+        console.error('搜索储位时发生错误:', error);
+    }
+}
+
+function showToast(type, message) {
+    let toastContainer = document.getElementById('toastContainer');
+    
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'toastContainer';
+        toastContainer.style.position = 'fixed';
+        toastContainer.style.top = '20px';
+        toastContainer.style.right = '20px';
+        toastContainer.style.zIndex = '9999';
+        document.body.appendChild(toastContainer);
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = `toast align-items-center text-white bg-${type === 'success' ? 'success' : 'danger'} border-0`;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    toast.setAttribute('aria-atomic', 'true');
+    
+    toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">
+                ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    `;
+    
+    toastContainer.appendChild(toast);
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+    
+    toast.addEventListener('hidden.bs.toast', () => {
+        toast.remove();
+    });
+
+    return toast;
+}
+
+function deleteLocation() {
+    handleLocationAction(1);
+}
+
+function clearLocation() {
+    handleLocationAction(3);
+}
+
+function resetLocation() {
+    handleLocationAction(4);
+}
+
+function toggleLock() {
+    handleLocationAction(2);
+}
+
+function openLocationSelectorModal() {
+    locationSelectorModal.show();
+}
+
+function filterLocationsByGroup() {
+    const group = document.getElementById('filterGroup').value;
+    const items = document.querySelectorAll('.location-item');
+    
+    items.forEach(item => {
+        if (!group || item.dataset.group === group) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function filterLocationsBySearch() {
+    const searchText = document.getElementById('locationSearch').value.toLowerCase();
+    const items = document.querySelectorAll('.location-item');
+    
+    items.forEach(item => {
+        const nodeText = item.dataset.node.toLowerCase();
+        if (!searchText || nodeText.includes(searchText)) {
+            item.style.display = item.style.display === 'none' && item.dataset.group !== document.getElementById('filterGroup').value ? 'none' : '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function toggleSelectAll() {
+    const selectAll = document.getElementById('selectAllLocations').checked;
+    const checkboxes = document.querySelectorAll('.location-checkbox');
+    const visibleCheckboxes = Array.from(checkboxes).filter(box => 
+        box.closest('.location-item').style.display !== 'none'
+    );
+    
+    visibleCheckboxes.forEach(checkbox => {
+        checkbox.checked = selectAll;
+    });
+}
+
+function getSelectedLocationIds() {
+    const checkboxes = document.querySelectorAll('.location-checkbox:checked');
+    return Array.from(checkboxes).map(checkbox => parseInt(checkbox.value));
+}
+
+function batchClearMaterialsSelected() {
+    const locationIds = getSelectedLocationIds();
+    
+    if (locationIds.length === 0) {
+        alert('请至少选择一个储位');
+        return;
+    }
+    
+    if (!confirm(`确定要清空 ${locationIds.length} 个选中储位的物料吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchClearMaterials',
+        type: 'POST',
+        traditional: true,
+        data: {
+            locationIds: locationIds
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchLockLocationsSelected(lockState) {
+    const locationIds = getSelectedLocationIds();
+    
+    if (locationIds.length === 0) {
+        alert('请至少选择一个储位');
+        return;
+    }
+    
+    const operation = lockState ? '锁定' : '解锁';
+    
+    if (!confirm(`确定要${operation} ${locationIds.length} 个选中的储位吗？`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchToggleLock',
+        type: 'POST',
+        traditional: true,
+        data: {
+            locationIds: locationIds,
+            lockState: lockState
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchClearMaterialsByGroup() {
+    var group = $('#batchOperationGroup').val();
+    if (!group) {
+        alert('请选择要操作的分组');
+        return;
+    }
+    
+    if (!confirm(`确定要清空 ${group} 内的所有物料吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchClearMaterialsByGroup',
+        type: 'POST',
+        data: { group: group },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchLockLocationsByGroup(lockState) {
+    var group = $('#batchOperationGroup').val();
+    if (!group) {
+        alert('请选择要操作的分组');
+        return;
+    }
+    
+    var operation = lockState ? '锁定' : '解锁';
+    
+    if (!confirm(`确定要${operation} ${group} 内的所有储位吗？`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchToggleLockByGroup',
+        type: 'POST',
+        data: { 
+            group: group,
+            lockState: lockState
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchSetFullByGroup() {
+    var group = $('#batchOperationGroup').val();
+    if (!group) {
+        alert('请选择要操作的分组');
+        return;
+    }
+    
+    if (!confirm(`确定要将 ${group} 内的所有储位置为满吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchSetQuantity',
+        type: 'POST',
+        data: { 
+            group: group,
+            isSetFull: true 
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchSetEmptyByGroup() {
+    var group = $('#batchOperationGroup').val();
+    if (!group) {
+        alert('请选择要操作的分组');
+        return;
+    }
+    
+    if (!confirm(`确定要将 ${group} 内的所有储位置为空吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchSetQuantity',
+        type: 'POST',
+        data: { 
+            group: group,
+            isSetFull: false 
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchSetFullSelected() {
+    const locationIds = getSelectedLocationIds();
+    
+    if (locationIds.length === 0) {
+        alert('请至少选择一个储位');
+        return;
+    }
+    
+    if (!confirm(`确定要将选中的 ${locationIds.length} 个储位置为满吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchSetQuantitySelected',
+        type: 'POST',
+        traditional: true,
+        data: { 
+            locationIds: locationIds,
+            isSetFull: true
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function batchSetEmptySelected() {
+    const locationIds = getSelectedLocationIds();
+    
+    if (locationIds.length === 0) {
+        alert('请至少选择一个储位');
+        return;
+    }
+    
+    if (!confirm(`确定要将选中的 ${locationIds.length} 个储位置为空吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchSetQuantitySelected',
+        type: 'POST',
+        traditional: true,
+        data: { 
+            locationIds: locationIds,
+            isSetFull: false
+        },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+
+function toggleGroupIcon(header) {
+    const icon = header.querySelector('.group-toggle-icon');
+    if (icon) {
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-right');
+    }
+}
+
+function batchUpdateMaterialCode() {
+    const group = $('#batchOperationGroup').val();
+    
+    // 如果是从分组操作按钮调用的
+    if (group) {
+        const modal = new bootstrap.Modal(document.getElementById('updateMaterialCodeModal'));
+        // 在模态框中保存分组信息
+        $('#updateMaterialCodeModal').data('group', group);
+        modal.show();
+    } else {
+        // 从储位选择模态框调用的，检查是否有选中的储位
+        const locationIds = getSelectedLocationIds();
+        
+        if (locationIds.length === 0) {
+            alert('请至少选择一个储位');
+            return;
+        }
+        
+        const modal = new bootstrap.Modal(document.getElementById('updateMaterialCodeModal'));
+        // 清除之前可能存在的分组信息
+        $('#updateMaterialCodeModal').data('group', null);
+        modal.show();
+    }
+}
+
+function confirmBatchUpdateMaterialCode() {
+    const group = $('#updateMaterialCodeModal').data('group');
+    const newMaterialCode = document.getElementById('newMaterialCode').value.trim();
+    
+    if (!newMaterialCode) {
+        alert('请输入新的物料编号');
+        return;
+    }
+    
+    // 如果是按分组操作
+    if (group) {
+        if (!confirm(`确定要将分组 ${group} 中的储位物料编号修改为 ${newMaterialCode} 吗？`)) {
+            return;
+        }
+        
+        $.ajax({
+            url: '/DisplayLocation/BatchUpdateMaterialCodeByGroup',
+            type: 'POST',
+            data: { 
+                group: group,
+                newMaterialCode: newMaterialCode
+            },
+            success: function(result) {
+                if (result.success) {
+                    alert(`${result.message}`);
+                    location.reload();
+                } else {
+                    alert(`操作失败: ${result.message}`);
+                }
+            },
+            error: function() {
+                alert('操作请求失败，请检查网络连接');
+            }
+        });
+    } else {
+        // 按已选择储位操作
+        const locationIds = getSelectedLocationIds();
+        
+        if (locationIds.length === 0) {
+            alert('请至少选择一个储位');
+            return;
+        }
+        
+        if (!confirm(`确定要将选中的 ${locationIds.length} 个储位的物料编号修改为 ${newMaterialCode} 吗？`)) {
+            return;
+        }
+        
+        $.ajax({
+            url: '/DisplayLocation/BatchUpdateMaterialCode',
+            type: 'POST',
+            traditional: true,
+            data: { 
+                locationIds: locationIds,
+                newMaterialCode: newMaterialCode
+            },
+            success: function(result) {
+                if (result.success) {
+                    alert(`${result.message}`);
+                    location.reload();
+                } else {
+                    alert(`操作失败: ${result.message}`);
+                }
+            },
+            error: function() {
+                alert('操作请求失败，请检查网络连接');
+            }
+        });
+    }
+}
+
+function filterLocationsByMaterialCode(searchText) {
+    try {
+        // 转换为小写以进行不区分大小写的搜索
+        searchText = searchText.toLowerCase();
+
+        // 获取所有储位元素
+        const locationBoxes = document.querySelectorAll('.location-box');
+
+        locationBoxes.forEach(box => {
+            // 获取物料编号
+            const materialCode = box.getAttribute('data-material-code');
+
+            // 如果搜索文本为空，显示所有储位
+            if (!searchText) {
+                box.style.display = '';
+                return;
+            }
+
+            // 检查物料编号是否包含搜索文本
+            if (materialCode && materialCode.toLowerCase().includes(searchText)) {
+                box.style.display = '';
+            } else {
+                box.style.display = 'none';
+            }
+        });
+
+        // 处理分组的显示/隐藏
+        const groups = document.querySelectorAll('.location-group');
+        groups.forEach(group => {
+            // 检查该分组是否有任何可见的储位
+            const hasVisibleLocations = Array.from(group.querySelectorAll('.location-box'))
+                .some(box => box.style.display !== 'none');
+
+            // 根据是否有可见储位来显示/隐藏整个分组
+            group.style.display = hasVisibleLocations ? '' : 'none';
+        });
+
+    } catch (error) {
+        console.error('搜索储位时发生错误:', error);
+    }
+}
+
+function batchClearMaterialCodeByGroup() {
+    var group = $('#batchOperationGroup').val();
+    if (!group) {
+        alert('请选择要操作的分组');
+        return;
+    }
+    
+    if (!confirm(`确定要清空 ${group} 内的所有物料编号吗？此操作不可恢复！`)) {
+        return;
+    }
+    
+    $.ajax({
+        url: '/DisplayLocation/BatchClearMaterialCodeByGroup',
+        type: 'POST',
+        data: { group: group },
+        success: function(result) {
+            if (result.success) {
+                alert(`${result.message}`);
+                location.reload();
+            } else {
+                alert(`操作失败: ${result.message}`);
+            }
+        },
+        error: function() {
+            alert('操作请求失败，请检查网络连接');
+        }
+    });
+}
+</script>
+
+<!-- 添加 CSRF Token -->
+@Html.AntiForgeryToken()

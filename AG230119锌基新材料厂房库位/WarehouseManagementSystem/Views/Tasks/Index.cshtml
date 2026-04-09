@@ -1,0 +1,231 @@
+﻿@using WarehouseManagementSystem.Models
+@model PagedResult<RCS_UserTasks>
+<div>
+    <div>
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <div class="d-flex align-items-end gap-3">
+                    <div class="flex-grow-1">
+                        <label for="filterDate">开始时间</label>
+                        <input type="date" id="filterDate" class="form-control" value="@ViewData["filterDate"]" />
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <label for="endDate">结束时间</label>
+                        <input type="date" id="endDate" class="form-control" value="@ViewData["endDate"]" />
+                    </div>
+
+                    <div>
+                        <button class="btn btn-primary px-4" onclick="submitForm()">搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 表格 -->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>任务类型</th>
+                        <th>起始点</th>
+                        <th>终点</th>
+                        <th>任务状态</th>
+                        <th>AGVNo</th>
+                        <th>任务ID</th>
+                        <th>创建日期</th>
+                        <th>入库日期</th>
+                        <th>出库日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Items != null && Model.Items.Any())
+                    {
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>
+                                    @item.taskType
+                                </td>
+                                <td>@item.sourcePosition</td>
+
+                                <td>@item.targetPosition</td>
+                                <td>
+                                    @{
+                                        var statusClass = item.taskStatus switch
+                                        {
+                                            TaskStatuEnum.None => "badge bg-secondary",
+                                            TaskStatuEnum.CarWash => "badge bg-info",
+                                            TaskStatuEnum.TaskStart => "badge bg-primary",
+                                            TaskStatuEnum.Confirm => "badge bg-primary",
+                                            TaskStatuEnum.ConfirmCar => "badge bg-primary",
+                                            TaskStatuEnum.PickingUp => "badge bg-warning",
+                                            TaskStatuEnum.PickDown => "badge bg-info",
+                                            TaskStatuEnum.Unloading => "badge bg-warning",
+                                            TaskStatuEnum.UnloadDown => "badge bg-info",
+                                            TaskStatuEnum.TaskFinish => "badge bg-success",
+                                            TaskStatuEnum.Canceled => "badge bg-danger",
+                                            TaskStatuEnum.CanceledWashing => "badge bg-warning",
+                                            TaskStatuEnum.CanceledWashFinish => "badge bg-success",
+                                            TaskStatuEnum.RedirectRequest => "badge bg-danger",
+                                            TaskStatuEnum.InvalidUp => "badge bg-danger",
+                                            TaskStatuEnum.InvalidDown => "badge bg-danger",
+                                            TaskStatuEnum.OrderAgv => "badge bg-warning",
+                                            TaskStatuEnum.OrderAgvFinish => "badge bg-success",
+                                            _ => "badge bg-light text-dark"
+                                        };
+
+                                        var statusText = item.taskStatus switch
+                                        {
+                                            TaskStatuEnum.None => "未执行",
+                                            TaskStatuEnum.CarWash => "洗车中",
+                                            TaskStatuEnum.TaskStart => "任务开始",
+                                            TaskStatuEnum.Confirm => "参数确认中",
+                                            TaskStatuEnum.ConfirmCar => "确认执行AGV",
+                                            TaskStatuEnum.PickingUp => "取货中",
+                                            TaskStatuEnum.PickDown => "取货完成",
+                                            TaskStatuEnum.Unloading => "卸货中",
+                                            TaskStatuEnum.UnloadDown => "卸货完成",
+                                            TaskStatuEnum.TaskFinish => "任务完成",
+                                            TaskStatuEnum.Canceled => "已取消",
+                                            TaskStatuEnum.CanceledWashing => "取消后洗车中",
+                                            TaskStatuEnum.CanceledWashFinish => "取消洗车完成",
+                                            TaskStatuEnum.RedirectRequest => "取货路线异常",
+                                            TaskStatuEnum.InvalidUp => "无效取货点",
+                                            TaskStatuEnum.InvalidDown => "无效卸货点",
+                                            TaskStatuEnum.OrderAgv => "卸货路线异常",
+                                            TaskStatuEnum.OrderAgvFinish => "异常任务完成",
+                                            _ => item.taskStatus.ToString()
+                                        };
+                                    }
+                                    <span class="@statusClass">@statusText</span>
+                                </td>
+                                <td>@item.robotCode</td>
+                                <td>@item.runTaskId</td>
+                                <td>@(item.creatTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "-")</td>
+                                <td>@(item.endTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "-")</td>
+                                <td>@(item.endTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "-")</td>
+                                <td>
+                                    @if (item.taskStatus < TaskStatuEnum.TaskFinish && !item.IsCancelled) // 30表示任务完成
+                                    {
+                                        <button class="btn btn-danger btn-sm cancel-task"
+                                                data-task-id="@item.ID"
+                                                onclick="cancelTask(@item.ID)">
+                                            取消任务
+                                        </button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10" class="text-center">暂无数据</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 分页导航 -->
+    <div class="d-flex justify-content-end">
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm">
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?page=@(Model.PageNumber - 1)&filterDate=@ViewData["filterDate"]&endDate=@ViewData["endDate"]">上一页</a>
+                    </li>
+                }
+
+                <li class="page-item disabled">
+                    <span class="page-link">当前页面: @Model.PageNumber / @Model.TotalPages</span>
+                </li>
+
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?page=@(Model.PageNumber + 1)&filterDate=@ViewData["filterDate"]&endDate=@ViewData["endDate"]">下一页</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        var filterDate = document.getElementById("filterDate").value;
+        var endDate = document.getElementById("endDate").value;
+
+        window.location.href = "/Tasks/Index?page=1" +
+            "&filterDate=" + encodeURIComponent(filterDate) +
+            "&endDate=" + encodeURIComponent(endDate);
+    }
+
+
+    function cancelTask(taskId) {
+        if (confirm('确定要取消此任务吗？')) {
+            $.ajax({
+                url: '/Tasks/CancelTask',
+                type: 'POST',
+                data: { id: taskId },
+                success: function (result) {
+                    if (result.success) {
+                        alert(result.message)
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        alert(result.message)
+                    }
+                },
+                error: function () {
+                    alert('取消任务失败，请重试');
+                }
+            });
+        }
+    }
+</script>
+
+<style>
+    .badge {
+        padding: 6px 10px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+        opacity: 0.9;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+    /* 状态徽章的阴影效果 */
+    .badge.bg-warning {
+        box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+    }
+    .badge.bg-primary {
+        box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+    }
+    .badge.bg-success {
+        box-shadow: 0 2px 4px rgba(25, 135, 84, 0.2);
+    }
+    .badge.bg-secondary {
+        box-shadow: 0 2px 4px rgba(108, 117, 125, 0.2);
+    }
+    .badge.bg-danger {
+        box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+    }
+
+    /* 任务类型徽章的阴影效果 */
+    .badge.bg-info {
+        box-shadow: 0 2px 4px rgba(13, 202, 240, 0.2);
+    }
+</style>

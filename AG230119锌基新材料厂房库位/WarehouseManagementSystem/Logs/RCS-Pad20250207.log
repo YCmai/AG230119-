@@ -1,0 +1,67 @@
+2025-02-07 11:38:23.312 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 11:38:23.381 +08:00 [INF] IO监控服务启动中
+2025-02-07 11:38:24.991 +08:00 [INF] IO监控服务启动完成
+2025-02-07 11:51:02.534 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 11:51:02.591 +08:00 [INF] IO监控服务启动中
+2025-02-07 11:51:03.394 +08:00 [INF] IO监控服务启动完成
+2025-02-07 11:53:49.032 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 11:53:49.088 +08:00 [INF] IO监控服务启动中
+2025-02-07 11:53:49.804 +08:00 [INF] IO监控服务启动完成
+2025-02-07 11:54:05.481 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 11:54:06.288 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 11:54:15.984 +08:00 [ERR] Error updating task
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'Execute' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.WepApi.WebApiTaskService.UpdateTaskAsync(RcsEcsTask task) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\WepApi\WebApiTaskService.cs:line 90
+ClientConnectionId:6e3feeed-960b-4366-afcf-58cd7ef7acb5
+Error Number:156,State:1,Class:15
+2025-02-07 11:55:26.562 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 11:55:26.610 +08:00 [INF] IO监控服务启动中
+2025-02-07 11:55:27.290 +08:00 [INF] IO监控服务启动完成
+2025-02-07 11:55:32.674 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 11:55:33.432 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 11:57:03.820 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 11:57:03.870 +08:00 [INF] IO监控服务启动中
+2025-02-07 11:57:04.543 +08:00 [INF] IO监控服务启动完成
+2025-02-07 11:57:04.629 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 11:57:05.567 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 12:04:39.676 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 12:04:39.727 +08:00 [INF] IO监控服务启动中
+2025-02-07 12:04:40.525 +08:00 [INF] IO监控服务启动完成
+2025-02-07 12:04:40.611 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 12:04:41.706 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 12:05:57.876 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 12:05:57.938 +08:00 [INF] IO监控服务启动中
+2025-02-07 12:05:58.604 +08:00 [INF] IO监控服务启动完成
+2025-02-07 12:05:58.681 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 12:05:59.586 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 12:07:04.050 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 12:07:04.113 +08:00 [INF] IO监控服务启动中
+2025-02-07 12:07:04.792 +08:00 [INF] IO监控服务启动完成
+2025-02-07 12:07:04.868 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 12:07:05.881 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 12:08:03.241 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 12:08:03.294 +08:00 [INF] IO监控服务启动中
+2025-02-07 12:08:03.962 +08:00 [INF] IO监控服务启动完成
+2025-02-07 12:08:04.049 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 12:08:05.015 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 13:58:39.751 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 13:58:39.805 +08:00 [INF] IO监控服务启动中
+2025-02-07 13:58:40.498 +08:00 [INF] IO监控服务启动完成
+2025-02-07 13:58:48.194 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 13:58:48.805 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-07 13:59:16.144 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-07 13:59:16.197 +08:00 [INF] IO监控服务启动中
+2025-02-07 13:59:16.875 +08:00 [INF] IO监控服务启动完成
+2025-02-07 13:59:16.963 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-07 13:59:17.788 +08:00 [WRN] Failed to determine the https port for redirect.

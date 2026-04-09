@@ -1,0 +1,388 @@
+﻿@using WarehouseManagementSystem.Controllers
+@model List<LogEntry>
+@{
+    ViewData["Title"] = "系统日志";
+}
+
+<div class="container-fluid mt-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-clipboard-list me-2"></i>系统日志
+                </h5>
+                <div>
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-outline-secondary" id="filterAll">全部</button>
+                        <button type="button" class="btn btn-outline-info" id="filterInfo">信息</button>
+                        <button type="button" class="btn btn-outline-warning" id="filterWarning">警告</button>
+                        <button type="button" class="btn btn-outline-danger" id="filterError">错误</button>
+                    </div>
+                    <button type="button" id="autoRefreshBtn" class="btn btn-primary">
+                        <i class="fas fa-sync-alt me-1"></i>自动刷新
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-fixed" id="logTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 200px; min-width: 200px;">时间</th>
+                            <th style="width: 100px; min-width: 100px;">级别</th>
+                            <th>消息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var log in Model)
+                        {
+                            <tr class="log-entry @GetLogLevelRowClass(log.Level)" data-level="@log.Level">
+                                <td class="time-column">@log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
+                                <td class="level-column">
+                                    <span class="badge @GetLogLevelBadgeClass(log.Level)">
+                                        @log.Level
+                                    </span>
+                                </td>
+                                <td class="message-column">@log.Message</td>
+                            </tr>
+                        }
+
+                        @functions {
+                            // 添加行背景色类
+                            string GetLogLevelRowClass(string level)
+                            {
+                                return level.ToLower() switch
+                                {
+                                    "err" => "log-error",
+                                    "wrn" => "log-warning",
+                                    "inf" => "log-info",
+                                    _ => ""
+                                };
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<style>
+    /* 表格容器样式 */
+    .table-responsive {
+        height: calc(100vh - 200px); /* 动态计算高度，留出头部空间 */
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #888 #f5f5f5;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+    }
+
+        /* 滚动条样式 */
+        .table-responsive::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+    /* 表格样式 */
+    .table-fixed {
+        table-layout: fixed; /* 固定表格布局 */
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+        /* 表头样式 */
+        .table-fixed thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+            z-index: 1;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        /* 单元格样式 */
+        .table-fixed td {
+            vertical-align: middle;
+            padding: 0.5rem;
+        }
+
+    /* 时间列样式 */
+    .time-column {
+        width: 200px;
+        min-width: 200px;
+        white-space: nowrap;
+    }
+
+    /* 级别列样式 */
+    .level-column {
+        width: 100px;
+        min-width: 100px;
+        text-align: center;
+    }
+
+    /* 消息列样式 */
+    .message-column {
+        word-wrap: break-word; /* 允许长单词换行 */
+        white-space: pre-wrap; /* 保留空格和换行 */
+        max-width: 0; /* 配合 table-layout: fixed 使用 */
+    }
+
+    /* 日志条目样式 */
+    .log-entry:hover {
+        background-color: rgba(0,0,0,.075);
+    }
+
+    /* 徽章样式 */
+    .badge {
+        padding: 0.4em 0.6em;
+        font-size: 0.85em;
+        font-weight: 500;
+        min-width: 60px;
+    }
+
+    /* 按钮组样式 */
+    .btn-group .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-group .btn.active {
+            background-color: #6c757d;
+            color: white;
+        }
+    /* 添加日志级别行样式 */
+    .log-entry {
+        transition: background-color 0.2s;
+    }
+
+    .log-error {
+        background-color: rgba(255, 220, 220, 0.2);
+    }
+
+    .log-warning {
+        background-color: rgba(255, 243, 205, 0.2);
+    }
+
+    .log-info {
+        background-color: rgba(220, 237, 255, 0.2);
+    }
+
+    /* 悬停效果 */
+    .log-error:hover {
+        background-color: rgba(255, 220, 220, 0.4);
+    }
+
+    .log-warning:hover {
+        background-color: rgba(255, 243, 205, 0.4);
+    }
+
+    .log-info:hover {
+        background-color: rgba(220, 237, 255, 0.4);
+    }
+
+    /* 时间列添加右边框 */
+    .time-column {
+        border-right: 1px solid #dee2e6;
+    }
+
+    /* 级别列添加右边框 */
+    .level-column {
+        border-right: 1px solid #dee2e6;
+    }
+</style>
+@functions {
+    string GetLogLevelBadgeClass(string level)
+    {
+        return level.ToLower() switch
+        {
+            "ERR" => "bg-danger",
+            "WRN" => "bg-warning text-dark",
+            "INF" => "bg-info text-dark",
+            _ => "bg-secondary"
+        };
+    }
+}
+
+@section Scripts {
+    <script>
+        function adjustTableHeight() {
+            const headerHeight = document.querySelector('.card-header').offsetHeight;
+            const tableContainer = document.querySelector('.table-responsive');
+            const windowHeight = window.innerHeight;
+            const offset = 100; // 额外边距
+
+            tableContainer.style.height = `${windowHeight - headerHeight - offset}px`;
+        }
+
+        // 添加窗口大小改变事件监听
+        window.addEventListener('resize', adjustTableHeight);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let autoRefreshInterval;
+            let isAutoRefreshEnabled = false;
+            let lastLogCount = 0;
+
+            // 绑定筛选按钮事件
+            document.getElementById('filterAll').addEventListener('click', () => filterLogs('ALL'));
+            document.getElementById('filterInfo').addEventListener('click', () => filterLogs('INF'));
+            document.getElementById('filterWarning').addEventListener('click', () => filterLogs('WRN'));
+            document.getElementById('filterError').addEventListener('click', () => filterLogs('ERR'));
+
+            // 绑定自动刷新按钮事件
+            document.getElementById('autoRefreshBtn').addEventListener('click', toggleAutoRefresh);
+
+            // 过滤日志
+            function filterLogs(level) {
+                const rows = document.querySelectorAll('#logTable tbody tr');
+                rows.forEach(row => {
+                    if (level === 'ALL') {
+                        row.style.display = '';
+                    } else {
+                        const logLevel = row.getAttribute('data-level');
+                        row.style.display = logLevel === level ? '' : 'none';
+                    }
+                });
+
+                // 更新按钮状态
+                document.querySelectorAll('.btn-group button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                if (level === 'ALL') {
+                    document.getElementById('filterAll').classList.add('active');
+                } else if (level === 'INF') {
+                    document.getElementById('filterInfo').classList.add('active');
+                } else if (level === 'WRN') {
+                    document.getElementById('filterWarning').classList.add('active');
+                } else if (level === 'ERR') {
+                    document.getElementById('filterError').classList.add('active');
+                }
+            }
+
+            // 切换自动刷新
+            function toggleAutoRefresh() {
+                const btn = document.getElementById('autoRefreshBtn');
+                isAutoRefreshEnabled = !isAutoRefreshEnabled;
+
+                if (isAutoRefreshEnabled) {
+                    btn.innerHTML = '<i class="fas fa-stop me-1"></i>停止刷新';
+                    btn.classList.replace('btn-primary', 'btn-danger');
+                    refreshLogs(); // 立即执行一次刷新
+                    autoRefreshInterval = setInterval(refreshLogs, 3000); // 每3秒刷新一次
+                } else {
+                    btn.innerHTML = '<i class="fas fa-sync-alt me-1"></i>自动刷新';
+                    btn.classList.replace('btn-danger', 'btn-primary');
+                    if (autoRefreshInterval) {
+                        clearInterval(autoRefreshInterval);
+                    }
+                }
+            }
+
+            // 刷新日志
+            async function refreshLogs() {
+                try {
+                    const response = await fetch('/Logs/GetLatestLogs');
+                    if (!response.ok) {
+                        throw new Error('获取日志失败');
+                    }
+
+                    const result = await response.json();
+                    if (result.success) {
+                        updateLogTable(result.data);
+                    }
+                } catch (error) {
+                    console.error('刷新日志失败:', error);
+                    if (isAutoRefreshEnabled) {
+                        toggleAutoRefresh(); // 发生错误时停止自动刷新
+                    }
+                }
+            }
+
+            // 更新日志表格
+            function updateLogTable(logs) {
+                if (!logs || !Array.isArray(logs)) return;
+
+                const tbody = document.querySelector('#logTable tbody');
+                const currentFilter = document.querySelector('.btn-group button.active')?.id || 'filterAll';
+
+                // 如果日志数量没有变化，不更新
+                if (logs.length === lastLogCount) return;
+                lastLogCount = logs.length;
+
+                // 保存当前滚动位置
+                const container = document.querySelector('.table-responsive');
+                const currentScrollTop = container.scrollTop;
+
+                // 清空现有内容
+                tbody.innerHTML = '';
+
+                // 添加新日志
+                logs.forEach(log => {
+                    const shouldShow = currentFilter === 'filterAll' ||
+                        (currentFilter === 'filterInfo' && log.level === 'INF') ||
+                        (currentFilter === 'filterWarning' && log.level === 'WRN') ||
+                        (currentFilter === 'filterError' && log.level === 'ERR');
+
+                    const tr = document.createElement('tr');
+                    tr.className = `log-entry ${getLogLevelRowClass(log.level)}`;
+                    tr.setAttribute('data-level', log.level);
+                    tr.style.display = shouldShow ? '' : 'none';
+
+                    tr.innerHTML = `
+                                <td class="time-column">${new Date(log.timestamp).toLocaleString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        fractionalSecondDigits: 3
+                    })}</td>
+                                <td class="level-column">
+                                    <span class="badge ${getLogLevelBadgeClass(log.level)}">${log.level}</span>
+                                </td>
+                                <td class="message-column">${log.message}</td>
+                            `;
+
+                    tbody.appendChild(tr);
+                });
+
+                // 恢复滚动位置
+                container.scrollTop = currentScrollTop;
+            }
+
+            function getLogLevelBadgeClass(level) {
+                switch (level.toLowerCase()) {
+                    case 'err': return 'bg-danger';
+                    case 'wrn': return 'bg-warning text-dark';
+                    case 'inf': return 'bg-info text-dark';
+                    default: return 'bg-secondary';
+                }
+            }
+
+            // 添加行样式类函数
+            function getLogLevelRowClass(level) {
+                switch (level.toLowerCase()) {
+                    case 'err': return 'log-error';
+                    case 'wrn': return 'log-warning';
+                    case 'inf': return 'log-info';
+                    default: return '';
+                }
+            }
+
+            // 初始化表格高度
+            adjustTableHeight();
+        });
+    </script>
+}
+

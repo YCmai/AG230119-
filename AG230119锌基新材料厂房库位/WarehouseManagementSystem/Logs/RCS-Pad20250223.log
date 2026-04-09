@@ -1,0 +1,195 @@
+2025-02-23 15:35:48.123 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-02-23 15:35:48.178 +08:00 [INF] IO监控服务启动中
+2025-02-23 15:35:49.934 +08:00 [INF] IO监控服务启动完成
+2025-02-23 15:35:50.098 +08:00 [INF] StartMonitoringDevice读取信号23地址DO1
+2025-02-23 15:35:50.098 +08:00 [INF] StartMonitoringDevice读取信号24地址DO1
+2025-02-23 15:35:50.098 +08:00 [INF] StartMonitoringDevice读取信号21地址DO1
+2025-02-23 15:35:50.098 +08:00 [INF] StartMonitoringDevice读取信号25地址DO1
+2025-02-23 15:35:50.098 +08:00 [INF] StartMonitoringDevice读取信号22地址DO1
+2025-02-23 15:35:50.261 +08:00 [INF] IO_【192.168.100.94】尝试连接
+2025-02-23 15:35:50.302 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-23 15:35:52.118 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:52.423 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.120:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:53.630 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-02-23 15:35:54.655 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:54.669 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.121:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:56.678 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:56.689 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.122:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:58.699 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:35:58.712 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.123:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:00.751 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:00.751 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.124:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:02.771 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:02.772 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.125:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:04.790 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:04.793 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.126:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:06.810 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:06.814 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.127:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:08.833 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:08.836 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.128:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:10.856 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:10.857 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.129:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:11.300 +08:00 [ERR] IO_【192.168.100.94】连接尝试失败，错误：由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2025-02-23 15:36:11.303 +08:00 [INF] IO_【192.168.100.91】尝试连接
+2025-02-23 15:36:11.313 +08:00 [INF] StartMonitoringDevice读取信号24地址DO2
+2025-02-23 15:36:12.882 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.130:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:12.882 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:14.905 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.131:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:15.914 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:16.930 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.132:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:17.941 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:20.010 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:20.010 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.120:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:22.029 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:22.031 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.121:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:24.055 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.122:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:24.055 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:26.078 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.123:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:26.079 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:28.105 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.124:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:28.107 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:30.129 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.125:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:30.132 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:32.148 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.126:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:32.152 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:32.332 +08:00 [ERR] IO_【192.168.100.91】连接尝试失败，错误：由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2025-02-23 15:36:32.334 +08:00 [INF] IO_【192.168.100.93】尝试连接
+2025-02-23 15:36:32.335 +08:00 [INF] StartMonitoringDevice读取信号21地址DO2
+2025-02-23 15:36:34.173 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.127:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:34.192 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:36.198 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.128:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:36.219 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:38.225 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.129:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:39.269 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:40.257 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.130:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:41.293 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:42.292 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.131:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:43.315 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:44.313 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.132:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:45.335 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:47.348 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:47.395 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.120:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:49.381 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:49.415 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.121:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:51.452 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:51.459 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.122:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:53.435 +08:00 [ERR] IO_【192.168.100.93】连接尝试失败，错误：由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2025-02-23 15:36:53.437 +08:00 [INF] IO_【192.168.100.95】尝试连接
+2025-02-23 15:36:53.445 +08:00 [INF] StartMonitoringDevice读取信号23地址DO2
+2025-02-23 15:36:53.468 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:53.537 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.123:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:55.511 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:55.575 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.124:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:57.533 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:57.606 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.125:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:59.555 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:36:59.681 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.126:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:01.588 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:01.707 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.127:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:03.730 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.128:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:04.623 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:05.757 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.129:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:06.656 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:07.783 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.130:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:08.692 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:09.814 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.131:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:10.719 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:11.835 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.132:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:12.748 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:14.573 +08:00 [ERR] IO_【192.168.100.95】连接尝试失败，错误：由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+2025-02-23 15:37:14.582 +08:00 [INF] IO_【192.168.100.92】尝试连接
+2025-02-23 15:37:14.583 +08:00 [INF] StartMonitoringDevice读取信号25地址DI1
+2025-02-23 15:37:14.775 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:14.877 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.120:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:16.803 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:16.904 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.121:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:18.827 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:18.929 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.122:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:20.847 +08:00 [ERR] PLC连接失败 - IP: 192.168.100.120, Port: 5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+2025-02-23 15:37:20.958 +08:00 [ERR] 连接PLC失败 - IP: 192.168.100.123:5000, 错误: 连接失败：Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.

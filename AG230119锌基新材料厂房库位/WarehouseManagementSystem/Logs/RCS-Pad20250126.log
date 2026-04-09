@@ -1,0 +1,1244 @@
+2025-01-26 09:38:28.670 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 09:38:28.725 +08:00 [INF] IO监控服务启动中
+2025-01-26 09:38:30.290 +08:00 [INF] IO监控服务启动完成
+2025-01-26 09:41:08.809 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 09:41:08.863 +08:00 [INF] IO监控服务启动中
+2025-01-26 09:41:09.517 +08:00 [INF] IO监控服务启动完成
+2025-01-26 09:41:59.033 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 09:41:59.082 +08:00 [INF] IO监控服务启动中
+2025-01-26 09:41:59.741 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:01:27.152 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:01:27.206 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:01:27.847 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:01:27.949 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:01:29.703 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:01:34.761 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:39.690 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:40.089 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:44.687 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:49.686 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:54.685 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:01:59.337 +08:00 [INF] 正在删除设备: ID=20
+2025-01-26 10:01:59.450 +08:00 [INF] 设备删除成功: ID=20
+2025-01-26 10:01:59.650 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:02:04.698 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2e88bc5d-bb5b-4f49-a5b3-d7c132c909bb
+Error Number:102,State:1,Class:15
+2025-01-26 10:02:56.007 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:02:56.057 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:02:56.770 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:02:56.841 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:02:57.942 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:03:01.200 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:beee31e4-b3ca-47a5-a2a3-ca70b8ca85fd
+Error Number:102,State:1,Class:15
+2025-01-26 10:03:06.117 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:beee31e4-b3ca-47a5-a2a3-ca70b8ca85fd
+Error Number:102,State:1,Class:15
+2025-01-26 10:03:11.114 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:beee31e4-b3ca-47a5-a2a3-ca70b8ca85fd
+Error Number:102,State:1,Class:15
+2025-01-26 10:04:07.943 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:04:07.988 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:04:08.629 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:04:08.718 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:04:09.417 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:04:16.561 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:26c76cbe-4664-4b90-a8af-206ab0a8955d
+Error Number:102,State:1,Class:15
+2025-01-26 10:04:20.104 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:26c76cbe-4664-4b90-a8af-206ab0a8955d
+Error Number:102,State:1,Class:15
+2025-01-26 10:04:21.130 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8f6da741-73b3-4dd8-9dc5-7b99e0a1129f
+Error Number:102,State:1,Class:15
+2025-01-26 10:04:26.103 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8f6da741-73b3-4dd8-9dc5-7b99e0a1129f
+Error Number:102,State:1,Class:15
+2025-01-26 10:04:31.106 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+   at lambda_method104(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8f6da741-73b3-4dd8-9dc5-7b99e0a1129f
+Error Number:102,State:1,Class:15
+2025-01-26 10:06:13.173 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:06:13.219 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:06:13.896 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:06:13.969 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:06:14.730 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:06:42.679 +08:00 [ERR] 获取IO任务列表时发生错误
+Microsoft.Data.SqlClient.SqlException (0x80131904): “LIMIT”附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 434
+   at WarehouseManagementSystem.Service.Io.IODeviceService.GetRCS_IOAGV_TasksAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\Io\IIODeviceService.cs:line 260
+   at WarehouseManagementSystem.Controllers.IOMonitorController.GetIOTasks() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Controllers\IOMonitorController.cs:line 173
+ClientConnectionId:4764c710-96db-49b1-8e4f-7e5928265e5e
+Error Number:102,State:1,Class:15
+2025-01-26 10:08:17.712 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:08:17.781 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:08:18.443 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:08:18.512 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:08:19.302 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:31:16.796 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:31:16.848 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:31:17.534 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:31:17.621 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:31:18.615 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:35:02.162 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:35:02.212 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:35:02.892 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:35:02.965 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:35:03.841 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:41:38.066 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:41:38.114 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:41:38.771 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:41:38.849 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:41:39.673 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:50:08.683 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:50:08.736 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:50:09.392 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:50:09.470 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:50:10.246 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:53:03.478 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:53:03.531 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:53:04.164 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:53:04.243 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:53:05.093 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:53:38.284 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:53:38.332 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:53:38.990 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:53:39.065 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:53:39.783 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:56:37.194 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:56:37.254 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:56:37.919 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:56:37.989 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:56:38.729 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 10:58:03.271 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 10:58:03.321 +08:00 [INF] IO监控服务启动中
+2025-01-26 10:58:04.011 +08:00 [INF] IO监控服务启动完成
+2025-01-26 10:58:04.077 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 10:58:05.320 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:02:05.682 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:02:05.735 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:03:29.254 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:03:29.319 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:03:30.078 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:03:30.175 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:03:31.334 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:12:13.336 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:12:13.390 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:12:14.050 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:12:14.124 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:12:14.840 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:17:21.848 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:17:21.896 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:17:22.560 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:17:22.630 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:17:23.278 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:18:50.504 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:18:50.561 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:18:51.296 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:18:51.362 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:18:52.171 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:19:59.978 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:20:00.030 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:20:00.686 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:20:00.758 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:20:01.564 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:23:47.510 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 11:23:47.579 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:23:48.247 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:23:48.319 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:23:49.011 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:25:38.732 +08:00 [INF] 正在切换设备状态: ID=18, IsEnabled=true
+2025-01-26 11:25:38.873 +08:00 [INF] 设备监控已启动: ID=18, IP=192.168.1.1, Time="2025-01-26T03:25:38.8732866Z", User=YCmai
+2025-01-26 11:25:38.875 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:38.890 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:38.893 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:38.894 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:38.897 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:38.898 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:39.903 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:39.904 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:39.906 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:39.907 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:39.910 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:39.911 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:40.923 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:40.925 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:40.927 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:40.928 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:40.931 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:40.933 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:41.945 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:41.947 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:41.949 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:41.951 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:41.954 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:41.956 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:42.976 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:42.977 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:42.979 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:42.980 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:42.983 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:42.985 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:43.991 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:43.993 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:43.997 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:44.001 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:44.004 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:44.005 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:45.007 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:45.009 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:45.015 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:45.018 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:45.022 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:45.026 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:46.045 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:46.047 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:46.051 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:46.052 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:46.055 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:46.058 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:47.074 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:47.076 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:47.079 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:47.081 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:47.084 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:47.086 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:48.100 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:48.102 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:48.106 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:48.108 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:48.110 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:48.111 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:49.115 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:49.117 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:49.120 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:49.121 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:49.124 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:49.126 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:50.131 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:50.133 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:50.135 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:50.136 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:50.139 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:50.139 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:51.150 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:51.151 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:51.154 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:51.155 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:51.157 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:51.159 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:52.163 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:52.164 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:52.168 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:52.169 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:52.173 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:52.175 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:53.178 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:53.181 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:53.189 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:53.193 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:53.202 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:53.206 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:54.222 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:54.223 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:54.226 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:54.227 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:54.230 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:54.231 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:55.247 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:55.248 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:55.250 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:55.251 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:55.253 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:55.254 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:56.259 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:56.261 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:56.263 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:56.264 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:56.266 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:56.267 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:57.273 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:57.274 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:57.276 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:57.277 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:57.278 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:57.279 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:58.290 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:58.291 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:58.294 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:58.295 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:58.297 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:58.298 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:59.314 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:25:59.315 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:59.317 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:25:59.318 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:25:59.320 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:25:59.321 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:00.335 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:26:00.337 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:00.342 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:26:00.344 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:00.346 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:26:00.347 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:01.354 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 11:26:01.355 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:01.358 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 11:26:01.359 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:01.361 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 11:26:01.362 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 11:26:01.490 +08:00 [INF] 正在切换设备状态: ID=18, IsEnabled=false
+2025-01-26 11:26:02.364 +08:00 [INF] 设备监控已取消: ID=18, IP=192.168.1.1
+2025-01-26 11:26:02.367 +08:00 [INF] 设备监控已停止: ID=18, IP=192.168.1.1, Time="2025-01-26T03:26:02.3672746Z", User=YCmai
+2025-01-26 11:26:17.269 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_DisplayLocation_Index.ExecuteAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Views\DisplayLocation\Index.cshtml:line 7
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-01-26 11:39:17.562 +08:00 [INF] 正在尝试连接到 10.10.40.12:5000
+2025-01-26 11:39:19.608 +08:00 [ERR] 连接失败
+System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.TcpClient.CompleteConnectAsync(Task task)
+   at WarehouseManagementSystem.Hubs.TcpClient.Hubs.TcpClientHub.Connect(String serverIp, Int32 serverPort) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Hubs\TcpClient.cs:line 45
+2025-01-26 11:39:19.649 +08:00 [ERR] Failed to invoke hub method 'Connect'.
+System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.TcpClient.CompleteConnectAsync(Task task)
+   at WarehouseManagementSystem.Hubs.TcpClient.Hubs.TcpClientHub.Connect(String serverIp, Int32 serverPort) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Hubs\TcpClient.cs:line 45
+   at WarehouseManagementSystem.Hubs.TcpClient.Hubs.TcpClientHub.Connect(String serverIp, Int32 serverPort) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Hubs\TcpClient.cs:line 69
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|16_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-01-26 11:51:50.592 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 11:51:51.561 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 11:54:00.167 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 11:56:24.396 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 11:56:24.478 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 11:56:24.495 +08:00 [INF] IO监控服务启动中
+2025-01-26 11:56:25.314 +08:00 [INF] IO监控服务启动完成
+2025-01-26 11:56:25.385 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 11:56:26.608 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 11:56:35.247 +08:00 [INF] 客户端已连接: 10.10.40.5:22486
+2025-01-26 11:56:43.741 +08:00 [INF] 客户端数据 10.10.40.5:22486: 1111
+2025-01-26 11:56:46.176 +08:00 [INF] 客户端数据 10.10.40.5:22486: 2222
+2025-01-26 11:56:47.846 +08:00 [INF] 客户端数据 10.10.40.5:22486: 3333
+2025-01-26 11:56:50.130 +08:00 [INF] 客户端数据 10.10.40.5:22486: 4444
+2025-01-26 14:19:42.258 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:19:42.329 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:19:42.341 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:19:43.854 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:19:43.937 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:19:44.908 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:19:58.765 +08:00 [INF] 客户端已连接: 10.10.40.5:27302
+2025-01-26 14:19:58.949 +08:00 [ERR] 处理客户端时出错 10.10.40.5:27302
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHEN' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.UpdateClientStatusAsync(String clientEndpoint, Boolean isConnected) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 216
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 99
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+ClientConnectionId:975b60d5-2b02-4f13-9ad6-d4dfba8c53c1
+Error Number:156,State:1,Class:15
+2025-01-26 14:19:59.031 +08:00 [INF] 客户端已断开连接: 10.10.40.5:27302
+2025-01-26 14:20:25.538 +08:00 [INF] 客户端已连接: 10.10.40.5:27341
+2025-01-26 14:20:25.624 +08:00 [ERR] 处理客户端时出错 10.10.40.5:27341
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHEN' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.UpdateClientStatusAsync(String clientEndpoint, Boolean isConnected) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 216
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 99
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+ClientConnectionId:975b60d5-2b02-4f13-9ad6-d4dfba8c53c1
+Error Number:156,State:1,Class:15
+2025-01-26 14:20:25.721 +08:00 [INF] 客户端已断开连接: 10.10.40.5:27341
+2025-01-26 14:20:42.329 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:20:42。清理时间早于 2024-12-27 06:20:42 的消息。
+2025-01-26 14:20:42.331 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:20:49.172 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 14:20:53.815 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 14:22:09.535 +08:00 [INF] 客户端已连接: 10.10.40.5:27478
+2025-01-26 14:22:13.594 +08:00 [ERR] 处理客户端时出错 10.10.40.5:27478
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHEN' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.UpdateClientStatusAsync(String clientEndpoint, Boolean isConnected) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 216
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 99
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+ClientConnectionId:975b60d5-2b02-4f13-9ad6-d4dfba8c53c1
+Error Number:156,State:1,Class:15
+2025-01-26 14:22:13.635 +08:00 [INF] 客户端已断开连接: 10.10.40.5:27478
+2025-01-26 14:22:57.375 +08:00 [INF] 客户端已连接: 10.10.40.5:27600
+2025-01-26 14:23:09.688 +08:00 [ERR] 处理客户端时出错 10.10.40.5:27600
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHEN' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.UpdateClientStatusAsync(String clientEndpoint, Boolean isConnected) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 216
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 99
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+ClientConnectionId:975b60d5-2b02-4f13-9ad6-d4dfba8c53c1
+Error Number:156,State:1,Class:15
+2025-01-26 14:23:09.714 +08:00 [INF] 客户端已断开连接: 10.10.40.5:27600
+2025-01-26 14:23:50.158 +08:00 [INF] 客户端已连接: 10.10.40.5:27683
+2025-01-26 14:24:17.120 +08:00 [ERR] 处理客户端时出错 10.10.40.5:27683
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHEN' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.UpdateClientStatusAsync(String clientEndpoint, Boolean isConnected) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 216
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 99
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+ClientConnectionId:975b60d5-2b02-4f13-9ad6-d4dfba8c53c1
+Error Number:156,State:1,Class:15
+2025-01-26 14:24:17.146 +08:00 [INF] 客户端已断开连接: 10.10.40.5:27683
+2025-01-26 14:25:27.984 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:25:28.055 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:25:28.068 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:25:28.811 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:25:28.891 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:25:30.049 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:25:59.802 +08:00 [INF] 客户端已连接: 10.10.40.5:27858
+2025-01-26 14:28:56.860 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:28:56.927 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:28:56.944 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:28:57.631 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:28:57.701 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:28:58.344 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:29:18.286 +08:00 [INF] 客户端已连接: 10.10.40.5:28009
+2025-01-26 14:29:56.933 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:29:56。清理时间早于 2024-12-27 06:29:56 的消息。
+2025-01-26 14:29:56.936 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:30:33.760 +08:00 [INF] 客户端数据 10.10.40.5:28009: 11111
+2025-01-26 14:32:30.485 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:32:30.573 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:32:30.585 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:32:31.315 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:32:31.394 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:32:32.458 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:33:26.583 +08:00 [INF] 客户端已连接: 10.10.40.5:28267
+2025-01-26 14:33:30.353 +08:00 [INF] 客户端数据 10.10.40.5:28267: 1111
+2025-01-26 14:33:35.063 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:33:32。清理时间早于 2024-12-27 06:33:32 的消息。
+2025-01-26 14:33:35.088 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:34:03.095 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:34:03.181 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:34:03.194 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:34:03.871 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:34:03.940 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:34:04.641 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:34:26.716 +08:00 [INF] 客户端已连接: 10.10.40.5:28350
+2025-01-26 14:34:34.790 +08:00 [INF] 客户端数据 10.10.40.5:28350: 22222
+2025-01-26 14:34:54.382 +08:00 [ERR] 处理消息时发生错误: 3
+Microsoft.Data.SqlClient.SqlException (0x80131904): 关键字 'WHERE' 附近有语法错误。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WarehouseManagementSystem.Service.TcpService.MessageHistoryService.ProcessMessageAsync(Int32 messageId) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\MessageHistoryService.cs:line 139
+ClientConnectionId:d1c9d2bb-e87c-4819-b6f1-125a6a87e3a3
+Error Number:156,State:1,Class:15
+2025-01-26 14:35:03.182 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:35:03。清理时间早于 2024-12-27 06:35:03 的消息。
+2025-01-26 14:35:03.184 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:36:08.162 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:36:08.250 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:36:08.262 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:36:08.977 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:36:09.055 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:36:09.704 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:36:14.837 +08:00 [INF] 客户端已连接: 10.10.40.5:28511
+2025-01-26 14:36:23.030 +08:00 [INF] 客户端数据 10.10.40.5:28511: 2222
+2025-01-26 14:36:53.565 +08:00 [INF] 客户端数据 10.10.40.5:28511: 99999
+2025-01-26 14:37:08.251 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:37:08。清理时间早于 2024-12-27 06:37:08 的消息。
+2025-01-26 14:37:08.257 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:37:21.879 +08:00 [INF] 客户端数据 10.10.40.5:28511: 000000
+2025-01-26 14:37:24.918 +08:00 [INF] 客户端数据 10.10.40.5:28511: 1111
+2025-01-26 14:37:26.468 +08:00 [INF] 客户端数据 10.10.40.5:28511: 2222
+2025-01-26 14:37:27.889 +08:00 [INF] 客户端数据 10.10.40.5:28511: 3333
+2025-01-26 14:37:29.280 +08:00 [INF] 客户端数据 10.10.40.5:28511: 4444
+2025-01-26 14:37:30.582 +08:00 [INF] 客户端数据 10.10.40.5:28511: 5555
+2025-01-26 14:37:39.975 +08:00 [INF] 客户端数据 10.10.40.5:28511: 77777
+2025-01-26 14:37:41.523 +08:00 [INF] 客户端数据 10.10.40.5:28511: 88888
+2025-01-26 14:38:22.824 +08:00 [INF] 客户端数据 10.10.40.5:28511: 11111111
+2025-01-26 14:38:25.119 +08:00 [INF] 客户端数据 10.10.40.5:28511: 123123
+2025-01-26 14:38:26.948 +08:00 [INF] 客户端数据 10.10.40.5:28511: 34234234
+2025-01-26 14:39:16.174 +08:00 [ERR] 处理客户端时出错 10.10.40.5:28511
+System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。.
+ ---> System.Net.Sockets.SocketException (10054): 远程主机强迫关闭了一个现有的连接。
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 106
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 137
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+2025-01-26 14:39:16.242 +08:00 [INF] 客户端已断开连接: 10.10.40.5:28511
+2025-01-26 14:39:40.226 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 14:39:41.253 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 14:40:41.892 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:40:41.960 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:40:41.969 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:40:42.663 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:40:42.735 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:40:43.901 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:41:21.687 +08:00 [INF] 客户端已连接: 10.10.40.5:28875
+2025-01-26 14:41:28.947 +08:00 [INF] 客户端数据 10.10.40.5:28875: 11111
+2025-01-26 14:41:30.408 +08:00 [INF] 客户端数据 10.10.40.5:28875: 2222222
+2025-01-26 14:41:31.967 +08:00 [INF] 客户端数据 10.10.40.5:28875: 333333333
+2025-01-26 14:41:34.304 +08:00 [INF] 客户端数据 10.10.40.5:28875: 4444444444
+2025-01-26 14:41:35.829 +08:00 [INF] 客户端数据 10.10.40.5:28875: 5555555555
+2025-01-26 14:41:37.305 +08:00 [INF] 客户端数据 10.10.40.5:28875: 666666666
+2025-01-26 14:41:39.040 +08:00 [INF] 客户端数据 10.10.40.5:28875: 77777777
+2025-01-26 14:41:41.102 +08:00 [INF] 客户端数据 10.10.40.5:28875: 88888888
+2025-01-26 14:41:41.965 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:41:41。清理时间早于 2024-12-27 06:41:41 的消息。
+2025-01-26 14:41:41.968 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:41:43.630 +08:00 [INF] 客户端数据 10.10.40.5:28875: 100000000
+2025-01-26 14:41:45.380 +08:00 [INF] 客户端数据 10.10.40.5:28875: 11111111111
+2025-01-26 14:41:47.117 +08:00 [INF] 客户端数据 10.10.40.5:28875: 12
+2025-01-26 14:42:32.351 +08:00 [ERR] 处理客户端时出错 10.10.40.5:28875
+System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。.
+ ---> System.Net.Sockets.SocketException (10054): 远程主机强迫关闭了一个现有的连接。
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 106
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 137
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+2025-01-26 14:42:32.415 +08:00 [INF] 客户端已断开连接: 10.10.40.5:28875
+2025-01-26 14:45:38.491 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:45:38.562 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:45:38.575 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:45:39.265 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:45:39.336 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:45:40.245 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:46:38.560 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:46:38。清理时间早于 2024-12-27 06:46:38 的消息。
+2025-01-26 14:46:38.563 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:54:28.116 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 14:54:28.177 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 14:54:28.189 +08:00 [INF] IO监控服务启动中
+2025-01-26 14:54:28.837 +08:00 [INF] IO监控服务启动完成
+2025-01-26 14:54:28.915 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 14:54:29.977 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 14:55:28.187 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 06:55:28。清理时间早于 2024-12-27 06:55:28 的消息。
+2025-01-26 14:55:28.189 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 14:56:00.580 +08:00 [INF] 客户端已连接: 10.10.40.5:29637
+2025-01-26 14:56:06.361 +08:00 [INF] 客户端数据 10.10.40.5:29637: 111
+2025-01-26 14:56:09.306 +08:00 [INF] 客户端数据 10.10.40.5:29637: 2222
+2025-01-26 14:56:10.946 +08:00 [INF] 客户端数据 10.10.40.5:29637: 333
+2025-01-26 14:56:13.060 +08:00 [INF] 客户端数据 10.10.40.5:29637: 4444
+2025-01-26 14:56:15.342 +08:00 [INF] 客户端数据 10.10.40.5:29637: 5555
+2025-01-26 14:56:16.859 +08:00 [INF] 客户端数据 10.10.40.5:29637: 6666
+2025-01-26 14:56:18.594 +08:00 [INF] 客户端数据 10.10.40.5:29637: 7
+2025-01-26 14:56:21.532 +08:00 [INF] 客户端数据 10.10.40.5:29637: 8888
+2025-01-26 14:56:24.404 +08:00 [INF] 客户端数据 10.10.40.5:29637: 9999
+2025-01-26 14:58:41.314 +08:00 [ERR] 处理客户端时出错 10.10.40.5:29637
+System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。.
+ ---> System.Net.Sockets.SocketException (10054): 远程主机强迫关闭了一个现有的连接。
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 106
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 137
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+2025-01-26 14:58:41.363 +08:00 [INF] 客户端已断开连接: 10.10.40.5:29637
+2025-01-26 15:06:34.990 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:06:35.052 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:06:35.064 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:06:35.770 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:06:35.843 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:06:36.951 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:07:35.059 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:07:35。清理时间早于 2024-12-27 07:07:35 的消息。
+2025-01-26 15:07:35.063 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:31:17.411 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:31:17.476 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:31:17.487 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:31:18.179 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:31:18.255 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:31:19.293 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:32:59.966 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:33:00.039 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:33:00.050 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:33:00.860 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:33:00.954 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:33:01.873 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:34:00.038 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:34:00。清理时间早于 2024-12-27 07:34:00 的消息。
+2025-01-26 15:34:00.041 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:36:09.678 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:36:09.755 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:36:09.765 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:36:10.418 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:36:10.494 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:36:11.602 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:36:44.566 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 15:36:54.200 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 15:37:09.757 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:37:09。清理时间早于 2024-12-27 07:37:09 的消息。
+2025-01-26 15:37:09.760 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:37:38.047 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 15:42:27.915 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 15:42:27.963 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:42:28.626 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:42:28.701 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:42:29.371 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:43:09.541 +08:00 [INF] TCP服务器状态已更新为: True
+2025-01-26 15:44:21.982 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:44:22.052 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:44:22.064 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:44:22.698 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:44:22.767 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:44:23.672 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:45:22.054 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:45:22。清理时间早于 2024-12-27 07:45:22 的消息。
+2025-01-26 15:45:22.056 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:48:26.490 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:48:26.552 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:48:26.564 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:48:27.229 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:48:27.301 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:48:28.263 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:49:12.606 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:49:12.674 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:49:12.685 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:49:13.400 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:49:13.482 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:49:14.225 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:50:12.679 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:50:12。清理时间早于 2024-12-27 07:50:12 的消息。
+2025-01-26 15:50:12.683 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:50:28.735 +08:00 [INF] 数据清理服务正在启动。当前用户：YCmai
+2025-01-26 15:50:28.802 +08:00 [INF] TCP 服务器开始端口 5000.
+2025-01-26 15:50:28.812 +08:00 [INF] IO监控服务启动中
+2025-01-26 15:50:29.450 +08:00 [INF] IO监控服务启动完成
+2025-01-26 15:50:29.524 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 15:50:30.479 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 15:51:01.952 +08:00 [INF] 客户端已连接: 10.10.40.5:54737
+2025-01-26 15:51:05.873 +08:00 [INF] 客户端数据 10.10.40.5:54737: 1111
+2025-01-26 15:51:08.801 +08:00 [INF] 客户端数据 10.10.40.5:54737: 2222
+2025-01-26 15:51:11.254 +08:00 [INF] 客户端数据 10.10.40.5:54737: 3333
+2025-01-26 15:51:13.952 +08:00 [INF] 客户端数据 10.10.40.5:54737: 4444
+2025-01-26 15:51:18.024 +08:00 [INF] 客户端数据 10.10.40.5:54737: 5
+2025-01-26 15:51:28.809 +08:00 [INF] 开始数据清理，当前时间：2025-01-26 07:51:28。清理时间早于 2024-12-27 07:51:28 的消息。
+2025-01-26 15:51:28.813 +08:00 [INF] 未找到需要清理的消息。
+2025-01-26 15:51:29.156 +08:00 [ERR] 处理客户端时出错 10.10.40.5:54737
+System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。.
+ ---> System.Net.Sockets.SocketException (10054): 远程主机强迫关闭了一个现有的连接。
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 106
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.HandleClientAsync(TcpClient client, CancellationToken stoppingToken) in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 137
+   at WarehouseManagementSystem.Service.TcpService.TcpServerService.<>c__DisplayClass5_1.<<ExecuteAsync>b__0>d.MoveNext() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Service\TcpService\TcpServerService.cs:line 55
+2025-01-26 15:51:29.238 +08:00 [INF] 客户端已断开连接: 10.10.40.5:54737
+2025-01-26 15:51:35.546 +08:00 [INF] TCP服务器状态已更新为: False
+2025-01-26 15:52:15.605 +08:00 [INF] 正在切换设备状态: ID=18, IsEnabled=true
+2025-01-26 15:52:15.644 +08:00 [INF] 设备监控已启动: ID=18, IP=192.168.1.1, Time="2025-01-26T07:52:15.6439576Z", User=YCmai
+2025-01-26 15:52:15.646 +08:00 [INF] StartMonitoringDevice读取信号18地址DI1
+2025-01-26 15:52:15.656 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 15:52:15.660 +08:00 [INF] StartMonitoringDevice读取信号18地址DI2
+2025-01-26 15:52:15.664 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DI2, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 15:52:15.670 +08:00 [INF] StartMonitoringDevice读取信号18地址DO1
+2025-01-26 15:52:15.674 +08:00 [DBG] 信号状态更新通知已发送: IP=192.168.1.1, Address=DO1, Value=false, Time=2025-01-22 02:44:19, User=YCmai
+2025-01-26 15:52:16.457 +08:00 [INF] 正在切换设备状态: ID=18, IsEnabled=false
+2025-01-26 15:52:16.681 +08:00 [INF] 设备监控已取消: ID=18, IP=192.168.1.1
+2025-01-26 15:52:16.685 +08:00 [INF] 设备监控已停止: ID=18, IP=192.168.1.1, Time="2025-01-26T07:52:16.6856093Z", User=YCmai
+2025-01-26 15:52:34.611 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_DisplayLocation_Index.ExecuteAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Views\DisplayLocation\Index.cshtml:line 7
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-01-26 15:52:45.200 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCoreGeneratedDocument.Views_DisplayLocation_Index.ExecuteAsync() in E:\Project\AG240076云浮爱德克斯项目\库位\WarehouseManagementSystem\Views\DisplayLocation\Index.cshtml:line 7
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-01-26 16:00:33.185 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 16:00:33.234 +08:00 [INF] IO监控服务启动中
+2025-01-26 16:00:33.874 +08:00 [INF] IO监控服务启动完成
+2025-01-26 16:00:33.942 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 16:00:35.068 +08:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 16:12:43.637 +08:00 [INF] TCP服务未启用，数据清理服务将不会启动。
+2025-01-26 16:12:43.707 +08:00 [INF] IO监控服务启动中
+2025-01-26 16:12:44.501 +08:00 [INF] IO监控服务启动完成
+2025-01-26 16:12:44.580 +08:00 [WRN] Overriding address(es) 'http://localhost:5055'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-26 16:12:46.996 +08:00 [WRN] Failed to determine the https port for redirect.

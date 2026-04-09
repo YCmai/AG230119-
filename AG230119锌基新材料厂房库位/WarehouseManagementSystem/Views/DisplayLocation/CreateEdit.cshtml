@@ -1,0 +1,155 @@
+﻿@model RCS_Locations
+@using EnumExtensions;
+<!-- Modal 提示框 -->
+<!-- 消息模态框 -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content shadow-lg border-0">
+            <div class="modal-header bg-@(TempData["MessageType"]?.ToString().ToLower()) text-white">
+                <h5 class="modal-title" id="messageModalLabel">
+                    <i class="bi bi-check-circle me-2"></i>hint
+
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="lead">@TempData["Message"]</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="closebtn" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .custom-header {
+        padding: 0.5rem 1rem; /* 减少顶部红色区域的高度 */
+    }
+
+    .btn-close {
+        margin-right: -1rem; /* 减少关闭按钮的右侧间距 */
+    }
+
+    .btn-close-white {
+        filter: invert(1); /* 将关闭按钮变成白色 */
+    }
+
+    .modal-title {
+        font-size: 1.25rem; /* 调整标题字体大小 */
+    }
+
+    .custom-footer {
+        justify-content: center; /* 让关闭按钮居中 */
+        padding: 0.5rem; /* 减少底部区域的高度 */
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.75rem; /* 调整关闭按钮的大小 */
+    }
+</style>
+
+<form asp-action="CreateEdit" method="post">
+    <div class="form-group mb-2">
+        <label asp-for="Name" class="control-label">地图节点</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+      @*   <label asp-for="NodeRemark" class="control-label">NodeRemark</label>
+        <input asp-for="NodeRemark" class="form-control" />
+        <span asp-validation-for="NodeRemark" class="text-danger"></span> *@
+
+        <label asp-for="NodeRemark" class="control-label">节点备注</label>
+        @if (Model.Id == 0)
+        {
+            <input asp-for="NodeRemark" class="form-control" />
+        }
+        else
+        {
+            <input asp-for="NodeRemark" class="form-control" readonly />
+            <input type="hidden" asp-for="NodeRemark" /> <!-- 传递 Name 值 -->
+            <span asp-validation-for="NodeRemark" class="text-danger"></span>
+        }
+        <span asp-validation-for="NodeRemark" class="text-danger"></span>
+
+
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="WattingNode" class="control-label">操作点</label>
+        <input asp-for="WattingNode" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="MaterialCode" class="control-label">物料编号</label>
+        <input asp-for="MaterialCode" class="form-control" />
+    </div>
+
+    @*  <div class="form-group mb-2">
+        <label asp-for="PalletID" class="control-label">托盘ID</label>
+        <input asp-for="PalletID" class="form-control" />
+    </div> *@
+
+    <div class="form-group mb-2">
+        <label asp-for="Quanitity" class="control-label">数量</label>
+        <input asp-for="Quanitity" class="form-control" />
+    </div>
+
+  @*   <div class="form-group mb-2">
+        <label asp-for="Weight" class="control-label">重量</label>
+        <input asp-for="Weight" class="form-control" />
+    </div> *@
+
+    <div class="form-group mb-2">
+        <label asp-for="EntryDate" class="control-label">入库日期</label>
+        <input asp-for="EntryDate" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Group" class="control-label">分组</label>
+        <input asp-for="Group" class="form-control" />
+        <span asp-validation-for="Group" class="text-danger"></span>
+    </div>
+
+   @*  <div class="form-group mb-2">
+        <label asp-for="LiftingHeight" class="control-label">举升高度</label>
+        <input asp-for="LiftingHeight" class="form-control" />
+        <span asp-validation-for="LiftingHeight" class="text-danger"></span>
+    </div> *@
+    <div class="form-group mb-2">
+        <label asp-for="Lock" class="control-label">Lock</label>
+        <select asp-for="Lock" class="form-control">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+        <span asp-validation-for="Lock" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">保存</button>
+
+    <a asp-action="Index" asp-controller="Location" class="btn btn-secondary ms-2">返回</a>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            // 弹出提示信息的Modal
+            $('#messageModal').modal('show');
+
+            // 判断是否是成功提示，如果是，显示后再跳转到Index页面
+            if ('@TempData["MessageType"]' === 'success' && '@TempData["RedirectAfterDelay"]' === 'True') {
+                // 在2秒后自动关闭Modal并跳转
+                setTimeout(function () {
+                    $('#messageModal').modal('hide');
+                    window.location.href = '@Url.Action("Index", "DisplayLocation")';
+                }, 2000);
+
+                // 当用户手动点击关闭按钮或X时也跳转
+                $('#messageModal').on('hidden.bs.modal', function () {
+                    window.location.href = '@Url.Action("Index", "DisplayLocation")';
+                });
+            }
+        });
+    </script>
+}
+

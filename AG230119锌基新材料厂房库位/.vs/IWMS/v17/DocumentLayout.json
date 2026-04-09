@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|e:\\project\\ag240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\linecallinputoutput\\application\\linecalloutputorderappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|solutionrelative:linecallinputoutput\\application\\linecalloutputorderappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|e:\\project\\ag240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\linecallinputoutput\\domain\\service\\linecallinputordermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|solutionrelative:linecallinputoutput\\domain\\service\\linecallinputordermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|e:\\project\\ag240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\linecallinputoutput\\application\\linecallinputorderappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E9335F5-2B1B-419E-AC3A-F8715C6CDD12}|LineCallInputOutput\\WMS.LineCallInputModule.csproj|solutionrelative:linecallinputoutput\\application\\linecallinputorderappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LineCallOutputOrderAppservice.cs",
+              "DocumentMoniker": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Application\\LineCallOutputOrderAppservice.cs",
+              "RelativeDocumentMoniker": "LineCallInputOutput\\Application\\LineCallOutputOrderAppservice.cs",
+              "ToolTip": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Application\\LineCallOutputOrderAppservice.cs",
+              "RelativeToolTip": "LineCallInputOutput\\Application\\LineCallOutputOrderAppservice.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAQwFcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T06:12:04.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LineCallInputOrderManager.cs",
+              "DocumentMoniker": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Domain\\Service\\LineCallInputOrderManager.cs",
+              "RelativeDocumentMoniker": "LineCallInputOutput\\Domain\\Service\\LineCallInputOrderManager.cs",
+              "ToolTip": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Domain\\Service\\LineCallInputOrderManager.cs",
+              "RelativeToolTip": "LineCallInputOutput\\Domain\\Service\\LineCallInputOrderManager.cs",
+              "ViewState": "AQIAAKcFAAAAAAAAAAAEwHcFAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T06:09:48.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LineCallInputOrderAppservice.cs",
+              "DocumentMoniker": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Application\\LineCallInputOrderAppservice.cs",
+              "RelativeDocumentMoniker": "LineCallInputOutput\\Application\\LineCallInputOrderAppservice.cs",
+              "ToolTip": "E:\\Project\\AG240076\u4E91\u6D6E\u7231\u5FB7\u514B\u65AF\u9879\u76EE\\\u5E93\u4F4D\\LineCallInputOutput\\Application\\LineCallInputOrderAppservice.cs",
+              "RelativeToolTip": "LineCallInputOutput\\Application\\LineCallInputOrderAppservice.cs",
+              "ViewState": "AQIAAPAAAAAAAAAAAAAjwBYBAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T06:05:24.935Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

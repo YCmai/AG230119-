@@ -1,0 +1,857 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pad management</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap5/dist/css/bootstrap.min.css" />
+    <script src="~/lib/signalr/dist/signalr.min.js"></script>
+    <script src="~/lib/chart.js/dist/chart.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/axios.min.js"></script>
+
+    <style>
+        /* 完全重新设计的布局系统 */
+        :root {
+            --navbar-height: 56px;  /* 导航栏高度 */
+            --footer-height: 40px;  /* 页脚高度 */
+        }
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 导航栏固定在顶部 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-height);
+            z-index: 1030;
+        }
+        
+        /* 内容区域 */
+        .content-wrapper {
+            flex: 1;
+            margin-top: var(--navbar-height); /* 为固定导航栏留出空间 */
+            margin-bottom: var(--footer-height); /* 为固定页脚留出空间 */
+            padding: 15px;
+            overflow-y: auto; /* 内容过多时允许滚动 */
+        }
+        
+        /* 页脚固定在底部 */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--footer-height);
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            z-index: 1020;
+            display: flex;
+            align-items: center;
+            padding: 0 20px; /* 增加水平内边距 */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* 添加微妙的阴影 */
+        }
+        
+        /* 确保页面内容在小屏幕上也能正常显示 */
+        @@media (max-width: 768px) {
+            .content-wrapper {
+                margin-top: var(--navbar-height);
+            }
+        }
+
+        /* 导航栏样式优化 - 浅色系现代风格 */
+        .navbar.navbar-expand.top-navbar {
+            background: linear-gradient(135deg, #ffffff, #f5f7fa) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08) !important;
+            border-bottom: 1px solid rgba(230, 235, 245, 0.8) !important;
+        }
+
+        /* 导航链接样式 */
+        .navbar.navbar-expand.top-navbar .nav-link {
+            color: #4a5568 !important;
+            padding: 8px 16px !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+            margin: 0 3px;
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link i {
+            margin-right: 8px;
+            font-size: 16px;
+            color: #3d5afe;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link:hover {
+            color: #3d5afe !important;
+            background: rgba(61, 90, 254, 0.08) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(61, 90, 254, 0.15);
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link.active {
+            background: rgba(61, 90, 254, 0.12) !important;
+            color: #3d5afe !important;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(61, 90, 254, 0.2);
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link.active i {
+            color: #3d5afe;
+        }
+
+        /* 页脚样式优化 */
+        footer {
+            background: linear-gradient(135deg, #ffffff, #f5f7fa) !important;
+            color: #4a5568 !important;
+            border-top: 1px solid rgba(230, 235, 245, 0.8) !important;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.05) !important;
+        }
+
+        footer #status-text {
+            color: #4a5568 !important;
+            font-weight: 500;
+        }
+
+        footer #system-clock {
+            color: #4a5568 !important;
+            font-weight: 500;
+        }
+
+        /* 状态指示器样式 */
+        footer #status-icon {
+            width: 10px;
+            height: 10px;
+            margin: 0 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        footer .status-success {
+            background: #00c853 !important;
+            box-shadow: 0 0 10px rgba(0, 200, 83, 0.5);
+        }
+
+        footer .status-failure {
+            background: #ff5252 !important;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.5);
+        }
+
+        /* 添加炫酷的动画效果 */
+        .navbar.navbar-expand.top-navbar .nav-link:hover i {
+            transform: translateY(-2px) rotate(-10deg);
+            color: #536dfe;
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link.active:hover {
+            background: rgba(61, 90, 254, 0.18) !important;
+        }
+
+        /* 添加导航栏项目的微妙动画 */
+        .navbar.navbar-expand.top-navbar .nav-item {
+            position: relative;
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #3d5afe;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+
+        .navbar.navbar-expand.top-navbar .nav-link:hover::after,
+        .navbar.navbar-expand.top-navbar .nav-link.active::after {
+            width: 60%;
+            opacity: 1;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2ecc71;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+            padding-top: var(--navbar-height);
+            padding-bottom: 60px;
+        }
+
+        /* 顶部导航栏样式 */
+        .top-navbar {
+            background: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-height);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0 15px;
+        }
+
+        .navbar-nav {
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* 导航项样式 */
+        .nav-item {
+            margin: 0 5px;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            padding: 8px 16px !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--secondary-color);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            padding: 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* 页脚样式 */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        /* 状态指示器样式 */
+        #status-icon {
+            width: 12px;
+            height: 12px;
+            margin: 0 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .status-success {
+            background: var(--accent-color);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+
+        .status-failure {
+            background: #e74c3c;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+
+        #system-clock {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        /* 响应式设计 */
+        @@media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: row !important;
+                overflow-x: auto;
+                padding: 10px 0;
+                -webkit-overflow-scrolling: touch; /* 为 iOS 添加平滑滚动 */
+            }
+
+            .nav-item {
+                white-space: nowrap;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .nav-link {
+                padding: 8px 12px !important;
+                font-size: 0.9em;
+            }
+
+            .nav-link i {
+                margin-right: 4px;
+            }
+
+            /* 优化移动端页脚 */
+            footer {
+                padding: 10px 15px;
+            }
+
+            #system-clock {
+                font-size: 0.9em;
+            }
+        }
+
+        /* 滚动条美化 */
+        .navbar-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .navbar-nav::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .navbar-nav::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
+        .navbar-nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        /* 添加一些额外的优化 */
+        .container-fluid {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 确保内容区域不会被页脚遮挡 */
+        .main-content {
+            min-height: calc(100vh - var(--navbar-height) - 60px);
+        }
+
+        /* 优化状态文本样式 */
+        #status-text {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        /* 添加页面切换动画 */
+        .main-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 表格样式优化 */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            background: white;
+        }
+
+        table th {
+            background: rgba(61, 90, 254, 0.05);
+            color: #4a5568;
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(230, 235, 245, 0.8);
+            font-size: 14px;
+        }
+
+        table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(230, 235, 245, 0.5);
+            color: #4a5568;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table tr:hover td {
+            background-color: rgba(61, 90, 254, 0.03);
+        }
+
+        /* 状态标签样式 */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .status-success {
+            background-color: rgba(0, 200, 83, 0.15);
+            color: #00a854;
+        }
+
+        .status-failure {
+            background-color: rgba(255, 82, 82, 0.15);
+            color: #f5222d;
+        }
+
+        /* 按钮样式优化 */
+        .btn {
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #3d5afe;
+            color: white;
+            box-shadow: 0 2px 8px rgba(61, 90, 254, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #536dfe;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(61, 90, 254, 0.35);
+        }
+
+        .btn-danger {
+            background: #ff5252;
+            color: white;
+            box-shadow: 0 2px 8px rgba(255, 82, 82, 0.25);
+        }
+
+        .btn-danger:hover {
+            background: #ff4081;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 82, 82, 0.35);
+        }
+
+        .btn-outline-primary {
+            border: 1px solid #3d5afe;
+            color: #3d5afe;
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: rgba(61, 90, 254, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* 输入框样式优化 */
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid rgba(230, 235, 245, 0.8);
+            padding: 10px 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control:focus {
+            border-color: #3d5afe;
+            box-shadow: 0 0 0 3px rgba(61, 90, 254, 0.15);
+            outline: none;
+        }
+
+        /* 卡片样式 */
+        .card {
+            border-radius: 10px;
+            border: 1px solid rgba(230, 235, 245, 0.8);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 24px;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            background: rgba(61, 90, 254, 0.03);
+            border-bottom: 1px solid rgba(230, 235, 245, 0.8);
+            padding: 16px 20px;
+            font-weight: 600;
+            color: #4a5568;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .pagination .page-item {
+            margin: 0 4px;
+        }
+
+        .pagination .page-link {
+            border-radius: 8px;
+            border: 1px solid rgba(230, 235, 245, 0.8);
+            color: #4a5568;
+            padding: 8px 14px;
+            transition: all 0.2s ease;
+        }
+
+        .pagination .page-link:hover {
+            background: rgba(61, 90, 254, 0.08);
+            color: #3d5afe;
+            border-color: rgba(61, 90, 254, 0.2);
+        }
+
+        .pagination .page-item.active .page-link {
+            background: #3d5afe;
+            color: white;
+            border-color: #3d5afe;
+            box-shadow: 0 2px 8px rgba(61, 90, 254, 0.25);
+        }
+
+        /* 标题样式 */
+        h1, h2, h3, h4, h5, h6 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* 特定页面元素样式 */
+        /* PLC交互记录表格行样式 */
+        tr.success-row {
+            background-color: rgba(0, 200, 83, 0.05);
+        }
+
+        tr.failure-row {
+            background-color: rgba(255, 82, 82, 0.05);
+        }
+
+        /* 操作按钮样式 */
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: #4a5568;
+            background: transparent;
+            border: none;
+        }
+
+        .action-btn:hover {
+            background: rgba(61, 90, 254, 0.08);
+            color: #3d5afe;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.delete-btn:hover {
+            background: rgba(255, 82, 82, 0.08);
+            color: #ff5252;
+        }
+
+        /* 写入/读取标签样式 */
+        .operation-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .write-badge {
+            background-color: rgba(61, 90, 254, 0.15);
+            color: #3d5afe;
+        }
+
+        .read-badge {
+            background-color: rgba(83, 109, 254, 0.15);
+            color: #536dfe;
+        }
+
+        /* 修复页脚跳动问题 - 优化版本 */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 防止水平滚动条 */
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 使用视口高度 */
+        }
+        
+        .content-wrapper {
+            flex: 1 0 auto;
+            width: 100%;
+            padding-bottom: 20px; /* 为页脚留出一些空间 */
+        }
+        
+        footer {
+            flex-shrink: 0;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        /* 确保内容不会产生不必要的滚动条 */
+        .container, .container-fluid {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* 系统时钟样式 */
+        #system-clock {
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        /* 状态图标和文本样式 */
+        #status-icon {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        
+        .status-success {
+            background-color: #10b981;
+        }
+        
+        .status-failure {
+            background-color: #ef4444;
+        }
+        
+        #status-text {
+            margin-left: 5px;
+        }
+
+        /* 页脚内容容器 */
+        footer .d-flex {
+            padding: 8px 0; /* 增加垂直内边距 */
+        }
+        
+        /* 状态指示器组 */
+        footer .d-flex .d-flex {
+            margin-right: 15px; /* 右侧边距 */
+        }
+        
+        /* 系统时钟 */
+        #system-clock {
+            font-weight: 500;
+            color: #4a5568;
+            padding: 0 10px; /* 增加内边距 */
+        }
+
+        /* 表格全局样式优化 */
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: #fff;
+        }
+
+        /* 所有表格单元格统一居中对齐 */
+        .table th,
+        .table td {
+            text-align: center !important;
+            vertical-align: middle !important;
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+        }
+
+        /* 表头样式 */
+        .table thead th {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        /* 表格容器样式 */
+        .table-responsive {
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        /* 斑马纹样式优化 */
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        /* 鼠标悬停效果 */
+        .table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body>
+    @RenderSection("Styles", required: false)
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand top-navbar">
+        <div class="container-fluid">
+            <div class="navbar-nav">
+                <div class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "DisplayLocation" ? "active" : "")"
+                       asp-controller="DisplayLocation" asp-action="Index">
+                        <i class="fas fa-home"></i>首页
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Location" ? "active" : "")"
+                       asp-controller="Location" asp-action="Index">
+                        <i class="fas fa-home"></i>储位设置
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Tasks" ? "active" : "")"
+                       asp-controller="Tasks" asp-action="Index">
+                        <i class="fas fa-tasks"></i>历史任务管理
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "IOMonitor" ? "active" : "")"
+                       asp-controller="IOMonitor" asp-action="Index">
+                        <i class="fas fa-cog"></i>IO监控
+                    </a>
+                </div>
+         
+                <div class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Logs" ? "active" : "")"
+                       asp-controller="Logs" asp-action="Index">
+                        <i class="fas fa-clipboard-list"></i>系统日志
+                    </a>
+            
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <div class="content-wrapper">
+        @RenderBody()
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div style="padding-left:5px" class="d-flex align-items-center">
+                <i class="fas fa-server"></i>
+             @*    <span>调度连接:</span>
+                <span id="status-icon"></span>
+                <span id="status-text"></span> *@
+            </div>
+            <div id="system-clock"></div>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+  
+    <script>
+        // 更新连接状态
+        function updateConnectionStatus() {
+            axios.get('/api/connectionstatus')
+                .then(function (response) {
+                    const isConnected = response.data.isConnected;
+                    const statusIcon = document.getElementById('status-icon');
+                    const statusText = document.getElementById('status-text');
+
+                    statusIcon.className = isConnected ? 'status-success' : 'status-failure';
+                    statusText.innerText = isConnected ? 'Online' : 'Offline';
+                    statusText.style.color = isConnected ? '#2ecc71' : '#e74c3c';
+                })
+                .catch(function (error) {
+                    console.error('Connection status check failed:', error);
+                });
+        }
+
+        // 更新系统时钟
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('system-clock').innerText = 
+                now.toLocaleTimeString('zh-CN', { hour12: false });
+        }
+
+        // 初始化
+        setInterval(updateConnectionStatus, 5000);
+        setInterval(updateClock, 1000);
+        updateConnectionStatus();
+        updateClock();
+    </script>
+</body>
+</html>

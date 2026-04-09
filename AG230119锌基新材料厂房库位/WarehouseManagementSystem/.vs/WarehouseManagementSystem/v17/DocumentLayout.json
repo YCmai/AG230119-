@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\NDCProject\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\WarehouseManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9F237AD0-308F-4F27-9F3F-443B5830D6AC}|WarehouseManagementSystem.csproj|e:\\ndcproject\\ag230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\ag230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\warehousemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9F237AD0-308F-4F27-9F3F-443B5830D6AC}|WarehouseManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F237AD0-308F-4F27-9F3F-443B5830D6AC}|WarehouseManagementSystem.csproj|e:\\ndcproject\\ag230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\ag230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\warehousemanagementsystem\\views\\displaylocation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F237AD0-308F-4F27-9F3F-443B5830D6AC}|WarehouseManagementSystem.csproj|solutionrelative:views\\displaylocation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\NDCProject\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\WarehouseManagementSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\NDCProject\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\WarehouseManagementSystem\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-27T06:19:31.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\NDCProject\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\WarehouseManagementSystem\\Views\\DisplayLocation\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\DisplayLocation\\Index.cshtml",
+              "ToolTip": "E:\\NDCProject\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\\AG230119\u950C\u57FA\u65B0\u6750\u6599\u5382\u623F\u5E93\u4F4D\\WarehouseManagementSystem\\Views\\DisplayLocation\\Index.cshtml",
+              "RelativeToolTip": "Views\\DisplayLocation\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALoAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T06:44:25.311Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+﻿@using WarehouseManagementSystem.Models.TcpService
+@model MessageViewModel
+
+@{
+    ViewData["Title"] = "TCP 客户端监控";
+}
+
+@section Styles {
+    <style>
+        .card {
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .status-badge {
+            min-width: 60px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+
+        .table-responsive {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        @@media (max-width: 1024px) {
+            .table {
+                font-size: 0.85rem;
+            }
+
+            .card-body {
+                padding: 0.75rem;
+            }
+        }
+
+        .new-row {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+}
+
+<!-- 顶部状态栏 -->
+<div class="row mb-3">
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span>TCP服务器控制</span>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="tcpServerToggle">
+                <label class="form-check-label" for="tcpServerToggle">
+                    <span id="serverStatus">正在加载...</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 mb-2">
+        <select id="clientFilter" class="form-select" onchange="filterByClient(this.value)">
+            <option value="">所有客户端</option>
+            @foreach (var status in Model.ClientStatuses)
+            {
+                <option value="@status.ClientEndpoint" selected="@(status.ClientEndpoint == Model.SelectedClient)">
+                    @status.ClientEndpoint
+                </option>
+            }
+        </select>
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="card h-100">
+            <div class="card-body p-2">
+                <div class="d-flex justify-content-around">
+                    <div class="text-center">
+                        <div class="h5 mb-0">@Model.ClientStatuses.Count(x => x.IsConnected)</div>
+                        <small class="text-muted">在线客户端</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="h5 mb-0">@Model.TotalMessages</div>
+                        <small class="text-muted">总消息数</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 图表和状态面板 -->
+<div class="row">
+   @*  <div class="col-12 col-lg-8 mb-3">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>消息统计</span>
+                <small class="text-muted">最近24小时</small>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                     <canvas id="messageChart"></canvas> 
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div> *@
+    <!-- 替换原来的图表部分为消息处理状态面板 -->
+    <div class="col-12 col-lg-8 mb-3">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>消息处理状态</span>
+                <div class="d-flex align-items-center">
+                    <select id="pageSizeSelect" class="form-select form-select-sm me-2" style="width: auto;">
+                        <option value="10">10条/页</option>
+                        <option value="20">20条/页</option>
+                        <option value="50">50条/页</option>
+                    </select>
+                    <button class="btn btn-sm btn-outline-primary" onclick="refreshMessageStatus()">
+                        <i class="bi bi-arrow-clockwise"></i> 刷新
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- 状态统计卡片 -->
+                <div class="row g-2 mb-3">
+                    <!-- ... 状态统计卡片内容保持不变 ... -->
+                </div>
+
+                <!-- 消息处理列表 -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>客户端</th>
+                                <th>消息内容</th>
+                                <th>状态</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody id="messageProcessTable">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 分页控件 -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="text-muted">
+                        总共 <span id="totalRecords">0</span> 条记录
+                    </div>
+                    <nav aria-label="分页">
+                        <ul class="pagination pagination-sm mb-0" id="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 mb-3">
+        <div class="card">
+            <div class="card-header">客户端状态</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>客户端</th>
+                                <th>状态</th>
+                                <th>消息数</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientStatusTable">
+                            @foreach (var status in Model.ClientStatuses)
+                            {
+                                <tr>
+                                    <td class="text-truncate" style="max-width: 150px;">
+                                        @status.ClientEndpoint
+                                    </td>
+                                    <td>
+                                        <span class="badge status-badge @(status.IsConnected ? "bg-success" : "bg-danger")">
+                                            @(status.IsConnected ? "在线" : "离线")
+                                        </span>
+                                    </td>
+                                    <td>@status.MessageCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 消息历史记录 -->
+@* <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">消息历史记录</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>客户端</th>
+                                <th>消息内容</th>
+                                <th>时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messageTable">
+                            @foreach (var message in Model.Messages)
+                            {
+                                <tr>
+                                    <td class="text-truncate" style="max-width: 200px;">
+                                        @message.ClientEndpoint
+                                    </td>
+                                    <td class="text-truncate" style="max-width: 300px;">
+                                        @message.Message
+                                    </td>
+                                    <td>@message.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分页控件 -->
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="text-muted">
+                        共 <span id="totalMessages">@Model.TotalMessages</span> 条记录
+                    </div>
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0" id="pagination">
+                            @{
+                                var totalPages = (int)Math.Ceiling((double)Model.TotalMessages / Model.PageSize);
+                                for (int i = 1; i <= Math.Min(totalPages, 5); i++)
+                                {
+                                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                                        <a class="page-link" href="javascript:void(0)" onclick="loadPage(@i)">@i</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+@section Scripts {
+    @* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> *@
+    <script>
+        // 消息处理状态映射 - 移到最前面
+        const processStatusMap = {
+            0: { text: '待处理', class: 'bg-primary' },
+            1: { text: '处理中', class: 'bg-warning' },
+            2: { text: '已完成', class: 'bg-success' },
+            3: { text: '失败', class: 'bg-danger' }
+        };
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/tcpHub")
+            .withAutomaticReconnect()
+            .build();
+
+        // 删除 messageChart 相关代码，因为我们不再使用图表
+        // const ctx = document.getElementById('messageChart').getContext('2d');
+        // const messageChart = new Chart(ctx, {...});
+
+        function loadPage(page) {
+            const clientEndpoint = document.getElementById('clientFilter').value;
+            const pageSize = @Model.PageSize;
+
+            fetch(`/Message/GetMessages?page=${page}&pageSize=${pageSize}&clientEndpoint=${encodeURIComponent(clientEndpoint)}`)
+                .then(response => response.json())
+                .then(data => {
+                    debugger;
+                    updateMessageTable(data.data);
+                    updatePagination(data.currentPage, data.totalPages);
+                    document.getElementById('totalMessages').textContent = data.total;
+                });
+        }
+
+        // 更新消息表格函数
+        function updateMessageTable(messages) {
+            const tbody = document.getElementById('messageProcessTable');
+            if (!tbody) return; // 添加空值检查
+
+            tbody.innerHTML = '';
+            messages.forEach(msg => {
+                const row = tbody.insertRow();
+                const status = processStatusMap[msg.processStatus];
+                const time = new Date(msg.timestamp).toLocaleString('zh-CN');
+
+                row.innerHTML = `
+                            <td>${time}</td>
+                            <td>${msg.clientEndpoint}</td>
+                            <td class="text-truncate" style="max-width: 300px;">
+                                <span title="${msg.message}">${msg.message}</span>
+                            </td>
+                            <td>
+                                <span class="badge ${status.class}">${status.text}</span>
+                            </td>
+                            <td>
+                                ${msg.processStatus === 3 ?
+                        `<button class="btn btn-sm btn-outline-primary" onclick="retryProcess(${msg.id})">
+                                    重试
+                                </button>` : ''}
+                            </td>
+                        `;
+            });
+        }
+
+        // 更新状态计数
+        function updateStatusCounts(statistics) {
+            const elements = {
+                pendingCount: document.getElementById('pendingCount'),
+                processingCount: document.getElementById('processingCount'),
+                completedCount: document.getElementById('completedCount'),
+                failedCount: document.getElementById('failedCount')
+            };
+
+            // 添加空值检查
+            Object.entries(elements).forEach(([key, element]) => {
+                if (element && statistics[key] !== undefined) {
+                    element.textContent = statistics[key];
+                }
+            });
+        }
+
+        // 分页相关变量
+        let currentPage = 1;
+        let currentPageSize = 10;
+        let totalPages = 1;
+
+        // 刷新消息处理状态
+        function refreshMessageStatus(page = currentPage) {
+            currentPage = page;
+            const pageSize = document.getElementById('pageSizeSelect').value;
+
+            fetch(`/api/message/status?page=${page}&pageSize=${pageSize}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateStatusCounts(data.statistics);
+                    updateMessageTable(data.messages);
+                    updatePagination(data.pagination);
+                    document.getElementById('totalRecords').textContent = data.pagination.totalRecords;
+                })
+                .catch(error => console.error('刷新状态失败:', error));
+        }
+
+        // 更新分页控件
+        function updatePagination(pagination) {
+            const paginationElement = document.getElementById('pagination');
+            paginationElement.innerHTML = '';
+
+            currentPage = pagination.currentPage;
+            totalPages = pagination.totalPages;
+
+            // 计算要显示的页码范围
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+
+            // 调整起始页，确保始终显示5个页码（如果有足够的页数）
+            if (endPage - startPage < 4 && startPage > 1) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            // 首页
+            if (startPage > 1) {
+                addPageItem(paginationElement, 1, '首页');
+                if (startPage > 2) {
+                    addPageItem(paginationElement, null, '...');
+                }
+            }
+
+            // 页码
+            for (let i = startPage; i <= endPage; i++) {
+                addPageItem(paginationElement, i);
+            }
+
+            // 末页
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    addPageItem(paginationElement, null, '...');
+                }
+                addPageItem(paginationElement, totalPages, '末页');
+            }
+        }
+
+        // 添加分页项
+        function addPageItem(container, pageNumber, text) {
+            const li = document.createElement('li');
+            li.className = `page-item ${pageNumber === currentPage ? 'active' : ''}`;
+
+            if (pageNumber === null) {
+                // 省略号
+                li.className += ' disabled';
+                li.innerHTML = `<span class="page-link">${text}</span>`;
+            } else {
+                li.innerHTML = `
+                    <a class="page-link" href="javascript:void(0)"
+                       onclick="refreshMessageStatus(${pageNumber})">
+                        ${text || pageNumber}
+                    </a>`;
+            }
+
+            container.appendChild(li);
+        }
+
+        // 每页显示数量变更处理
+        document.getElementById('pageSizeSelect').addEventListener('change', function () {
+            currentPageSize = parseInt(this.value);
+            refreshMessageStatus(1); // 切换到第一页
+        });
+
+        // 重试处理失败的消息
+        function retryProcess(messageId) {
+            fetch(`/api/message/retry/${messageId}`, {
+                method: 'POST'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        refreshMessageStatus();
+                    } else {
+                        alert('重试失败：' + data.message);
+                    }
+                })
+                .catch(error => console.error('重试失败:', error));
+        }
+
+        // SignalR 客户端状态更新处理
+        connection.on("UpdateClientStatus", (statuses) => {
+            const statusTable = document.getElementById("clientStatusTable");
+            const clientFilter = document.getElementById("clientFilter");
+            if (!statusTable || !clientFilter) return; // 添加空值检查
+
+            const currentSelection = clientFilter.value;
+
+            statusTable.innerHTML = '';
+            statuses.forEach(status => {
+                const row = statusTable.insertRow();
+                row.innerHTML = `
+                            <td class="text-truncate" style="max-width: 150px;">${status.clientEndpoint}</td>
+                            <td><span class="badge status-badge ${status.isConnected ? 'bg-success' : 'bg-danger'}">
+                                ${status.isConnected ? '在线' : '离线'}</span></td>
+                            <td>${status.messageCount}</td>
+                        `;
+            });
+
+            // 更新客户端过滤器
+            clientFilter.innerHTML = '<option value="">所有客户端</option>';
+            statuses.forEach(status => {
+                const option = document.createElement("option");
+                option.value = status.clientEndpoint;
+                option.textContent = status.clientEndpoint;
+                if (status.clientEndpoint === currentSelection) {
+                    option.selected = true;
+                }
+                clientFilter.appendChild(option);
+            });
+        });
+
+        // SignalR 消息接收处理
+        connection.on("ReceiveMessage", (message) => {
+            refreshMessageStatus(); // 收到新消息时刷新状态
+        });
+
+        // 客户端过滤器变更处理
+        function filterByClient(clientEndpoint) {
+            window.location.href = `@Url.Action("Index")?clientEndpoint=${encodeURIComponent(clientEndpoint)}`;
+        }
+
+        // 获取服务器状态
+        function updateServerStatus() {
+            fetch('/api/TcpSetServer/status')
+                .then(response => response.json())
+                .then(data => {
+                    const toggle = document.getElementById('tcpServerToggle');
+                    const statusElement = document.getElementById('serverStatus');
+                    if (toggle && statusElement) {
+                        toggle.checked = data.enabled;
+                        statusElement.textContent = data.enabled ? '服务器已启用' : '服务器已禁用';
+                    }
+                })
+                .catch(error => console.error('获取服务器状态失败:', error));
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 绑定服务器开关事件
+            const serverToggle = document.getElementById('tcpServerToggle');
+            if (serverToggle) {
+                serverToggle.addEventListener('change', function () {
+                    const enabled = this.checked;
+                    fetch('/api/TcpSetServer/toggle', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(enabled)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                document.getElementById('serverStatus').textContent = data.message;
+                            } else {
+                                alert('操作失败：' + data.message);
+                                updateServerStatus();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('操作失败，请检查控制台获取详细信息');
+                            updateServerStatus();
+                        });
+                });
+            }
+
+            // 启动 SignalR 连接
+            connection.start()
+                .then(() => {
+                    console.log('SignalR 连接已建立');
+                    refreshMessageStatus(); // 初始加载
+                })
+                .catch(err => console.error('SignalR 连接失败:', err));
+
+            // 获取初始服务器状态
+            updateServerStatus();
+
+            // 设置默认每页显示数量
+            const pageSizeSelect = document.getElementById('pageSizeSelect');
+            if (pageSizeSelect) {
+                pageSizeSelect.value = currentPageSize.toString();
+            }
+
+            // 设置定期刷新
+            setInterval(refreshMessageStatus, 10000); // 每10秒刷新一次
+        });
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿@model ConnectionSettings
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Connection check</title>
+    <style>
+        .marginbottom{
+            margin-bottom: 1rem;
+        }
+    </style>
+  
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>IP端口设置</h3>
+        <form action="/Setting/SaveSettings">
+            <div class="form-group marginbottom">
+                <label for="IPAddress" class="marginbottom">IP地址</label>
+                <input type="text" class="form-control" id="IPAddress" name="IPAddress" value="@Model.IPAddress" required>
+            </div>
+            <div class="form-group marginbottom">
+                <label for="Port" class="marginbottom">端口</label>
+                <input type="number" class="form-control" id="Port" name="Port" value="@Model.Port" required>
+            </div>
+            <button type="submit" class="btn btn-primary">保存</button>
+        </form>
+    </div>
+</body>
+<script>
+
+        async function saveSettings(event) {
+            event.preventDefault(); // 防止默认表单提交
+            const form = event.target;
+            const formData = new FormData(form);
+            await axios.post(form.action, formData); // 提交表单数据
+        alert("save successfully");
+        }
+
+        document.querySelector('form').addEventListener('submit', saveSettings);
+
+
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "任务下发";
+    var locations = @Html.Raw(ViewBag.Locations);
+}
+
+<form id="taskForm" class="p-4">
+    <div class="form-group" style="margin-bottom: 4%;">
+        <label for="startLocation" class="form-label">起点:</label>
+        <div class="dropdown">
+            <input type="text" id="startLocation" class="form-control" placeholder="请输入满料笼库位" autocomplete="off" data-bs-toggle="dropdown" aria-expanded="false">
+            <ul class="dropdown-menu w-100" id="startLocationList" style="max-height: 200px; overflow-y: auto;">
+                <!-- 这里将会动态填充数据 -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="button" id="submitTaskBtn" class="btn btn-primary btn-lg w-100">任务下发</button>
+    </div>
+</form>
+
+<style>
+    /* 控制下拉菜单的最大高度，当选项较多时出现滚动条 */
+    .dropdown-menu {
+        max-height: 200px; /* 设置最大高度为200px */
+        overflow-y: auto; /* 超出高度时出现滚动条 */
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        // 将 ViewBag.Locations 转换为 JSON 对象
+        var locations = JSON.parse('@Html.Raw(ViewBag.Locations)');
+
+        // 初始化时填充下拉菜单
+        populateDropdown('#startLocationList', locations);
+
+        // 用户输入时，动态过滤下拉菜单项
+        $('#startLocation').on('input', function () {
+            var query = $(this).val().toLowerCase();
+            var filteredLocations = locations.filter(function (item) {
+                return item.text.toLowerCase().includes(query);
+            });
+            populateDropdown('#startLocationList', filteredLocations);
+        });
+
+        // 点击下拉菜单项时，将值填入输入框
+        $('#startLocationList').on('click', 'li', function () {
+            var selectedValue = $(this).text();
+            $('#startLocation').val(selectedValue);
+            $('#startLocationList').empty(); // 选择后清空下拉菜单
+        });
+
+        // 填充下拉菜单
+        function populateDropdown(dropdownId, data) {
+            $(dropdownId).empty(); // 清空之前的选项
+            data.forEach(function (item) {
+                $(dropdownId).append('<li><a class="dropdown-item" href="#">' + item.text + '</a></li>');
+            });
+        }
+    });
+
+    // 提交任务
+    $('#submitTaskBtn').click(function () {
+        var startLocation = $('#startLocation').val();
+
+        if (!startLocation) {
+            alert("请选择起点。");
+            return;
+        }
+
+        if (!confirm("确认下发任务吗？")) {
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("SubmitTask", "ManuallyTriggered")',
+            type: 'POST',
+            data: {
+                startLocationId: startLocation,
+            },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);
+                   
+                    
+                } else {
+                    alert(response.message);
+                    
+                }
+
+                location.reload();  // 刷新页面
+            },
+            error: function () {
+                alert("任务下发失败，请重试。");
+            }
+        });
+    });
+
+</script>
