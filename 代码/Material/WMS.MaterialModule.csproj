@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>WMS.MaterialModule</AssemblyName>
+    <RootNamespace>WMS.MaterialModule</RootNamespace>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Application\EventHandle\**" />
+    <EmbeddedResource Remove="Application\EventHandle\**" />
+    <None Remove="Application\EventHandle\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application\Dto\DeleteStorageAndChildrenInput.cs" />
+    <Compile Remove="Application\Dto\GetStorageInput.cs" />
+    <Compile Remove="Application\Dto\MoveStorageInput.cs" />
+    <Compile Remove="Application\Dto\StorageDto.cs" />
+    <Compile Remove="Application\Dto\UpdateStorageNodeNameInput.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Application\EventHandle\MaterialItemUpdatedEventHandle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Localization\*.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Domain\Localization\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Volo.Abp" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EventBus" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sorage\WMS.StorageModule.csproj" />
+    <ProjectReference Include="..\WMS.BarCodeModule\WMS.BarCodeModule.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain.Shared\Interface\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Storage.Permission.Group": "储位管理",
+    "Storage.Permission.Module": "储位管理",
+    "Storage.Permission.Management": "储位列表",
+    "WareHouse.Permission.Group": "库别管理",
+    "WareHouse.Permission.Module": "库别管理"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "culture": "en",
+  "texts": {
+    "LineCall.Permission.Group": "LineCallManagement",
+    "LineCall.Permission.Module": "LineCallManagement",
+    "LineCall.Permission.Input": "LineCallInput"
+
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "culture": "en",
+  "texts": {
+    "Storage.Permission.Group": "StorageManagement",
+    "Storage.Permission.Module": "StorageManagement",
+    "Storage.Permission.Management": "StorageList",
+    "WareHouse.Permission.Group": "WareHouseManagement",
+    "WareHouse.Permission.Module": "WareHouseManagement"
+  }
+}

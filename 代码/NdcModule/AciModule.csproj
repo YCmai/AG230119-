@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domain.Shared\Constant.cs" />
+    <Compile Remove="Domain\Worker\AciSendDepartureTaskWorker.cs" />
+    <Compile Remove="Domain\Worker\AciSendInboundTaskWorker.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Applicaion\NdcTaskAppService.cs~RF1d09d8b2.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Volo.Abp" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.BackgroundWorkers.Quartz" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EventBus" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sorage\WMS.StorageModule.csproj" />
+    <ProjectReference Include="..\TaskBase\TaskBaseModule.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SuperPort">
+      <HintPath>..\src\Dll\SuperPort.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

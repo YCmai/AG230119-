@@ -1,0 +1,8 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "LineCall.Permission.Group": "入库管理",
+    "LineCall.Permission.Module": "入库管理",
+    "LineCall.Permission.Input": "线边入库"
+  }
+}

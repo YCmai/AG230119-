@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>WMS.LineCallProcessTaskModule</AssemblyName>
+    <RootNamespace>WMS.LineCallProcessTaskModule</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application\Dto\DeleteStorageAndChildrenInput.cs" />
+    <Compile Remove="Application\Dto\GetStorageInput.cs" />
+    <Compile Remove="Application\Dto\LineCallInputTaskCreateInput.cs" />
+    <Compile Remove="Application\Dto\MaterialItemCreateInput.cs" />
+    <Compile Remove="Application\Dto\MoveStorageInput.cs" />
+    <Compile Remove="Application\Dto\StorageDto.cs" />
+    <Compile Remove="Application\Dto\UpdateStorageNodeNameInput.cs" />
+    <Compile Remove="Application\EventHandle\HBTaskChangingEventHandle.cs" />
+    <Compile Remove="Application\EventHandle\LoadRobortTaskStateChangingEventHandle.cs" />
+    <Compile Remove="Application\EventHandle\ProcessBasicTaskUpdatingHandling.cs" />
+    <Compile Remove="Application\LineCallInputProcessExcutor.cs" />
+    <Compile Remove="Application\LineCallPickProcessExcutor.cs" />
+    <Compile Remove="Domain.Shared\DBContextExtend.cs" />
+    <Compile Remove="Domain.Shared\PickDefaultCategory.cs" />
+    <Compile Remove="Domain\Entitys\MaterialItems.cs" />
+    <Compile Remove="Domain\Entitys\MaterialStatistics.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Volo.Abp" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.BackgroundWorkers.Quartz" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EventBus" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\EventHandle\" />
+    <Folder Include="Domain.Shared\" />
+    <Folder Include="Domain\Service\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HBTask\HBTaskModule.csproj" />
+    <ProjectReference Include="..\Sorage\WMS.StorageModule.csproj" />
+  </ItemGroup>
+
+</Project>

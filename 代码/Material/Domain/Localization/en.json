@@ -1,0 +1,15 @@
+{
+  "culture": "en",
+  "texts": {
+    "Material.Permission.Group": "MaterialGroup",
+    "Material.Permission.Module": "Materials",
+    "Material.Permission.Management": "MeterialManage",
+    "Material.Permission.AddStock": "AddStock",
+    "Material.Permission.ModifyUsableQuantity": "ModifyUsableQuantity",
+    "Material.Permission.ModifyRcord": "ModifyMaterialRecord",
+    "Material.Permission.Stock": "StockManagement",
+    "Material.Permission.Stock.Detail": "StockManagementDetail",
+    "Material.Permission.Stock.Output": "StockManagementOutputRecord",
+    "Material.Permission.Stock.Statis": "StockManagementStatis"
+  }
+}

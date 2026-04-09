@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0a32ea"],{"00a5":function(t,e,a){"use strict";a.r(e);var r=function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("a-result",{attrs:{status:"403",title:"403","sub-title":"Sorry, you are not authorized to access this page."},scopedSlots:t._u([{key:"extra",fn:function(){return[a("a-button",{attrs:{type:"primary"}},[t._v(" Back Home ")])]},proxy:!0}])})},n=[],s=a("2877"),u={},o=Object(s["a"])(u,r,n,!1,null,null,null);e["default"]=o.exports}}]);
+//# sourceMappingURL=chunk-2d0a32ea.4a581121.js.map

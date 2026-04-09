@@ -1,0 +1,7 @@
+{
+  "culture": "en",
+  "texts": {
+    "Barcode.Permission.Group": "BarcodeManagement",
+    "Barcode.Permission.Module": "BarcodeManagement"
+  }
+}

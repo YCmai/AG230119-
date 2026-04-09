@@ -1,0 +1,15 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Material.Permission.Group": "物料分组",
+    "Material.Permission.Module": "物料管理",
+    "Material.Permission.Management": "物料维护",
+    "Material.Permission.AddStock": "新增库存",
+    "Material.Permission.ModifyUsableQuantity": "修改可用数量",
+    "Material.Permission.ModifyRcord": "修改物料记录",
+    "Material.Permission.Stock": "库存管理",
+    "Material.Permission.Stock.Detail": "库存明细",
+    "Material.Permission.Stock.Output": "出库记录",
+    "Material.Permission.Stock.Statis": "库存统计"
+  }
+}

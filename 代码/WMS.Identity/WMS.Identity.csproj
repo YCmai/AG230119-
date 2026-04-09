@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Domain\Localization\en.json" />
+    <None Remove="Domain\Localization\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Localization\en.json" />
+    <EmbeddedResource Include="Domain\Localization\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Identity.Domain" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="5.2.2" />
+  </ItemGroup>
+
+</Project>

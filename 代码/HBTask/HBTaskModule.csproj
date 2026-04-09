@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>HBTaskModule</AssemblyName>
+    <RootNamespace>HBTaskModule</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application\Dto\DeleteStorageAndChildrenInput.cs" />
+    <Compile Remove="Application\Dto\GetStorageInput.cs" />
+    <Compile Remove="Application\Dto\MaterialItemCreateInput.cs" />
+    <Compile Remove="Application\Dto\MaterialItemDto.cs" />
+    <Compile Remove="Application\Dto\MoveStorageInput.cs" />
+    <Compile Remove="Application\Dto\StorageDto.cs" />
+    <Compile Remove="Application\Dto\UpdateStorageNodeNameInput.cs" />
+    <Compile Remove="Application\EventHandle\test1.cs" />
+    <Compile Remove="Application\PDSApplicationAutoMapperProfile.cs" />
+    <Compile Remove="Domain.Shared\DBContextExtend.cs" />
+    <Compile Remove="Domain.Shared\Eto\MaterialItemQuatityChangingEvent.cs" />
+    <Compile Remove="Domain.Shared\PickDefaultCategory.cs" />
+    <Compile Remove="Domain\Entitys\HBAgvTask_Deliver.cs" />
+    <Compile Remove="Domain\Entitys\MaterialItems.cs" />
+    <Compile Remove="Domain\Entitys\MaterialStatistics.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Volo.Abp" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.BackgroundWorkers.Quartz" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="5.2.2" />
+    <PackageReference Include="Volo.Abp.EventBus" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\Dto\" />
+    <Folder Include="Domain.Shared\Eto\" />
+    <Folder Include="Domain.Shared\Interface\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NdcModule\AciModule.csproj" />
+    <ProjectReference Include="..\Sorage\WMS.StorageModule.csproj" />
+    <ProjectReference Include="..\TaskBase\TaskBaseModule.csproj" />
+  </ItemGroup>
+
+</Project>
